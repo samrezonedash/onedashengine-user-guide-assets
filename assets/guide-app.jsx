@@ -477,7 +477,7 @@ function IndexView({ searchQ, setSearchQ, go }) {
     <div className="g-content g-index">
       <div className="g-index__eyebrow">OneDash · User Guide</div>
       <h1 className="g-index__title">Everything you need to run OneDash, in one place.</h1>
-      <p className="g-index__sub">Documentation for clinicians, admins, and pharmacy operators — covering rules, automations, care gaps, outcomes, and the Clair AI co-pilot.</p>
+      <p className="g-index__sub">Documentation for clinicians, admins, and pharmacy operators — covering rules, automations, care gaps, outcomes, and the AI MTMS.</p>
 
       <div className="g-index__search">
         <i className="fa-solid fa-magnifying-glass"></i>
