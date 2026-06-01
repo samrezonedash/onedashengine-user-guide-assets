@@ -243,7 +243,7 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "Mar 13, 2026",
+    updated: "June 1, 2026",
     sections: [
       {
         id: "latest",
