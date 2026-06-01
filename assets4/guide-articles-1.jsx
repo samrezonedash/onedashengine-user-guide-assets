@@ -250,7 +250,25 @@ window.GUIDE_ARTICLES_1 = [
         title: "Latest releases",
         body: (
           <>
-            <Release ver="2.4" date="March 13, 2026" defaultOpen>
+             <Release ver="1.2" date="June 1, 2026" defaultOpen>
+              <h4>New features</h4>
+              <ul>
+                <li><strong>Primary caseworker designation.</strong> Caseworkers can now be designated directly in the patient profile for clear ownership and accountability.</li>
+                <li><strong>Work queue auto-assignment.</strong> Users set as a patient's primary caseworker are now automatically assigned to the corresponding work queue items.</li>
+              </ul>
+              <h4>Enhancements</h4>
+              <ul>
+                <li>MTM guidelines refinements.</li>
+                <li>Updated user guide.</li>
+                <li>Spacing and UI fixes.</li>
+              </ul>
+              <h4>Bug fixes</h4>
+              <ul>
+                <li>Fixed provider notes spinning endlessly without loading.</li>
+                <li>Fixed quality outcome report downloads generating blank files.</li>
+              </ul>
+            </Release>
+            <Release ver="2.4" date="March 13, 2026">
               <h4>New features</h4>
               <ul>
                 <li><strong>Configurable communication schedules.</strong> Pick the exact days of the week your automated AI calls and texts go out. Messages triggered on an "off" day are queued and sent on the next approved day.</li>
