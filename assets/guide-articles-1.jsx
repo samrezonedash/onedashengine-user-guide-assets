@@ -243,7 +243,7 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "Jun 1, 2026",
+    updated: "Jun 8, 2026",
     sections: [
       {
         id: "latest",
@@ -267,7 +267,7 @@ window.GUIDE_ARTICLES_1 = [
                <li>Fixed floating "Assign to" box not appearing correctly when selecting the actions menu (⋮) in the work queue.</li>                                                                                                                 
               </ul>
             </Release>
-            <Release ver="1.2" date="June 1, 2026" defaultOpen>
+            <Release ver="1.2" date="June 1, 2026">
               <h4>New features</h4>
               <ul>
                 <li><strong>Primary caseworker designation.</strong> Caseworkers can now be designated directly in the patient profile for clear ownership and accountability.</li>
