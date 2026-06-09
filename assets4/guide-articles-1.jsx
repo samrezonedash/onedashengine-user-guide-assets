@@ -243,14 +243,31 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "June 1, 2026",
+    updated: "Jun 8, 2026",
     sections: [
       {
         id: "latest",
         title: "Latest releases",
         body: (
           <>
-             <Release ver="1.2" date="June 1, 2026" defaultOpen>
+             <Release ver="1.3" date="June 8, 2026" defaultOpen>
+              <h4>New features</h4>
+              <ul>
+                <li><strong>AI call team assignment.</strong> AI calls can now be assigned to a specific team, and any appointments scheduled by the call are automatically added to that team's calendar.</li>
+              </ul>
+              <h4>Enhancements</h4>
+              <ul>
+                <li>Scheduled calls page now filters by team.</li>
+                <li>SMS templates updated with improved language.</li>
+              </ul>
+              <h4>Bug fixes</h4>
+              <ul>
+                <li>Fixed inability to remove a reminder date from a care gap.</li>
+                <li>FFixed bulk operations ownership dropdown showing a different list of users than the filter owner dropdown.</li>
+               <li>Fixed floating "Assign to" box not appearing correctly when selecting the actions menu (⋮) in the work queue.</li>                                                                                                                 
+              </ul>
+            </Release>
+            <Release ver="1.2" date="June 1, 2026">
               <h4>New features</h4>
               <ul>
                 <li><strong>Primary caseworker designation.</strong> Caseworkers can now be designated directly in the patient profile for clear ownership and accountability.</li>
@@ -268,7 +285,7 @@ window.GUIDE_ARTICLES_1 = [
                 <li>Fixed quality outcome report downloads generating blank files.</li>
               </ul>
             </Release>
-            <Release ver="2.4" date="March 13, 2026">
+            <Release ver="0.9" date="March 13, 2026">
               <h4>New features</h4>
               <ul>
                 <li><strong>Configurable communication schedules.</strong> Pick the exact days of the week your automated AI calls and texts go out. Messages triggered on an "off" day are queued and sent on the next approved day.</li>
@@ -291,7 +308,7 @@ window.GUIDE_ARTICLES_1 = [
                 <li>Manually created gaps no longer auto-renamed to "manual" — retain their designated titles.</li>
               </ul>
             </Release>
-            <Release ver="2.3" date="January 29, 2026">
+            <Release ver="0.8" date="January 29, 2026">
               <h4>New features</h4>
               <ul>
                 <li><strong>4 new specialized fax templates</strong> for high-cost and non-formulary medication requests.</li>
@@ -304,7 +321,7 @@ window.GUIDE_ARTICLES_1 = [
                 <li>Two new comprehensive non-formulary / trade review reports.</li>
               </ul>
             </Release>
-            <Release ver="2.2" date="December 22, 2025">
+            <Release ver="0.7" date="December 22, 2025">
               <h4>New features</h4>
               <ul>
                 <li>Simplified Work Queue in the Care Gaps page.</li>
@@ -320,7 +337,7 @@ window.GUIDE_ARTICLES_1 = [
                 <li>New dashboard widget: failed communications.</li>
               </ul>
             </Release>
-            <Release ver="2.1.0" date="October 9, 2025">
+            <Release ver="0.6" date="October 9, 2025">
               <h4>New features</h4>
               <ul>
                 <li>Pharmacy faxing available — separate templates for refill requests directly to pharmacies.</li>
@@ -333,14 +350,14 @@ window.GUIDE_ARTICLES_1 = [
                 <li>Care Gap statistics download restored (10K-line cap).</li>
               </ul>
             </Release>
-            <Release ver="2.0.0" date="August 22, 2025">
+            <Release ver="0.5" date="August 22, 2025">
               <h4>New features</h4>
               <ul>
                 <li>Automation details overlay — see every patient in an automation, which step they're on, and whether their gap closed.</li>
                 <li>Care gap action history overlay — view past and future scheduled actions; manual edits supported.</li>
               </ul>
             </Release>
-            <Release ver="1.12.0" date="March 13, 2025">
+            <Release ver="0.4" date="March 13, 2025">
               <h4>New features</h4>
               <ul>
                 <li><strong>OneDash Dark Mode</strong> — toggle in the upper right.</li>
@@ -352,7 +369,7 @@ window.GUIDE_ARTICLES_1 = [
                 <li>Pages are responsive down to 768×881 for tablet use.</li>
               </ul>
             </Release>
-            <Release ver="1.10.0" date="December 17, 2024">
+            <Release ver="0.3" date="December 17, 2024">
               <h4>New features</h4>
               <ul>
                 <li><strong>Automate</strong> section in the left nav: build workflows (repeating action on a cadence) and funnels (stepped escalation).</li>
@@ -366,7 +383,7 @@ window.GUIDE_ARTICLES_1 = [
                 <li>Reports reorganized into three categories including custom-input reports.</li>
               </ul>
             </Release>
-            <Release ver="1.9.0" date="November 7, 2024">
+            <Release ver="0.2" date="November 7, 2024">
               <h4>New features</h4>
               <ul>
                 <li>Release update banner shown on login.</li>
