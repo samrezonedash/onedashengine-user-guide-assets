@@ -250,7 +250,18 @@ window.GUIDE_ARTICLES_1 = [
         title: "Latest releases",
         body: (
           <>
-             <Release ver="1.3" date="June 8, 2026" defaultOpen>
+             <Release ver="1.4" date="June 15, 2026" defaultOpen>
+              <h4>New features</h4>
+              <ul>
+                <li><strong>Mail Action Type.</strong> Mail is now available as a manual action type and can be saved directly from the care gap modal.</li>
+              </ul>
+              <h4>Enhancements</h4>
+              <ul>
+                <li>Automation page now displays a loading indicator while content is loading.</li>
+                <li>Additional patient address input now includes format guidance and validates that the entry contains the required structure before saving.</li>
+              </ul>
+            </Release>
+             <Release ver="1.3" date="June 8, 2026">
               <h4>New features</h4>
               <ul>
                 <li><strong>AI call team assignment.</strong> AI calls can now be assigned to a specific team, and any appointments scheduled by the call are automatically added to that team's calendar.</li>
