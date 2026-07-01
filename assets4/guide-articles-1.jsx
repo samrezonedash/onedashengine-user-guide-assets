@@ -250,7 +250,22 @@ window.GUIDE_ARTICLES_1 = [
         title: "Latest releases",
         body: (
           <>
-             <Release ver="1.4" date="June 15, 2026" defaultOpen>
+         <Release ver="1.5" date="July 1, 2026" defaultOpen>
+         <h4>New features</h4>
+         <ul>
+         <li><strong>Outreach & work status tracking.</strong> Users can now track where a patient is in the outreach journey — including which outreaches have been attempted — as well as their current work status, such as pending a claim or pending an appointment.</li>
+         </ul>
+        <h4>Enhancements</h4>
+        <ul>
+       <li>Clair Copilot has been renamed to Dash AI.</li>
+       <li>Medical claims table in the patient profile now displays the full ICD description.</li>
+        </ul>
+        <h4>Bug fixes</h4>
+        <ul>
+          <li>Fixed Quality Outcomes table filters not applying correctly.</li>
+           </ul>
+            </Release>
+             <Release ver="1.4" date="June 15, 2026" >
               <h4>New features</h4>
               <ul>
                 <li><strong>Mail Action Type.</strong> Mail is now available as a manual action type and can be saved directly from the care gap modal.</li>
