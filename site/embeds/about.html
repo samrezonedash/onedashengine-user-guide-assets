@@ -1,0 +1,277 @@
+<!--
+  =====================================================================
+  OneDash Marketing Site — Webflow Embed  (about)
+  =====================================================================
+  WHAT: Paste this entire block into ONE Webflow "Embed" element on the
+        about page (a blank page works best).
+  PREREQUISITE: Host webflow-deploy/assets/ on a public URL and set
+        OD_ASSET_BASE below (trailing slash REQUIRED). See README.md.
+  =====================================================================
+-->
+<script>
+  // Replace with where you host the /assets folder (trailing slash required).
+  window.OD_ASSET_BASE = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@main/site/assets/";
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<script>
+  document.write('<link rel="stylesheet" href="' + window.OD_ASSET_BASE + 'marketing.css">');
+</script>
+
+<div class="od-embed">
+<!-- ────────── ORIGIN / HERO ────────── -->
+  <header class="hero" id="top">
+    <nav class="nav">
+      <div class="container nav__row">
+        <a class="nav__logo" href="/prelive-home" aria-label="OneDash home">
+          <img data-od="logo-light.png" alt="OneDash" style="height:100%;width:auto;" />
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="/prelive-home">Home</a></li>
+          <li><a href="/prelive-home#personas">Who it's for</a></li>
+          <li><a href="/prelive-results">Results</a></li>
+          <li><a href="/prelive-about" aria-current="page">About Us</a></li>
+          <li><a href="/prelive-resources">Resources</a></li>
+        </ul>
+        <a class="nav__cta" href="/prelive-home#contact">
+          <span>Book a demo</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container about-hero">
+      <div class="about-hero__grid">
+        <div class="about-hero__eyebrow">About OneDash</div>
+        <h1 class="about-hero__title">Built at the pharmacy counter. <em>Scaled for the health plan.</em></h1>
+        <p class="about-hero__story">OneDash started with a narrow problem: the friction buried in everyday retail pharmacy processes. We built software to break those barriers down — and almost immediately saw that <span class="story-em">the same engine could do far more</span> than we'd set out to solve. The plans sitting above those pharmacies were wrestling with the same problems at a much larger scale, and no one was giving them a way to see and act on it in real time.</p>
+        <p class="about-hero__story about-hero__story--second">Over the past three years, that realization has grown into a clear vision: a single dashboard that doesn't just show health plans where their gaps are, but <span class="story-em">closes them while they still count</span>. Built on daily data and automated action, OneDash takes on the work plans have always thrown people at — quality gaps, spend gaps, the workflows that quietly eat a team's year — so <span class="story-em">results stop depending on how many hands a plan can put on the problem</span>. That's the dashboard we're building:</p>
+        <p class="about-hero__close">one place where health plans get more done, with less scramble, and more certainty about what it's worth.</p>
+        <a class="about-hero__linkedin" href="https://www.linkedin.com/company/onedash" target="_blank" rel="noopener">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+          <span>Follow us on LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ────────── LEADERSHIP ────────── -->
+  <section class="people" id="leadership">
+    <div class="container">
+      <div class="people__head">
+        <div class="people__eyebrow">Our Team</div>
+        <h2>The team turning managed-care workflows into software.</h2>
+        <p>Clinical, product, and engineering leaders who've lived the problems OneDash solves. Hover any card to see how they move the platform forward.</p>
+      </div>
+
+      <div class="people__rowlabel">Leadership</div>
+      <div class="people__grid people__grid--two">
+        <article class="person" tabindex="0" data-person="l1">
+          <div class="person__hint"><i class="fa-solid fa-arrow-up"></i></div>
+          <div class="person__photo">
+            <img class="person__img" data-od="team/miranda-law.png" alt="Miranda Law" />
+            <div class="person__reveal">
+              <span class="person__reveal-title" data-field="title">VP of Clinical Operations</span>
+              <p class="person__reveal-name" data-field="name">Miranda Law</p>
+              <p class="person__reveal-desc">Leads OneDash's clinical strategy, ensuring the platform reflects real-world managed-care and pharmacy workflows.</p>
+            </div>
+          </div>
+          <div class="person__body">
+            <h3 class="person__name" data-field="name">Miranda Law</h3>
+            <p class="person__title" data-field="title">VP of Clinical Operations</p>
+          </div>
+        </article>
+
+        <article class="person" tabindex="0" data-person="l2">
+          <div class="person__hint"><i class="fa-solid fa-arrow-up"></i></div>
+          <div class="person__photo">
+            <img class="person__img" data-od="team/sam-reznikoff.png" alt="Samuel Reznikoff" />
+            <div class="person__reveal">
+              <span class="person__reveal-title" data-field="title">Director of Product</span>
+              <p class="person__reveal-name" data-field="name">Samuel Reznikoff</p>
+              <p class="person__reveal-desc">Owns the product vision and roadmap, translating health plan needs into platform capabilities.</p>
+            </div>
+          </div>
+          <div class="person__body">
+            <h3 class="person__name" data-field="name">Samuel Reznikoff</h3>
+            <p class="person__title" data-field="title">Director of Product</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="people__rowlabel">Engineering</div>
+      <div class="people__grid people__grid--three">
+        <article class="person" tabindex="0" data-person="l3">
+          <div class="person__hint"><i class="fa-solid fa-arrow-up"></i></div>
+          <div class="person__photo">
+            <img class="person__img" data-od="team/reginald-scerbo.png" alt="Reginald Scerbo" />
+            <div class="person__reveal">
+              <span class="person__reveal-title" data-field="title">Senior Software Engineer</span>
+              <p class="person__reveal-name" data-field="name">Reginald Scerbo</p>
+              <p class="person__reveal-desc">Builds and scales the core platform that powers OneDash's real-time workflows.</p>
+            </div>
+          </div>
+          <div class="person__body">
+            <h3 class="person__name" data-field="name">Reginald Scerbo</h3>
+            <p class="person__title" data-field="title">Senior Software Engineer</p>
+          </div>
+        </article>
+
+        <article class="person" tabindex="0" data-person="l4">
+          <div class="person__hint"><i class="fa-solid fa-arrow-up"></i></div>
+          <div class="person__photo">
+            <img class="person__img" data-od="team/jeffrey-tagle.png" alt="Jeffrey Tagle" />
+            <div class="person__reveal">
+              <span class="person__reveal-title" data-field="title">Senior Data Engineer</span>
+              <p class="person__reveal-name" data-field="name">Jeffrey Tagle</p>
+              <p class="person__reveal-desc">Architects the daily data pipelines and infrastructure behind OneDash's real-time insights.</p>
+            </div>
+          </div>
+          <div class="person__body">
+            <h3 class="person__name" data-field="name">Jeffrey Tagle</h3>
+            <p class="person__title" data-field="title">Senior Data Engineer</p>
+          </div>
+        </article>
+
+        <article class="person" tabindex="0" data-person="l5">
+          <div class="person__hint"><i class="fa-solid fa-arrow-up"></i></div>
+          <div class="person__photo">
+            <img class="person__img" data-od="team/sarah-nowalk.png" alt="Sarah Nowalk" />
+            <div class="person__reveal">
+              <span class="person__reveal-title" data-field="title">Full Stack Engineer</span>
+              <p class="person__reveal-name" data-field="name">Sarah Nowalk</p>
+              <p class="person__reveal-desc">Builds across the OneDash stack, turning platform requirements into the features health plans use every day.</p>
+            </div>
+          </div>
+          <div class="person__body">
+            <h3 class="person__name" data-field="name">Sarah Nowalk</h3>
+            <p class="person__title" data-field="title">Full Stack Engineer</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── BOARD ────────── -->
+  <section class="people people--board" id="board">
+    <div class="container">
+      <div class="people__head">
+        <div class="people__eyebrow">OneDash Board Members</div>
+        <h2>The advisors steering the vision.</h2>
+        <p>Operators and investors who help OneDash stay accountable to the health plans it serves. Hover any card to see their focus.</p>
+      </div>
+
+      <div class="people__grid people__grid--three">
+        <article class="person" tabindex="0" data-person="b1">
+          <div class="person__hint"><i class="fa-solid fa-arrow-up"></i></div>
+          <div class="person__photo">
+            <img class="person__img" data-od="team/areo-nazari.png" alt="Areo Nazari" />
+            <div class="person__reveal">
+              <span class="person__reveal-title" data-field="title">Board Member · Title Placeholder</span>
+              <p class="person__reveal-name" data-field="name">Areo Nazari</p>
+              <p class="person__reveal-desc">Placeholder blurb describing this board member's background and the perspective they bring to OneDash.</p>
+            </div>
+          </div>
+          <div class="person__body">
+            <h3 class="person__name" data-field="name">Areo Nazari</h3>
+            <p class="person__title" data-field="title">Board Member · Title Placeholder</p>
+          </div>
+        </article>
+
+        <article class="person" tabindex="0" data-person="b2">
+          <div class="person__hint"><i class="fa-solid fa-arrow-up"></i></div>
+          <div class="person__photo">
+            <img class="person__img" data-od="team/nima-negahban.png" alt="Nima Negahban" />
+            <div class="person__reveal">
+              <span class="person__reveal-title" data-field="title">Board Member · Title Placeholder</span>
+              <p class="person__reveal-name" data-field="name">Nima Negahban</p>
+              <p class="person__reveal-desc">Placeholder blurb describing this board member's background and the perspective they bring to OneDash.</p>
+            </div>
+          </div>
+          <div class="person__body">
+            <h3 class="person__name" data-field="name">Nima Negahban</h3>
+            <p class="person__title" data-field="title">Board Member · Title Placeholder</p>
+          </div>
+        </article>
+
+        <article class="person" tabindex="0" data-person="b3">
+          <div class="person__hint"><i class="fa-solid fa-arrow-up"></i></div>
+          <div class="person__photo">
+            <img class="person__img" data-od="team/mathew-hawkins.png" alt="Mathew Hawkins" />
+            <div class="person__reveal">
+              <span class="person__reveal-title" data-field="title">Board Member · Title Placeholder</span>
+              <p class="person__reveal-name" data-field="name">Mathew Hawkins</p>
+              <p class="person__reveal-desc">Placeholder blurb describing this board member's background and the perspective they bring to OneDash.</p>
+            </div>
+          </div>
+          <div class="person__body">
+            <h3 class="person__name" data-field="name">Mathew Hawkins</h3>
+            <p class="person__title" data-field="title">Board Member · Title Placeholder</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── CTA ────────── -->
+  <section class="cta" id="contact">
+    <div class="container cta__grid">
+      <h2 class="cta__title">Want to see what OneDash can do for <em>your plan?</em></h2>
+      <div class="cta__row">
+        <a class="btn btn--primary" href="mailto:hello@onedashengine.com">
+          <span>Book a demo</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a class="btn btn--ghost-light" href="/prelive-results">
+          <span>See the ROI</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── FOOTER ────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="nav__logo" style="color:#fff;">
+            <img data-od="logo-light.png" alt="OneDash" style="height:32px;width:auto;" />
+          </div>
+          <p>The clinical-operations platform for health plans. Identify the gaps that matter, act with the right level of automation, and measure outcomes that move the medical-loss ratio.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <ul role="list">
+            <li><a href="/prelive-home">Home</a></li>
+            <li><a href="/prelive-about">About Us</a></li>
+            <li><a href="/prelive-resources">Resources</a></li>
+            <li><a href="/prelive-results">Results &amp; ROI</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Talk to us</h4>
+          <ul role="list">
+            <li><a href="/prelive-home#contact">Book a demo</a></li>
+            <li><a href="mailto:hello@onedashengine.com">hello@onedashengine.com</a></li>
+            <li><a href="https://www.linkedin.com/company/onedash" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div>© 2026 OneDash. All rights reserved.</div>
+        <div>Built for health plans · Quality · Cost of Care · Care Management · Pharmacy</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ────────── TWEAKS ────────── -->
+</div>
+
+<script>
+  (function () {
+    var base = window.OD_ASSET_BASE;
+    document.querySelectorAll('.od-embed [data-od]').forEach(function (el) { el.src = base + el.getAttribute('data-od'); });
+    document.querySelectorAll('.od-embed [data-od-href]').forEach(function (el) { el.href = base + el.getAttribute('data-od-href'); });
+    
+  })();
+</script>

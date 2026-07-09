@@ -1,0 +1,548 @@
+<!--
+  =====================================================================
+  OneDash Marketing Site — Webflow Embed  (results)
+  =====================================================================
+  WHAT: Paste this entire block into ONE Webflow "Embed" element on the
+        results page (a blank page works best).
+  PREREQUISITE: Host webflow-deploy/assets/ on a public URL and set
+        OD_ASSET_BASE below (trailing slash REQUIRED). See README.md.
+  =====================================================================
+-->
+<script>
+  // Replace with where you host the /assets folder (trailing slash required).
+  window.OD_ASSET_BASE = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@main/site/assets/";
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<script>
+  document.write('<link rel="stylesheet" href="' + window.OD_ASSET_BASE + 'marketing.css">');
+</script>
+
+<div class="od-embed">
+<!-- ────────── HERO ────────── -->
+  <header class="hero results-hero" id="top">
+    <nav class="nav">
+      <div class="container nav__row">
+        <a class="nav__logo" href="/prelive-home" aria-label="OneDash home">
+          <img data-od="logo-light.png" alt="OneDash" style="height:100%;width:auto;" />
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="/prelive-home">Home</a></li>
+          <li><a href="/prelive-results" aria-current="page">Results</a></li>
+          <li><a href="/prelive-home#platform">Platform</a></li>
+          <li><a href="/user-guide">User Guide</a></li>
+          <li><a href="#cta">Contact</a></li>
+        </ul>
+        <a class="nav__cta" href="#cta">
+          <span>Book a demo</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </nav>
+
+    <div class="container results-hero__row">
+      <div class="hero__lede">
+        <div class="hero__eyebrow eyebrow">2025–2026 Impact Analysis</div>
+        <h1 class="results-hero__title">The platform behind a <em style="font-style:normal;color:var(--od-sky-500);">3× ROI in 2025</em> — projected to 6× in 2026.</h1>
+      </div>
+
+      <div class="results-hero__meta">
+        <div class="results-hero__meta__row">
+          <div>Active lives · 2025</div>
+          <div><strong>138,706</strong></div>
+        </div>
+        <div class="results-hero__meta__row">
+          <div>Active lives · 2026</div>
+          <div><strong>163,028</strong></div>
+        </div>
+        <div class="results-hero__meta__row">
+          <div>Total addressable</div>
+          <div><strong>3,300,000</strong></div>
+        </div>
+        <div class="results-hero__meta__row">
+          <div>Total savings · 2026</div>
+          <div><strong>$4.41M</strong></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ────────── EXECUTIVE IMPACT SUMMARY ────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Executive Impact Summary</div>
+        <h2>ROI doubles in 2026 to 6×.</h2>
+        <p>Active lives grow 18% year-over-year, and total savings grow 2.6× — driven by deeper platform usage and the new Cost of Care campaigns going live in Q1. Higher usage of OneDash → higher ROI.</p>
+      </div>
+
+      <div class="roi-compare">
+        <div class="roi-compare__col">
+          <div class="roi-compare__head">
+            <div class="yr">2025 · Actual</div>
+            <div class="tag">Realized</div>
+          </div>
+          <div class="roi-compare__multiple">3<span class="x">× ROI</span></div>
+          <p class="roi-compare__caption">Full-year results with the Quality Pharmacy and Quality Medicaid production lines live across Medicare and Medicaid populations.</p>
+          <div class="roi-compare__rows">
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Active lives</div>
+              <div class="outcome-card__row__value">138,706</div>
+            </div>
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Platform cost</div>
+              <div class="outcome-card__row__value">$559K</div>
+            </div>
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Total savings</div>
+              <div class="outcome-card__row__value">$1.67M</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roi-compare__col roi-compare__col--proj">
+          <div class="roi-compare__head">
+            <div class="yr">2026 · Projected</div>
+            <div class="tag">First 4 months actuals</div>
+          </div>
+          <div class="roi-compare__multiple">6<span class="x">× ROI</span></div>
+          <p class="roi-compare__caption">Annualized from January–April 2026 actuals, with Cost of Care campaigns producing from day one and Medicare population doubled.</p>
+          <div class="roi-compare__rows">
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Active lives</div>
+              <div class="outcome-card__row__value">163,028</div>
+            </div>
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Platform cost</div>
+              <div class="outcome-card__row__value">$732K</div>
+            </div>
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Total savings</div>
+              <div class="outcome-card__row__value">$4.41M</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="footnote">Total savings exclude HEDIS quality improvements (below). 2026 figures projected from Jan–Apr 2026 actuals.</p>
+    </div>
+  </section>
+
+  <!-- ────────── PRODUCTION LINES ────────── -->
+  <section class="section section--page">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Active Initiatives</div>
+        <h2>Four production lines, one platform.</h2>
+        <p>Each department configures OneDash to its own workflow — fully automated for high-volume gap closure, hybrid where clinical judgment is needed.</p>
+      </div>
+
+      <div class="iam" style="grid-template-columns: 1fr 1fr;">
+        <article class="iam__card">
+          <div class="iam__verb">01 · QUALITY PHARMACY · MEDICARE</div>
+          <h3 class="iam__title">Pharmacy STARS metrics</h3>
+          <p class="iam__body"><strong>Campaigns ·</strong> PDC adherence, SUPD/SPC, COB, Poly-ACH.<br/><strong>Workflow ·</strong> Hybrid.</p>
+        </article>
+        <article class="iam__card">
+          <div class="iam__verb">02 · QUALITY · MEDICAID</div>
+          <h3 class="iam__title">HEDIS gap closure</h3>
+          <p class="iam__body"><strong>Campaigns ·</strong> SPC, SPD, BPD, CBP.<br/><strong>Workflow ·</strong> SPC / SPD user-worked, BPD / CBP automated.</p>
+        </article>
+        <article class="iam__card">
+          <div class="iam__verb">03 · PHARMACY COST OF CARE · MEDICARE</div>
+          <h3 class="iam__title">Spend reduction &amp; therapy gaps</h3>
+          <p class="iam__body"><strong>Campaigns ·</strong> Non-formulary / high cost, HF/Asthma/COPD adherence, AI MTM (planned).<br/><strong>Workflow ·</strong> Fully automated.</p>
+        </article>
+        <article class="iam__card">
+          <div class="iam__verb">04 · PHARMACY · MEDICAID</div>
+          <h3 class="iam__title">PCE, UOP &amp; DUR initiatives</h3>
+          <p class="iam__body"><strong>Campaigns ·</strong> HEDIS PCE, UOP + select DUR.<br/><strong>Workflow ·</strong> User-worked.</p>
+        </article>
+      </div>
+      <p class="footnote">Pharmacy Medicaid ROI not yet evaluated due to limited sample size and exploratory campaign scope.</p>
+    </div>
+  </section>
+
+  <!-- ────────── CLINICAL OUTCOMES (deeper) ────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Quality Pharmacy · Medicare · Clinical Outcomes</div>
+        <h2>3,462 adherence wins on diabetes, RAS &amp; statins.</h2>
+        <p>PDC adherence is the dominant driver of Medicare Stars and downstream medical spend. OneDash held members above the 80 threshold and pulled lapsed members back. Based on full-year 2025 effort.</p>
+      </div>
+
+      <div class="outcome-grid">
+        <div class="outcome-card">
+          <div class="outcome-card__hero">
+            <div class="outcome-card__hero-label">DM / RAS / Statin Adherence</div>
+            <div class="outcome-card__hero-value">3,462</div>
+            <div class="outcome-card__hero-sub">Members held or returned to ≥80 PDC.</div>
+          </div>
+          <div class="outcome-card__rows">
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Stayed above 80 PDC</div>
+              <div class="outcome-card__row__value">2,186</div>
+            </div>
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Flipped above 80 PDC</div>
+              <div class="outcome-card__row__value">496</div>
+            </div>
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Improved, still below 80</div>
+              <div class="outcome-card__row__value">127</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="outcome-card">
+          <div class="outcome-card__hero">
+            <div class="outcome-card__hero-label">SUPD / SPC Statin Initiation</div>
+            <div class="outcome-card__hero-value">653</div>
+            <div class="outcome-card__hero-sub">Statins successfully initiated — directly improving Stars performance and projected medical cost avoidance for cardiovascular cohorts.</div>
+          </div>
+          <div class="outcome-card__rows">
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">COB · non-compliance prevented</div>
+              <div class="outcome-card__row__value">118<small>/ 227 · 52%</small></div>
+            </div>
+            <div class="outcome-card__row">
+              <div class="outcome-card__row__label">Poly-ACH · non-compliance prevented</div>
+              <div class="outcome-card__row__value">197<small>/ 259 · 76%</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── ATTRIBUTED COST AVOIDANCE ────────── -->
+  <section class="section section--page">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Performance to Value · 2025</div>
+        <h2>$1.56M in attributed cost avoidance.</h2>
+        <p>Published literature ties improved PDC adherence directly to lower medical spend. Stars adherence wins translate into hard dollars at the medical-loss-ratio line.</p>
+      </div>
+
+      <div class="attribution">
+        <div class="attribution__head">
+          <h3>Breakdown by adherence band</h3>
+          <div class="total">$1,557,262</div>
+        </div>
+        <div class="attribution__row">
+          <div class="attribution__row__name">Stayed above 80 PDC</div>
+          <div class="attribution__row__bar"><div class="attribution__row__bar__fill" style="width: 78%;"></div></div>
+          <div class="attribution__row__val">$983,050</div>
+        </div>
+        <div class="attribution__row">
+          <div class="attribution__row__name">Flipped above 80 PDC</div>
+          <div class="attribution__row__bar"><div class="attribution__row__bar__fill" style="width: 19%;"></div></div>
+          <div class="attribution__row__val">$230,750</div>
+        </div>
+        <div class="attribution__row">
+          <div class="attribution__row__name">Stayed below 80 but improved</div>
+          <div class="attribution__row__bar"><div class="attribution__row__bar__fill" style="width: 2%;"></div></div>
+          <div class="attribution__row__val">$16,962</div>
+        </div>
+        <div class="attribution__row attribution__row--subtotal">
+          <div class="attribution__row__name">PDC subtotal</div>
+          <div class="attribution__row__bar"><div class="attribution__row__bar__fill" style="width: 99%;"></div></div>
+          <div class="attribution__row__val">$1,230,762</div>
+        </div>
+        <div class="attribution__row">
+          <div class="attribution__row__name">SUPD statin initiation</div>
+          <div class="attribution__row__bar"><div class="attribution__row__bar__fill" style="width: 26%; background: var(--od-sky-500);"></div></div>
+          <div class="attribution__row__val">$326,500</div>
+        </div>
+      </div>
+      <p class="footnote">Projected medical cost avoidance from 2025 effort. Executive summary multiplies by 2× for 2026 due to Medicare population doubling.</p>
+    </div>
+  </section>
+
+  <!-- ────────── HEDIS ────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Quality · Medicaid · HEDIS</div>
+        <h2>HEDIS lifts on every measure we worked.</h2>
+        <p>Year-over-year improvement across all three production HEDIS measures, on top of 6,994 successful gap closures from 7,929 raised. Not yet monetized in ROI projections — HEDIS gains translate to plan-level revenue uplift but are excluded from the 6× number.</p>
+      </div>
+
+      <div class="hedis-grid">
+        <article class="hedis-card">
+          <div class="hedis-card__code">SPD</div>
+          <h3 class="hedis-card__name">Statin Use in Persons with Diabetes</h3>
+          <div class="hedis-card__lift"><span class="arr">↑</span>5.6<span class="pct">%</span></div>
+          <div class="hedis-card__caption">Year-over-year increase</div>
+          <div class="hedis-card__stats">
+            <div>
+              <div class="hedis-card__stat__num">3,945</div>
+              <div class="hedis-card__stat__label">Successful</div>
+            </div>
+            <div>
+              <div class="hedis-card__stat__num">4,474</div>
+              <div class="hedis-card__stat__label">Raised</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hedis-card">
+          <div class="hedis-card__code">SPC</div>
+          <h3 class="hedis-card__name">Statin Therapy for Cardiovascular Disease</h3>
+          <div class="hedis-card__lift"><span class="arr">↑</span>2.5<span class="pct">%</span></div>
+          <div class="hedis-card__caption">Year-over-year increase</div>
+          <div class="hedis-card__stats">
+            <div>
+              <div class="hedis-card__stat__num">1,429</div>
+              <div class="hedis-card__stat__label">Successful</div>
+            </div>
+            <div>
+              <div class="hedis-card__stat__num">1,611</div>
+              <div class="hedis-card__stat__label">Raised</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hedis-card">
+          <div class="hedis-card__code">AMR</div>
+          <h3 class="hedis-card__name">Asthma Medication Ratio</h3>
+          <div class="hedis-card__lift"><span class="arr">↑</span>7.1<span class="pct">%</span></div>
+          <div class="hedis-card__caption">Year-over-year increase</div>
+          <div class="hedis-card__stats">
+            <div>
+              <div class="hedis-card__stat__num">1,620</div>
+              <div class="hedis-card__stat__label">Successful</div>
+            </div>
+            <div>
+              <div class="hedis-card__stat__num">1,844</div>
+              <div class="hedis-card__stat__label">Raised</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── COST OF CARE CAMPAIGNS ────────── -->
+  <section class="section section--page">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Pharmacy Cost of Care · New for 2026</div>
+        <h2>$249,805 saved in four months — and just getting started.</h2>
+        <p>Four campaigns: two live in January, two added April 1. Every gap is closed by automated workflows inside OneDash. Annualized at 3×, Cost of Care contributes $750K to 2026.</p>
+      </div>
+
+      <div class="campaigns">
+        <article class="campaign">
+          <div class="campaign__top">
+            <h3 class="campaign__name">Medication Access</h3>
+            <span class="campaign__live">Live · 1/20</span>
+          </div>
+          <p class="campaign__body">417 non-formulary gaps successfully closed. Estimated avoidable medical spend prevented: <strong>$92,500</strong>.</p>
+          <div class="campaign__progress">
+            <span>Closure progress</span>
+            <strong>21% successful</strong>
+          </div>
+          <div class="campaign__bar"><div class="campaign__bar__fill" style="width: 21%;"></div></div>
+        </article>
+
+        <article class="campaign">
+          <div class="campaign__top">
+            <h3 class="campaign__name">Rx Spend Reduction</h3>
+            <span class="campaign__live">Live · 1/20</span>
+          </div>
+          <p class="campaign__body">136 high-cost medication gaps closed. Total savings from prescription spend reduction: <strong>$139,255</strong>. Not adjusted for rebates.</p>
+          <div class="campaign__progress">
+            <span>Closure progress</span>
+            <strong>15% successful</strong>
+          </div>
+          <div class="campaign__bar"><div class="campaign__bar__fill" style="width: 15%;"></div></div>
+        </article>
+
+        <article class="campaign">
+          <div class="campaign__top">
+            <h3 class="campaign__name">Gaps in Therapy</h3>
+            <span class="campaign__live">Live · 4/1</span>
+          </div>
+          <p class="campaign__body">33 HF / COPD / Asthma missing-medication gaps closed. Avoidable medical spend prevented: <strong>$18,050</strong>.</p>
+          <div class="campaign__progress">
+            <span>30 days live</span>
+            <strong>3% successful</strong>
+          </div>
+          <div class="campaign__bar"><div class="campaign__bar__fill" style="width: 3%;"></div></div>
+        </article>
+
+        <article class="campaign">
+          <div class="campaign__top">
+            <h3 class="campaign__name">Adherence</h3>
+            <span class="campaign__live">Live · 4/1</span>
+          </div>
+          <p class="campaign__body">138 HF / COPD / Asthma PDC adherence gaps closed. Full-year monetization pending.</p>
+          <div class="campaign__progress">
+            <span>30 days live</span>
+            <strong>14% successful</strong>
+          </div>
+          <div class="campaign__bar"><div class="campaign__bar__fill" style="width: 14%;"></div></div>
+        </article>
+      </div>
+      <p class="footnote">Total estimated cost avoidance · 4 months actual: <strong>$249,805</strong> through April 30, 2026. Estimated cost avoidance multiplied by 3× for annual 2026 impact projection. Adherence campaign requires a full year of data — not yet monetized.</p>
+    </div>
+  </section>
+
+  <!-- ────────── OPERATIONAL EFFICIENCY ────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Operational Efficiency · Impact</div>
+        <h2>11,937 hours back to clinical teams in 2026.</h2>
+        <p>Automated gap closure compounds — actions per FTE-hour rise as more campaigns move to fully automated workflows. Hours saved grows 5× year-over-year.</p>
+      </div>
+
+      <div class="eff">
+        <div class="eff__grid">
+          <div class="eff__lede">
+            <h3>Automation that scales non-linearly.</h3>
+            <p>Cost savings here are operational only, and sit alongside the clinical cost avoidance above.</p>
+          </div>
+
+          <div class="eff__table">
+            <div class="eff__row eff__row--head">
+              <span></span>
+              <span>Successful gaps</span>
+              <span>Total actions</span>
+              <span>Hours saved</span>
+              <span>Cost savings</span>
+            </div>
+            <div class="eff__row">
+              <div class="eff__year">2025 Actual<strong>Full year</strong></div>
+              <div class="eff__num">26,556</div>
+              <div class="eff__num">74,247</div>
+              <div class="eff__num">2,390</div>
+              <div class="eff__num">$109,950</div>
+            </div>
+            <div class="eff__row">
+              <div class="eff__year">2026 Projected<strong>Full year</strong></div>
+              <div class="eff__num eff__num--proj">45,370 <small>+71%</small></div>
+              <div class="eff__num eff__num--proj">131,133 <small>+77%</small></div>
+              <div class="eff__num eff__num--proj">11,937 <small>+399%</small></div>
+              <div class="eff__num eff__num--proj">$549,141 <small>+399%</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── GROWTH RUNWAY ────────── -->
+  <section class="section section--page">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Growth Runway</div>
+        <h2>4.9% of a single anchor account is live today.</h2>
+        <p>Same platform. Same proof. 20× the lives still to onboard inside a single anchor health plan — before considering adjacent constituencies.</p>
+      </div>
+
+      <div class="runway">
+        <div>
+          <div class="runway__num">4.9<span class="pct">%</span></div>
+          <p class="runway__label">Of the anchor health plan currently on OneDash — proven at $4.41M projected 2026 savings and 6× ROI.</p>
+        </div>
+        <div>
+          <div class="runway__bar">
+            <div class="runway__bar__fill"></div>
+          </div>
+          <div class="runway__legend">
+            <div>Active lives · 2026<strong>163,028</strong></div>
+            <div>Lives still to onboard<strong>3,136,972</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── BEYOND (tweakable) ────────── -->
+  <section class="section" data-tweak-section="pipeline">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Beyond the Anchor Account</div>
+        <h2>Three buyers. One platform.</h2>
+        <p>Two adjacent constituencies could benefit from access to the same platform — each with active demand signals.</p>
+      </div>
+
+      <div class="pipeline-grid" style="grid-template-columns: 1fr 1fr;">
+        <article class="pipeline-card">
+          <div class="pipeline-card__num">01</div>
+          <div class="pipeline-card__eyebrow">Clinical Vendor Access</div>
+          <h3 class="pipeline-card__title">Real-time patient data for clinical vendors</h3>
+          <p class="pipeline-card__body">Vendors closing care gaps would consume member data inside OneDash directly. Active interest from current clinical vendors; real-time data is the differentiator versus existing reports.</p>
+        </article>
+
+        <article class="pipeline-card">
+          <div class="pipeline-card__num">02</div>
+          <div class="pipeline-card__eyebrow">Provider Group Access</div>
+          <h3 class="pipeline-card__title">VBC provider groups consume CareGap data live</h3>
+          <p class="pipeline-card__body">Live access replaces the extensive batch report currently passed to provider groups. Provider-side walkthroughs already completed, with real-time access requested over batch reporting.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── CTA ────────── -->
+  <section class="cta" id="cta">
+    <div class="container cta__grid">
+      <h2 class="cta__title">Apply the same playbook to <em>your population.</em></h2>
+      <div class="cta__row">
+        <a class="btn btn--primary" href="mailto:hello@onedashengine.com">
+          <span>Request a personalized demo</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a class="btn btn--ghost-light" href="/prelive-home">
+          <span>Back to overview</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────── FOOTER ────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="nav__logo" style="color:#fff;">
+            <img data-od="logo-light.png" alt="OneDash" style="height:32px;width:auto;" />
+          </div>
+          <p>The clinical-operations platform for health plans. Identify the gaps that matter, act with the right level of automation, and measure outcomes that move the medical-loss ratio.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Product</h4>
+          <ul role="list">
+            <li><a href="/prelive-home">Home</a></li>
+            <li><a href="/prelive-results">Results &amp; ROI</a></li>
+            <li><a href="/prelive-home#platform">Platform</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Talk to us</h4>
+          <ul role="list">
+            <li><a href="#cta">Book a demo</a></li>
+            <li><a href="mailto:hello@onedashengine.com">hello@onedashengine.com</a></li>
+            <li><a href="#cta">Schedule a call</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div>© 2026 OneDash. All rights reserved.</div>
+        <div>Results based on 2025 actuals and 2026 projections from a major regional health plan.</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var base = window.OD_ASSET_BASE;
+    document.querySelectorAll('.od-embed [data-od]').forEach(function (el) { el.src = base + el.getAttribute('data-od'); });
+    document.querySelectorAll('.od-embed [data-od-href]').forEach(function (el) { el.href = base + el.getAttribute('data-od-href'); });
+    
+  })();
+</script>
