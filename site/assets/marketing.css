@@ -232,6 +232,7 @@ button { font-family: inherit; }
 
 /* ── Layout ─────────────────────────────────────────────────── */
 .container {
+  display: block;
   width: 100%;
   max-width: var(--page-max);
   margin: 0 auto;
@@ -1326,49 +1327,88 @@ button { font-family: inherit; }
 }
 
 /* ── Legal pages (Privacy / Terms) ───────────────────────────── */
-.legal-hero { padding: 132px 0 36px; }
+/* Every rule below targets the element directly (not via inheritance
+   from an ancestor) and several use !important. This is deliberate:
+   Webflow's own site-wide stylesheet (loaded on every page, including
+   these) ships bare h1/h2/h3/p/li rules with its own colors, and a
+   direct rule always beats an inherited one regardless of specificity
+   math — so setting color only on .legal-body and expecting it to
+   flow down to <p>/<li> silently loses to Webflow's defaults. */
+.legal-hero { padding: 132px 0 36px !important; }
 .legal-hero__inner {
-  padding-top: 0;
-  max-width: 860px;
+  padding-top: 0 !important;
+  max-width: 860px !important;
+  text-align: left !important;
 }
 .legal-hero__title {
-  font-size: 32px;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  font-weight: var(--od-fw-bold);
-  color: #FFFFFF;
-  margin: 0 0 8px;
+  display: block !important;
+  font-size: 32px !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  font-weight: 700 !important;
+  font-family: var(--od-font-sans) !important;
+  color: #FFFFFF !important;
+  text-align: left !important;
+  margin: 0 0 8px !important;
 }
 .legal-hero__date {
-  font-size: 14px;
-  color: rgba(255,255,255,0.6);
-  margin: 0;
+  display: block !important;
+  font-size: 14px !important;
+  color: rgba(255,255,255,0.6) !important;
+  text-align: left !important;
+  margin: 0 !important;
 }
 .section--legal { padding: 48px 0 100px; background: #FFFFFF; }
 .legal-body {
+  display: block !important;
   max-width: 760px;
   margin: 0 auto;
-  font-size: 17px;
-  line-height: 1.75;
-  color: var(--od-fg-1);
-  text-align: left;
+  text-align: left !important;
 }
-.legal-body p { margin: 0 0 14px; }
-.legal-body strong { color: var(--od-primary-800); font-weight: var(--od-fw-bold); }
-.legal-body a { color: var(--od-primary-500); text-decoration: underline; }
+.legal-body p,
+.legal-body li,
+.legal-body a,
+.legal-body strong {
+  font-family: var(--od-font-sans) !important;
+  text-align: left !important;
+}
+.legal-body p {
+  display: block !important;
+  font-size: 17px !important;
+  line-height: 1.75 !important;
+  color: var(--od-fg-1) !important;
+  margin: 0 0 14px !important;
+}
+.legal-body ul {
+  display: block !important;
+  margin: 0 0 14px !important;
+  padding-left: 22px !important;
+}
+.legal-body li {
+  display: list-item !important;
+  font-size: 17px !important;
+  line-height: 1.75 !important;
+  color: var(--od-fg-1) !important;
+  margin: 0 0 6px !important;
+}
+.legal-body strong { color: var(--od-primary-800) !important; font-weight: 700 !important; }
+.legal-body a { color: var(--od-primary-500) !important; text-decoration: underline !important; }
 .legal-body h1, .legal-body h2, .legal-body h3, .legal-body h4,
 .legal-body p.legal-h {
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-weight: var(--od-fw-bold);
-  color: var(--od-primary-500);
-  line-height: 1.4;
-  margin: 26px 0 6px;
+  display: block !important;
+  font-family: var(--od-font-sans) !important;
+  font-size: 13px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  text-align: left !important;
+  font-weight: 700 !important;
+  color: var(--od-primary-500) !important;
+  line-height: 1.4 !important;
+  margin: 26px 0 6px !important;
 }
-.legal-body h1:first-child, .legal-body h3:first-child, .legal-body p.legal-h:first-child { margin-top: 0; }
+.legal-body h1:first-child, .legal-body h3:first-child, .legal-body p.legal-h:first-child { margin-top: 0 !important; }
 @media (max-width: 720px) {
-  .legal-hero { padding: 96px 0 28px; }
+  .legal-hero { padding: 96px 0 28px !important; }
   .section--legal { padding: 32px 0 72px; }
 }
 
