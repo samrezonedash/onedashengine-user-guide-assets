@@ -1,385 +1,49 @@
 <!--
   =====================================================================
-  OneDash Marketing Site — Webflow Embed  (home)
+  OneDash Marketing Site — Webflow Embed loader  (home)
   =====================================================================
-  WHAT: Paste this entire block into ONE Webflow "Embed" element on the
-        home page (a blank page works best).
-  PREREQUISITE: Host webflow-deploy/assets/ on a public URL and set
-        OD_ASSET_BASE below (trailing slash REQUIRED). See README.md.
+  WHAT: Paste this ONCE into a Webflow "Embed" element on the home
+        page. It never needs to change again — it fetches the real
+        page content from the CDN at runtime. To update the page,
+        edit the source, rebuild, and push to GitHub; this loader
+        picks up the change automatically on next page load.
   =====================================================================
 -->
 <script>
-  // Replace with where you host the /assets folder (trailing slash required).
   window.OD_ASSET_BASE = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@main/site/assets/";
+  window.OD_PAGE = "home";
 </script>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <script>
   document.write('<link rel="stylesheet" href="' + window.OD_ASSET_BASE + 'marketing.css">');
 </script>
 
-<div class="od-embed">
-<!-- ────────── HERO (stakes-first) ────────── -->
-  <header class="hero hero--stakes" id="top">
-    <nav class="nav">
-      <div class="container nav__row">
-        <a class="nav__logo" href="/prelive-home" aria-label="OneDash home">
-          <img data-od="logo-light.png" alt="OneDash" style="height:100%;width:auto;" />
-        </a>
-        <ul class="nav__links" role="list">
-          <li><a href="/prelive-home" aria-current="page">Home</a></li>
-          <li><a href="#personas">Who it's for</a></li>
-          <li><a href="/prelive-results">Results</a></li>
-          <li><a href="/prelive-about">About Us</a></li>
-          <li><a href="/prelive-resources">Resources</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="container hero--stakes__grid">
-      <div class="hero--stakes__eyebrow">Built for health plans · Quality · Cost of Care · Care Management · Pharmacy</div>
-      <h1 class="hero--stakes__title">The gap you can't see today is the <em>half-star you lose</em> next year.</h1>
-      <p class="hero--stakes__lead">Most tools stop at finding the gap — and by the time you see it in a year-end report, the Star Rating is already gone. OneDash closes the loop: identify quality <em>and</em> spend gaps in real time, automate the action that closes them, and watch ROI and quality lift as they close. So you protect your Star Ratings, Quality Bonus Payment, and cost of care continuously — instead of scrambling to recover them at year-end.</p>
-      <div class="hero--stakes__cta">
-        <a class="btn btn--primary" href="#contact">
-          <span>Request a personalized demo</span>
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-        <a class="btn btn--ghost-light" href="/prelive-resources">
-          <span>See the ROI</span>
-        </a>
-      </div>
-
-      <!-- How we're different -->
-      <div class="hero--stakes__how" role="list">
-        <div class="how-item" role="listitem">
-          <div class="how-item__contrast"><span class="how-item__no">Delayed data</span><i class="fa-solid fa-arrow-right-long"></i><span class="how-item__yes">Real time</span></div>
-          <p>Plan data arrives in delayed monthly files — often not until mid-year — so you're always chasing gaps that are already weeks old. OneDash surfaces them as they happen.</p>
-        </div>
-        <div class="how-item" role="listitem">
-          <div class="how-item__contrast"><span class="how-item__no">Manual scramble</span><i class="fa-solid fa-arrow-right-long"></i><span class="how-item__yes">Automated</span></div>
-          <p>Outreach and MTM run automatically — AI agents even place the calls to schedule CMR appointments — so there's no Q4 fire drill and no temporary headcount to hit deadlines.</p>
-        </div>
-        <div class="how-item" role="listitem">
-          <div class="how-item__contrast"><span class="how-item__no">Blind spots</span><i class="fa-solid fa-arrow-right-long"></i><span class="how-item__yes">Closed loop</span></div>
-          <p>Every action ties back to the measure it moves and the dollar it protects — attributed, audit-ready.</p>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ────────── WHAT (thin capability band) ────────── -->
-  <section class="what-band">
-    <div class="container what-band__row">
-      <span class="what-band__label">What OneDash does</span>
-      <div class="what-band__items">
-        <span><i class="fa-solid fa-bolt"></i> Real-time care gap identification</span>
-        <span><i class="fa-solid fa-bolt"></i> Automated actioning that closes gaps</span>
-        <span><i class="fa-solid fa-chart-line"></i> Live member &amp; measure dashboards</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ────────── PERSONAS (tabbed) ────────── -->
-  <section class="section personas" id="personas">
-    <div class="container">
-      <div class="personas__head">
-        <div class="eyebrow">Why it matters — by who's asking</div>
-        <h2>The stakes change depending on where you sit.</h2>
-      </div>
-
-      <div class="personas__tabs" role="tablist" aria-label="Choose your team">
-        <button class="ptab is-active" role="tab" aria-selected="true" aria-controls="panel-quality" id="tab-quality">
-          <i class="fa-solid fa-star" aria-hidden="true"></i>
-          <span class="ptab__label">Quality &amp; Care Management</span>
-          <span class="ptab__sub">Star Ratings · HEDIS</span>
-        </button>
-        <button class="ptab" role="tab" aria-selected="false" aria-controls="panel-pharmacy" id="tab-pharmacy">
-          <i class="fa-solid fa-prescription-bottle-medical" aria-hidden="true"></i>
-          <span class="ptab__label">Pharmacy</span>
-          <span class="ptab__sub">Adherence · CMR</span>
-        </button>
-        <button class="ptab" role="tab" aria-selected="false" aria-controls="panel-finance" id="tab-finance">
-          <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
-          <span class="ptab__label">Cost of Care &amp; C-Suite</span>
-          <span class="ptab__sub">MLR · ROI · AEP</span>
-        </button>
-      </div>
-
-      <!-- Panel: Quality & Care Management -->
-      <div class="ppanel is-active" role="tabpanel" id="panel-quality" aria-labelledby="tab-quality">
-        <div class="persona__grid">
-          <div class="persona__stakes">
-            <h3 class="persona__headline">A half-star slide can wipe out your Quality Bonus Payment — and you'd learn it a year too late.</h3>
-            <p class="persona__body">Cut points move every year, and a measure that was comfortably above threshold in January can fall below it by the time CMS calculates your rating. By then there's nothing left to work. The plans that hold their rating are the ones watching measure-level performance — and coordinating care — against the cut point <em>during</em> the measurement year, while members can still be moved.</p>
-          </div>
-          <div class="persona__answer">
-            <div class="persona__answer-head">
-              <span class="persona__answer-eyebrow">How OneDash answers it</span>
-              <h4>Measure-level performance against live cut points — not a year-end surprise.</h4>
-              <p class="persona__answer-note">OneDash works alongside your certified CMS/HEDIS reporting vendor — a real-time operational layer that sharpens the numbers you already report, not a replacement for them.</p>
-            </div>
-            <ul class="persona__list" role="list">
-              <li><i class="fa-solid fa-gauge-high"></i><div><strong>Real-time cut-point tracking</strong><span>Daily data feeds re-score every clinical Stars and HEDIS measure — cancer screenings, controlling blood pressure, diabetes care, OMW — against current thresholds every day, so you see the half-star risk while you can still close it. Real-time, backed by daily ingestion — not just faster reporting.</span></div></li>
-              <li><i class="fa-solid fa-filter-circle-xmark"></i><div><strong>Refined, real-time denominators</strong><span>Sits on top of your reporting vendor and cleans up who's actually in each measure and who's already met it. For OMW, we flag women who filled a qualifying osteoporosis medication within 24 hours and close the gap automatically — so your team stops chasing gaps that are already met and focuses on who truly needs outreach.</span></div></li>
-              <li><i class="fa-solid fa-bullseye"></i><div><strong>Members who can still flip</strong><span>Targeted lists of the exact members who move a measure above threshold — ranked by impact on your rating.</span></div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel: Pharmacy & MTM -->
-      <div class="ppanel" role="tabpanel" id="panel-pharmacy" aria-labelledby="tab-pharmacy" hidden>
-        <div class="persona__grid">
-          <div class="persona__stakes">
-            <h3 class="persona__headline">Three triple-weighted adherence measures decide your Part D score. Missing one isn't a rounding error.</h3>
-            <p class="persona__body">Diabetes, hypertension, and cholesterol adherence carry triple weight — they can single-handedly pull your summary rating down. And CMR completion isn't optional: you have to hit the rate <em>and</em> prove it. Doing that by hand, member by member, in the last quarter, is how plans burn out their pharmacists and still fall short.</p>
-          </div>
-          <div class="persona__answer">
-            <div class="persona__answer-head">
-              <span class="persona__answer-eyebrow">How OneDash answers it</span>
-              <h4>Hit the heavy-weighted measures — and prove CMR compliance — without the manual scramble.</h4>
-            </div>
-            <ul class="persona__list" role="list">
-              <li><i class="fa-solid fa-pills"></i><div><strong>PDC tracked per member, per measure</strong><span>MAD, MAH, and MAC adherence monitored continuously, with automated refill and outreach sequences before a member falls below 80%.</span></div></li>
-              <li><i class="fa-solid fa-file-circle-check"></i><div><strong>CMR completion, tracked</strong><span>AI agents call members to schedule their CMR appointments with your pharmacists — and completion is tracked and documented inside OneDash.</span></div></li>
-              <li><i class="fa-solid fa-robot"></i><div><strong>Automated adherence outreach</strong><span>AI calls, texts, and provider faxes fire on schedule — so your pharmacists work the exceptions, not the whole panel.</span></div></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel: Cost of Care & C-Suite -->
-      <div class="ppanel" role="tabpanel" id="panel-finance" aria-labelledby="tab-finance" hidden>
-        <div class="persona__grid">
-          <div class="persona__stakes">
-            <h3 class="persona__headline">Your MLR and your Star Rating set your AEP position. Both erode when gaps close late.</h3>
-            <p class="persona__body">Late gap closure shows up twice on your books: as avoidable medical spend that pushes your medical-loss ratio the wrong way, and as forfeited Quality Bonus revenue when the rating slips. Go into AEP with a soft rating and a strained cost structure and you're defending share, not taking it. The question isn't whether to invest in quality — it's whether the investment returns.</p>
-          </div>
-          <div class="persona__answer">
-            <div class="persona__answer-head">
-              <span class="persona__answer-eyebrow">How OneDash answers it</span>
-              <h4>Every closed gap tied to a dollar — quality revenue protected and medical spend avoided.</h4>
-              <p class="persona__answer-note">It's not only quality gaps we close. OneDash surfaces <strong>spend gaps</strong> too — high utilizers, drug-utilization mismatches, and avoidable admissions — the dollars most plans never have the data or the people to chase.</p>
-            </div>
-
-            <div class="persona__layer">
-              <div class="persona__sublabel"><span>01</span> The cost-of-care engine</div>
-              <ul class="persona__list" role="list">
-                <li><i class="fa-solid fa-route"></i><div><strong>Formulary steerage</strong><span>Guides providers toward lower-cost, on-formulary alternatives — and flags rejected non-formulary claims so they get switched to a covered drug instead of abandoned.</span></div></li>
-                <li><i class="fa-solid fa-hospital-user"></i><div><strong>Avoidable-admission programs (HF, COPD/asthma)</strong><span>Identifies members not on guideline-appropriate therapy and closes the gap to prevent future hospitalizations and ED visits.</span></div></li>
-                <li><i class="fa-solid fa-magnifying-glass-dollar"></i><div><strong>High utilizers &amp; utilization mismatches</strong><span>Surfaces the members and prescribing patterns driving avoidable spend — so they're worked, not just reported.</span></div></li>
-              </ul>
-            </div>
-
-            <p class="persona__bridge"><strong>Incremental savings, no incremental operating cost.</strong> OneDash flags gaps your team has never had the resources to work — and fully automates the effort — so capturing the savings takes no added headcount.</p>
-
-            <div class="persona__layer">
-              <div class="persona__sublabel"><span>02</span> The financial payoff</div>
-              <ul class="persona__list" role="list">
-                <li><i class="fa-solid fa-sack-dollar"></i><div><strong>Attributed ROI, not estimates</strong><span>6× projected return in 2026 — with avoided medical spend and quality revenue attributed at the campaign and member level.</span></div></li>
-                <li><i class="fa-solid fa-heart-pulse"></i><div><strong>MLR pressure, eased</strong><span>$1.56M in attributed medical cost avoidance from adherence wins alone — spend that never hits your ratio.</span></div></li>
-                <li><i class="fa-solid fa-trophy"></i><div><strong>A rating that competes at AEP</strong><span>Walk into open enrollment with a defensible cost structure and Stars performance that holds — instead of a recovery plan.</span></div></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ────────── REAL CLIENT RESULTS ────────── -->
-  <section class="section section--page" id="care-gap-closure">
-    <div class="container">
-      <div class="results-head">
-        <div class="eyebrow">Real Client Results · 2025–2026</div>
-        <h2>The plans that watch in real time don't spend Q4 recovering.</h2>
-        <p>Two years on the platform — a 3× realized ROI in 2025, projected to 6× this year as more campaigns shift to fully automated workflows.</p>
-      </div>
-
-      <div class="results-cards">
-        <article class="result-card">
-          <div class="result-card__icon"><i class="fa-solid fa-file-circle-check" aria-hidden="true"></i></div>
-          <h3 class="result-card__head">Care Gaps Closure</h3>
-          <div class="result-card__big">45,370</div>
-          <div class="result-card__big-cap">Successful gap closures projected for 2026</div>
-          <p class="result-card__body">Up <strong>71% year-over-year</strong> across Quality and Cost of Care production lines, with new Cost of Care campaigns producing from day one.</p>
-          <div class="result-card__sub">
-            <strong>653</strong>
-            <span>SUPD / SPC statin initiations — directly lifting Stars performance</span>
-          </div>
-        </article>
-
-        <article class="result-card result-card--featured">
-          <div class="result-card__icon"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i></div>
-          <h3 class="result-card__head">Payer Cost Savings</h3>
-          <div class="result-card__big">$4.41M</div>
-          <div class="result-card__big-cap">Total projected 2026 savings · 2.6× vs. 2025</div>
-          <p class="result-card__body">A <strong>6× projected ROI in 2026</strong>, doubling from 3× realized in 2025 — including $1.56M in attributed medical cost avoidance from adherence wins alone.</p>
-          <div class="result-card__sub">
-            <strong>6×</strong>
-            <span>Projected return on platform investment</span>
-          </div>
-        </article>
-
-        <article class="result-card">
-          <div class="result-card__icon"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i></div>
-          <h3 class="result-card__head">Amplified Productivity</h3>
-          <div class="result-card__big">11,937</div>
-          <div class="result-card__big-cap">Clinical hours returned to teams in 2026</div>
-          <p class="result-card__body">A <strong>5× increase year-over-year</strong> as more campaigns move from user-worked to fully automated — without any matching headcount growth.</p>
-          <div class="result-card__sub">
-            <strong>131K</strong>
-            <span>Total automated actions projected this year</span>
-          </div>
-        </article>
-      </div>
-
-      <div class="results-foot">
-      </div>
-    </div>
-  </section>
-
-  <!-- ────────── THE CLOSED LOOP ────────── -->
-  <section class="section loop-sec" id="platform">
-    <div class="container">
-      <div class="loop-head">
-        <div class="eyebrow">The closed loop</div>
-        <h2>Most tools stop at finding the gap — quality or spend. <em>OneDash closes the loop.</em></h2>
-        <p>Identify quality <em>and</em> spend gaps in real time, automate the action that closes them, and watch ROI and quality lift as they close — continuously, not at year-end.</p>
-      </div>
-
-      <div class="loop-diagram">
-        <svg class="loop-svg" viewBox="0 0 560 560" aria-hidden="true">
-          <defs>
-            <marker id="ah-primary" markerWidth="12" markerHeight="12" refX="4" refY="4" orient="auto">
-              <path d="M0,0 L8,4 L0,8 Z" fill="var(--od-primary-400)"></path>
-            </marker>
-            <marker id="ah-sky" markerWidth="13" markerHeight="13" refX="4.2" refY="4.2" orient="auto">
-              <path d="M0,0 L8.4,4.2 L0,8.4 Z" fill="var(--od-sky-500)"></path>
-            </marker>
-          </defs>
-          <!-- base ring -->
-          <circle cx="280" cy="280" r="200" fill="none" stroke="var(--od-line-2)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"></circle>
-          <!-- Identify → Action -->
-          <path d="M380,107 A200,200 0 0 1 480,280" fill="none" stroke="var(--od-primary-400)" stroke-width="3" marker-end="url(#ah-primary)"></path>
-          <!-- Action → Measure -->
-          <path d="M380,453 A200,200 0 0 1 180,453" fill="none" stroke="var(--od-primary-400)" stroke-width="3" marker-end="url(#ah-primary)"></path>
-          <!-- Measure → Identify (the feedback arc — emphasized) -->
-          <path d="M80,280 A200,200 0 0 1 180,107" fill="none" stroke="var(--od-sky-500)" stroke-width="4" marker-end="url(#ah-sky)"></path>
-        </svg>
-
-        <div class="loop-hub">
-          <span class="loop-hub__pulse"></span>
-          <strong>Runs continuously</strong>
-          <span>ROI &amp; quality lift as gaps close</span>
-        </div>
-
-        <div class="loop-feedback">Measure feeds Identify — the loop never stops</div>
-
-        <article class="loop-node loop-node--identify">
-          <div class="loop-node__badge"><span>01</span><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-          <h3>Identify</h3>
-          <p>Surface quality gaps <em>and</em> spend gaps in real time — high utilizers, formulary &amp; drug-utilization mismatches, avoidable-admission risk — across claims, pharmacy &amp; labs.</p>
-        </article>
-
-        <article class="loop-node loop-node--action">
-          <div class="loop-node__badge"><span>02</span><i class="fa-solid fa-bolt"></i></div>
-          <h3>Action</h3>
-          <p>Automate the close — provider, patient &amp; pharmacy outreach with innovative moves like AI agent calling.</p>
-        </article>
-
-        <article class="loop-node loop-node--measure">
-          <div class="loop-node__badge"><span>03</span><i class="fa-solid fa-chart-line"></i></div>
-          <h3>Measure</h3>
-          <p>Track closures live — real-time ROI &amp; quality estimates.</p>
-        </article>
-      </div>
-
-      <!-- Action-stage depth callout (any gap, closed) -->
-      <div class="mtm-callout">
-        <div class="mtm-callout__tie"><i class="fa-solid fa-bolt"></i> Inside the Action stage</div>
-        <div class="mtm-callout__grid">
-          <div class="mtm-callout__lead">
-            <div class="mtm-callout__eyebrow"><i class="fa-solid fa-bolt"></i> Any gap, closed</div>
-            <h3>Finding the gap is the easy part. OneDash closes it — quality or spend — automatically.</h3>
-            <p>OneDash identifies every kind of gap — quality/care gaps and spend gaps alike — and closes them through automated, system-to-system action. AI agents don't just surface work; they take it, placing calls and scheduling members directly into the systems that close the gap.</p>
-          </div>
-          <ul class="mtm-callout__list" role="list">
-            <li><i class="fa-solid fa-layer-group"></i><div><strong>Any gap, quality or spend</strong><span>Surfaces care gaps and spend gaps alike — utilization mismatches, formulary opportunities, avoidable-admission risk — so nothing falls through by category.</span></div></li>
-            <li><i class="fa-solid fa-calendar-check"></i><div><strong>Closes gaps, doesn't just flag them</strong><span>AI agents take the action directly — including placing calls and scheduling members straight into a telehealth partner's calendar — so a flagged gap becomes a booked appointment without staff in the middle.</span></div></li>
-            <li><i class="fa-solid fa-plug-circle-bolt"></i><div><strong>Innovative direct integrations</strong><span>System-to-system connections turn identification into action automatically — closing gaps at machine speed instead of adding to a work queue.</span></div></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="loop-cta">
-        <a class="btn btn--primary" href="/prelive-resources">
-          <span>See the ROI</span>
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ────────── CTA ────────── -->
-  <section class="cta" id="contact">
-    <div class="container cta__grid">
-      <h2 class="cta__title">Looking for a demo? Questions? <em>Let's talk.</em></h2>
-      <div class="cta__row">
-        <a class="btn btn--primary" href="mailto:hello@onedashengine.com">
-          <span>Schedule a quick call</span>
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-        <a class="btn btn--ghost-light" href="/prelive-results">
-          <span>Read the full impact summary</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ────────── FOOTER ────────── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <div class="nav__logo" style="color:#fff;">
-            <img data-od="logo-light.png" alt="OneDash" style="height:32px;width:auto;" />
-          </div>
-          <p>The clinical-operations platform for health plans. Identify the gaps that matter, act with the right level of automation, and measure outcomes that move the medical-loss ratio.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <ul role="list">
-            <li><a href="/prelive-home">Home</a></li>
-            <li><a href="/prelive-about">About Us</a></li>
-            <li><a href="/prelive-resources">Resources</a></li>
-            <li><a href="/prelive-results">Results &amp; ROI</a></li>
-            <li><a href="/user-guide">User Guide</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Talk to us</h4>
-          <ul role="list">
-            <li><a href="#contact">Book a demo</a></li>
-            <li><a href="mailto:hello@onedashengine.com">hello@onedashengine.com</a></li>
-            <li><a href="#contact">Schedule a call</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <div>© 2026 OneDash. All rights reserved. <a href="/privacy-policy" class="footer__legal-link">Privacy Policy</a> · <a href="/terms-conditions" class="footer__legal-link">Terms &amp; Conditions</a></div>
-        <div>Results based on 2025 actuals and 2026 projections from a major regional health plan.</div>
-      </div>
-    </div>
-  </footer>
-</div>
+<div id="od-root" class="od-embed"></div>
 
 <script>
   (function () {
     var base = window.OD_ASSET_BASE;
-    document.querySelectorAll('.od-embed [data-od]').forEach(function (el) { el.src = base + el.getAttribute('data-od'); });
-    document.querySelectorAll('.od-embed [data-od-href]').forEach(function (el) { el.href = base + el.getAttribute('data-od-href'); });
-    var tabs=[].slice.call(document.querySelectorAll('.ptab'));var map={'tab-quality':'panel-quality','tab-pharmacy':'panel-pharmacy','tab-finance':'panel-finance'};function act(t){tabs.forEach(function(x){var on=x===t;x.classList.toggle('is-active',on);x.setAttribute('aria-selected',on?'true':'false');var p=document.getElementById(map[x.id]);if(p){p.classList.toggle('is-active',on);if(on){p.removeAttribute('hidden');}else{p.setAttribute('hidden','');}}});}tabs.forEach(function(t){t.addEventListener('click',function(){act(t);});});
+    var root = document.getElementById('od-root');
+    fetch(base + 'content/' + window.OD_PAGE + '.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        root.innerHTML = html;
+        root.querySelectorAll('[data-od]').forEach(function (el) { el.src = base + el.getAttribute('data-od'); });
+        root.querySelectorAll('[data-od-href]').forEach(function (el) { el.href = base + el.getAttribute('data-od-href'); });
+        if (window.OD_PAGE === 'home') {
+          var tabs = [].slice.call(root.querySelectorAll('.ptab'));
+          var map = {'tab-quality':'panel-quality','tab-pharmacy':'panel-pharmacy','tab-finance':'panel-finance'};
+          function act(t) {
+            tabs.forEach(function (x) {
+              var on = x === t;
+              x.classList.toggle('is-active', on);
+              x.setAttribute('aria-selected', on ? 'true' : 'false');
+              var p = root.querySelector('#' + map[x.id]);
+              if (p) { p.classList.toggle('is-active', on); if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); } }
+            });
+          }
+          tabs.forEach(function (t) { t.addEventListener('click', function () { act(t); }); });
+        }
+      });
   })();
 </script>

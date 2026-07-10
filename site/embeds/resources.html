@@ -1,204 +1,49 @@
 <!--
   =====================================================================
-  OneDash Marketing Site — Webflow Embed  (resources)
+  OneDash Marketing Site — Webflow Embed loader  (resources)
   =====================================================================
-  WHAT: Paste this entire block into ONE Webflow "Embed" element on the
-        resources page (a blank page works best).
-  PREREQUISITE: Host webflow-deploy/assets/ on a public URL and set
-        OD_ASSET_BASE below (trailing slash REQUIRED). See README.md.
+  WHAT: Paste this ONCE into a Webflow "Embed" element on the resources
+        page. It never needs to change again — it fetches the real
+        page content from the CDN at runtime. To update the page,
+        edit the source, rebuild, and push to GitHub; this loader
+        picks up the change automatically on next page load.
   =====================================================================
 -->
 <script>
-  // Replace with where you host the /assets folder (trailing slash required).
   window.OD_ASSET_BASE = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@main/site/assets/";
+  window.OD_PAGE = "resources";
 </script>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 <script>
   document.write('<link rel="stylesheet" href="' + window.OD_ASSET_BASE + 'marketing.css">');
 </script>
 
-<div class="od-embed">
-<header class="hero rz-hero" id="top">
-    <nav class="nav">
-      <div class="container nav__row">
-        <a class="nav__logo" href="/prelive-home" aria-label="OneDash home">
-          <img data-od="logo-light.png" alt="OneDash" style="height:100%;width:auto;" />
-        </a>
-        <ul class="nav__links" role="list">
-          <li><a href="/prelive-home">Home</a></li>
-          <li><a href="/prelive-home#personas">Who it's for</a></li>
-          <li><a href="/prelive-results">Results</a></li>
-          <li><a href="/prelive-about">About Us</a></li>
-          <li><a href="/prelive-resources" aria-current="page">Resources</a></li>
-        </ul>
-        <a class="nav__cta" href="/prelive-home#contact">
-          <span>Book a demo</span>
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-      </div>
-    </nav>
-
-    <div class="container rz-hero__inner">
-      <div class="rz-hero__eyebrow">Resources</div>
-      <h1 class="rz-hero__title">Downloads for the people who <em>run the numbers.</em></h1>
-      <p class="rz-hero__lead">ROI one-pagers, playbooks, and results breakdowns for Quality, Pharmacy, and Cost of Care teams — free to download, no form wall.</p>
-    </div>
-  </header>
-
-  <!-- ────────── FEATURED DOWNLOAD ────────── -->
-  <section class="section rz-featured-sec">
-    <div class="container">
-      <div class="rz-sec-head">
-        <div class="eyebrow">Featured download</div>
-        <h2>Start with the ROI one-pager.</h2>
-      </div>
-
-      <article class="dl-featured">
-        <!-- Branded cover preview -->
-        <a class="dl-featured__cover" data-od-href="resources/OneDash-ROI-One-Pager.pdf" download="OneDash-ROI-One-Pager.pdf" aria-label="Download the OneDash ROI one-pager (PDF)">
-          <div class="dl-cover">
-            <div class="dl-cover__eyebrow">Identify · Act · Monitor</div>
-            <div class="dl-cover__title">The performance engine for Health Plans.</div>
-            <div class="dl-cover__roi"><span class="dl-cover__roi-num">6:1</span><span class="dl-cover__roi-lbl">ROI<br>projected 2026</span></div>
-            <div class="dl-cover__stats">
-              <div><strong>$2.71M</strong><span>total savings</span></div>
-              <div><strong>27,830</strong><span>gaps closed</span></div>
-              <div><strong>80,436</strong><span>automated actions</span></div>
-            </div>
-            <div class="dl-cover__foot">Per 100,000 members / year · single anchor health plan</div>
-          </div>
-          <span class="dl-cover__badge"><i class="fa-solid fa-file-pdf"></i> PDF</span>
-          <span class="dl-cover__hover"><i class="fa-solid fa-download"></i> Download</span>
-        </a>
-
-        <!-- Meta + action -->
-        <div class="dl-featured__body">
-          <div class="dl-featured__tags">
-            <span class="dl-tag dl-tag--type"><i class="fa-solid fa-file-pdf"></i> One-pager · PDF</span>
-            <span class="dl-tag">Updated May 2026</span>
-            <span class="dl-tag">1 page</span>
-          </div>
-          <h3 class="dl-featured__title">OneDash ROI One-Pager</h3>
-          <p class="dl-featured__desc">The full-circle case in a single page: how OneDash surfaces every care gap, closes it with automated workflows, and proves the return — across Star Ratings, HEDIS, and cost-of-care. Built for sharing with quality, pharmacy, and finance stakeholders.</p>
-
-          <ul class="dl-highlights" role="list">
-            <li><i class="fa-solid fa-arrow-trend-up"></i><div><strong>6:1 projected ROI</strong><span>2026 model · 3× realized in 2025</span></div></li>
-            <li><i class="fa-solid fa-star"></i><div><strong>+2.5–7.1% HEDIS lift</strong><span>Measure improvement in a single year</span></div></li>
-            <li><i class="fa-solid fa-clock-rotate-left"></i><div><strong>7,322 clinical hours returned</strong><span>Per 100K members, per year</span></div></li>
-          </ul>
-
-          <div class="dl-featured__actions">
-            <a class="btn btn--primary" data-od-href="resources/OneDash-ROI-One-Pager.pdf" download="OneDash-ROI-One-Pager.pdf">
-              <i class="fa-solid fa-download" aria-hidden="true"></i>
-              <span>Download PDF</span>
-            </a>
-            <a class="btn btn--ghost-dark" data-od-href="resources/OneDash-ROI-One-Pager.pdf" target="_blank" rel="noopener">
-              <span>Open in browser</span>
-              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ────────── LIBRARY GRID ────────── -->
-  <section class="section section--page rz-library">
-    <div class="container">
-      <div class="rz-sec-head">
-        <div class="eyebrow">More resources</div>
-        <h2>The rest of the library is on the way.</h2>
-        <p>Playbooks and results breakdowns by team. Want one first? <a href="/prelive-home#contact">Tell us what would help.</a></p>
-      </div>
-
-      <div class="dl-grid">
-        <article class="dl-card">
-          <div class="dl-card__thumb dl-card__thumb--quality"><i class="fa-solid fa-star"></i></div>
-          <div class="dl-card__body">
-            <span class="dl-card__type">Playbook · Coming soon</span>
-            <h3 class="dl-card__title">The Stars cut-point playbook</h3>
-            <p class="dl-card__desc">The OneDash way to hold a rating: daily cut-point re-scoring, refined real-time denominators, and the member-level analytics most plans wish they had — who's already met, who can still flip, and where the half-star risk really sits.</p>
-            <span class="dl-card__cta dl-card__cta--soon"><i class="fa-solid fa-clock"></i> In production</span>
-          </div>
-        </article>
-
-        <article class="dl-card">
-          <div class="dl-card__thumb dl-card__thumb--pharmacy"><i class="fa-solid fa-headset"></i></div>
-          <div class="dl-card__body">
-            <span class="dl-card__type">Guide · Coming soon</span>
-            <h3 class="dl-card__title">Innovative outreach strategies that work</h3>
-            <p class="dl-card__desc">How OneDash AI agents place member calls — and the connective tissue that turns a conversation into a booked appointment, scheduled straight into a partner's calendar without staff in the middle.</p>
-            <span class="dl-card__cta dl-card__cta--soon"><i class="fa-solid fa-clock"></i> In production</span>
-          </div>
-        </article>
-
-        <article class="dl-card">
-          <div class="dl-card__thumb dl-card__thumb--finance"><i class="fa-solid fa-chart-pie"></i></div>
-          <div class="dl-card__body">
-            <span class="dl-card__type">Breakdown · Coming soon</span>
-            <h3 class="dl-card__title">Cost-of-care ROI, attributed</h3>
-            <p class="dl-card__desc">Where the savings come from — formulary steerage, avoidable admissions, and MLR impact by campaign.</p>
-            <span class="dl-card__cta dl-card__cta--soon"><i class="fa-solid fa-clock"></i> In production</span>
-          </div>
-        </article>
-      </div>
-
-      <div class="rz-notify">
-        <div>
-          <strong>Looking for something specific?</strong>
-          <span>Tell us what would help your team and we'll let you know if we have it — or can put it together.</span>
-        </div>
-        <a class="btn btn--primary" href="/prelive-home#contact">
-          <span>Request a resource</span>
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ────────── FOOTER ────────── -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__top">
-        <div class="footer__brand">
-          <div class="nav__logo" style="color:#fff;">
-            <img data-od="logo-light.png" alt="OneDash" style="height:32px;width:auto;" />
-          </div>
-          <p>The clinical-operations platform for health plans. Identify the gaps that matter, act with the right level of automation, and measure outcomes that move the medical-loss ratio.</p>
-        </div>
-        <div class="footer__col">
-          <h4>Company</h4>
-          <ul role="list">
-            <li><a href="/prelive-home">Home</a></li>
-            <li><a href="/prelive-about">About Us</a></li>
-            <li><a href="/prelive-resources">Resources</a></li>
-            <li><a href="/prelive-results">Results &amp; ROI</a></li>
-            <li><a href="/user-guide">User Guide</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Talk to us</h4>
-          <ul role="list">
-            <li><a href="/prelive-home#contact">Book a demo</a></li>
-            <li><a href="mailto:hello@onedashengine.com">hello@onedashengine.com</a></li>
-            <li><a href="https://www.linkedin.com/company/onedash" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <div>© 2026 OneDash. All rights reserved. <a href="/privacy-policy" class="footer__legal-link">Privacy Policy</a> · <a href="/terms-conditions" class="footer__legal-link">Terms &amp; Conditions</a></div>
-        <div>Built for health plans · Quality · Cost of Care · Care Management · Pharmacy</div>
-      </div>
-    </div>
-  </footer>
-</div>
+<div id="od-root" class="od-embed"></div>
 
 <script>
   (function () {
     var base = window.OD_ASSET_BASE;
-    document.querySelectorAll('.od-embed [data-od]').forEach(function (el) { el.src = base + el.getAttribute('data-od'); });
-    document.querySelectorAll('.od-embed [data-od-href]').forEach(function (el) { el.href = base + el.getAttribute('data-od-href'); });
-    
+    var root = document.getElementById('od-root');
+    fetch(base + 'content/' + window.OD_PAGE + '.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        root.innerHTML = html;
+        root.querySelectorAll('[data-od]').forEach(function (el) { el.src = base + el.getAttribute('data-od'); });
+        root.querySelectorAll('[data-od-href]').forEach(function (el) { el.href = base + el.getAttribute('data-od-href'); });
+        if (window.OD_PAGE === 'home') {
+          var tabs = [].slice.call(root.querySelectorAll('.ptab'));
+          var map = {'tab-quality':'panel-quality','tab-pharmacy':'panel-pharmacy','tab-finance':'panel-finance'};
+          function act(t) {
+            tabs.forEach(function (x) {
+              var on = x === t;
+              x.classList.toggle('is-active', on);
+              x.setAttribute('aria-selected', on ? 'true' : 'false');
+              var p = root.querySelector('#' + map[x.id]);
+              if (p) { p.classList.toggle('is-active', on); if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); } }
+            });
+          }
+          tabs.forEach(function (t) { t.addEventListener('click', function () { act(t); }); });
+        }
+      });
   })();
 </script>
