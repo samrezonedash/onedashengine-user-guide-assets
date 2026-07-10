@@ -1,0 +1,57 @@
+<!--
+  =====================================================================
+  OneDash Marketing Site — Webflow Embed loader  (terms-conditions)
+  =====================================================================
+  WHAT: Paste this ONCE into a Webflow "Embed" element on the terms-conditions
+        page. It never needs to change again — it fetches the real
+        page content from the CDN at runtime. To update the page,
+        edit the source, rebuild, and push to GitHub; this loader
+        picks up the change automatically on next page load.
+  =====================================================================
+-->
+<script>
+  window.OD_ASSET_BASE = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@main/site/assets/";
+  window.OD_PAGE = "terms-conditions";
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<script>
+  document.write('<link rel="stylesheet" href="' + window.OD_ASSET_BASE + 'marketing.css">');
+</script>
+
+<div id="od-root" class="od-embed"></div>
+
+<script>
+  (function () {
+    var base = window.OD_ASSET_BASE;
+    var root = document.getElementById('od-root');
+    fetch(base + 'content/' + window.OD_PAGE + '.html')
+      .then(function (r) { return r.text(); })
+      .then(function (html) {
+        root.innerHTML = html;
+        root.querySelectorAll('[data-od]').forEach(function (el) { el.src = base + el.getAttribute('data-od'); });
+        root.querySelectorAll('[data-od-href]').forEach(function (el) { el.href = base + el.getAttribute('data-od-href'); });
+        if (window.OD_PAGE === 'home') {
+          var tabs = [].slice.call(root.querySelectorAll('.ptab'));
+          var map = {'tab-quality':'panel-quality','tab-pharmacy':'panel-pharmacy','tab-finance':'panel-finance'};
+          function act(t) {
+            tabs.forEach(function (x) {
+              var on = x === t;
+              x.classList.toggle('is-active', on);
+              x.setAttribute('aria-selected', on ? 'true' : 'false');
+              var p = root.querySelector('#' + map[x.id]);
+              if (p) { p.classList.toggle('is-active', on); if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); } }
+            });
+          }
+          tabs.forEach(function (t) { t.addEventListener('click', function () { act(t); }); });
+        }
+        // Content just landed async, so a #hash in the URL from a cross-page
+        // link (e.g. "Who it's for" -> /prelive-home#personas) missed the
+        // browser's one-shot auto-scroll-on-load. Do it manually once the
+        // target element actually exists.
+        if (window.location.hash) {
+          var hashTarget = root.querySelector(window.location.hash);
+          if (hashTarget) { hashTarget.scrollIntoView(); }
+        }
+      });
+  })();
+</script>

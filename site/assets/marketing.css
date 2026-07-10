@@ -1325,6 +1325,45 @@ button { font-family: inherit; }
   .roi-compare__multiple { font-size: 96px; }
 }
 
+/* ── Legal pages (Privacy / Terms) ───────────────────────────── */
+.legal-hero { padding-bottom: 64px; }
+.legal-hero__inner {
+  padding-top: 40px;
+  max-width: 860px;
+}
+.legal-hero__title {
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: var(--od-fw-bold);
+  color: #FFFFFF;
+  margin: 0 0 12px;
+}
+.legal-hero__date {
+  font-size: 15px;
+  color: rgba(255,255,255,0.66);
+  margin: 0;
+}
+.legal-body {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--od-fg-2);
+}
+.legal-body p { margin: 0 0 18px; }
+.legal-body strong { color: var(--od-primary-800); font-weight: var(--od-fw-bold); }
+.legal-body h1, .legal-body h2, .legal-body h3, .legal-body h4 {
+  color: var(--od-primary-800);
+  font-weight: var(--od-fw-bold);
+  margin: 40px 0 16px;
+}
+.legal-body h3 { font-size: 22px; line-height: 1.3; }
+.legal-body a { color: var(--od-primary-500); text-decoration: underline; }
+@media (max-width: 720px) {
+  .legal-hero { padding-bottom: 40px; }
+}
+
 /* ===== home.css ===== */
 /* ─────────────────────────────────────────────────────────────
    OneDash homepage — additions for the simplified layout.
