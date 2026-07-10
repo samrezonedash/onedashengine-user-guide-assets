@@ -1301,6 +1301,11 @@ button { font-family: inherit; }
 .campaign__bar__fill { height: 100%; background: var(--od-primary-500); border-radius: 999px; }
 
 /* ── Responsive ─────────────────────────────────────────────── */
+/* html/body safety net: any element that miscalculates its width
+   (a grid track, a fixed-width badge, a long unbroken string) should
+   never be able to force the whole page into horizontal scroll —
+   that's what turns one bad element into "the entire page is broken." */
+html, body { overflow-x: hidden; max-width: 100%; }
 @media (max-width: 1080px) {
   .hero__grid { grid-template-columns: 1fr; gap: 56px; }
   .outcome-grid, .outcome-grid--reverse { grid-template-columns: 1fr; }
@@ -1313,12 +1318,20 @@ button { font-family: inherit; }
   .cta__row { justify-content: flex-start; }
   .footer__top { grid-template-columns: 1fr; }
   .results-hero__row { grid-template-columns: 1fr; }
+  /* Moved up from the 720px breakpoint: at "half monitor" widths
+     (roughly 850-1080px) these were still rendering as 3-5 column
+     grids with a fixed-width first track (.eff__row) or no collapse
+     at all (.attribution__row) — squeezed illegibly before ever
+     reaching 720px. Collapsing them here removes that gap entirely. */
+  .iam, .pipeline-grid, .hedis-grid, .campaigns { grid-template-columns: 1fr; }
+  .eff__row { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .attribution__row { grid-template-columns: 1fr; gap: 8px; text-align: left; }
+  .attribution__row__bar { width: 100%; }
+  .attribution__row__val { text-align: left; }
 }
 @media (max-width: 720px) {
   :root { --section-pad-y: 80px; --page-pad: 20px; }
   .nav__links { display: none; }
-  .iam, .pipeline-grid, .hedis-grid, .campaigns, .eff__row { grid-template-columns: 1fr; }
-  .eff__row { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
   .compounds { grid-template-columns: 1fr; }
   .section-head h2 { font-size: 40px; }
   .hero__title { font-size: 56px; }
@@ -1358,12 +1371,16 @@ button { font-family: inherit; }
   text-align: left !important;
   margin: 0 !important;
 }
-.section--legal { padding: 48px 0 100px; background: #FFFFFF; }
+/* Dark theme, seamless with the hero above and the footer below —
+   no light band in between, so there's no hero/body/footer color
+   transition to clash. */
+.section--legal { padding: 48px 0 100px; background: var(--od-primary-900); }
 .legal-body {
   display: block !important;
   max-width: 760px;
   margin: 0 auto;
   text-align: left !important;
+  overflow-wrap: break-word !important;
 }
 .legal-body p,
 .legal-body li,
@@ -1371,12 +1388,13 @@ button { font-family: inherit; }
 .legal-body strong {
   font-family: var(--od-font-sans) !important;
   text-align: left !important;
+  max-width: 100% !important;
 }
 .legal-body p {
   display: block !important;
   font-size: 17px !important;
   line-height: 1.75 !important;
-  color: var(--od-fg-1) !important;
+  color: rgba(255,255,255,0.86) !important;
   margin: 0 0 14px !important;
 }
 .legal-body ul {
@@ -1388,11 +1406,12 @@ button { font-family: inherit; }
   display: list-item !important;
   font-size: 17px !important;
   line-height: 1.75 !important;
-  color: var(--od-fg-1) !important;
+  color: rgba(255,255,255,0.86) !important;
   margin: 0 0 6px !important;
 }
-.legal-body strong { color: var(--od-primary-800) !important; font-weight: 700 !important; }
-.legal-body a { color: var(--od-primary-500) !important; text-decoration: underline !important; }
+.legal-body li::marker { color: rgba(255,255,255,0.5) !important; }
+.legal-body strong { color: #FFFFFF !important; font-weight: 700 !important; }
+.legal-body a { color: var(--od-sky-500) !important; text-decoration: underline !important; }
 .legal-body h1, .legal-body h2, .legal-body h3, .legal-body h4,
 .legal-body p.legal-h {
   display: block !important;
@@ -1402,7 +1421,7 @@ button { font-family: inherit; }
   text-transform: uppercase !important;
   text-align: left !important;
   font-weight: 700 !important;
-  color: var(--od-primary-500) !important;
+  color: var(--od-sky-500) !important;
   line-height: 1.4 !important;
   margin: 26px 0 6px !important;
 }
@@ -1410,6 +1429,7 @@ button { font-family: inherit; }
 @media (max-width: 720px) {
   .legal-hero { padding: 96px 0 28px !important; }
   .section--legal { padding: 32px 0 72px; }
+  .legal-body p, .legal-body li { font-size: 16px !important; }
 }
 
 /* ===== home.css ===== */
