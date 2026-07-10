@@ -1,36 +1,49 @@
 <!--
   =====================================================================
-  OneDash Marketing Site — Webflow Embed loader  (home)
+  OneDash Marketing Site — Webflow Embed loader v3  (home)
   =====================================================================
   WHAT: Paste this ONCE into a Webflow "Embed" element on the home
-        page. It never needs to change again — it fetches the real
-        page content from the CDN at runtime. To update the page,
-        edit the source, rebuild, and push to GitHub; this loader
-        picks up the change automatically on next page load.
+        page. It never needs to change again. CSS + content load from
+        GitHub raw (live within 5 min of a push, no cache purging);
+        images/PDF load from jsDelivr, which is also the fallback if
+        GitHub raw is unreachable. CSS is applied BEFORE content is
+        injected, so the page never renders unstyled.
   =====================================================================
 -->
-<script>
-  window.OD_ASSET_BASE = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@main/site/assets/";
-  window.OD_PAGE = "home";
-</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-<script>
-  document.write('<link rel="stylesheet" href="' + window.OD_ASSET_BASE + 'marketing.css">');
-</script>
 
 <div id="od-root" class="od-embed"></div>
 
 <script>
   (function () {
-    var base = window.OD_ASSET_BASE;
+    var PAGE = "home";
+    var RAW = "https://raw.githubusercontent.com/samrezonedash/onedashengine-user-guide-assets/main/site/assets/";
+    var CDN = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@main/site/assets/";
     var root = document.getElementById('od-root');
-    fetch(base + 'content/' + window.OD_PAGE + '.html')
-      .then(function (r) { return r.text(); })
-      .then(function (html) {
-        root.innerHTML = html;
-        root.querySelectorAll('[data-od]').forEach(function (el) { el.src = base + el.getAttribute('data-od'); });
-        root.querySelectorAll('[data-od-href]').forEach(function (el) { el.href = base + el.getAttribute('data-od-href'); });
-        if (window.OD_PAGE === 'home') {
+
+    function fetchText(path) {
+      return fetch(RAW + path).then(function (r) {
+        if (!r.ok) throw new Error('raw ' + r.status);
+        return r.text();
+      }).catch(function () {
+        return fetch(CDN + path).then(function (r) { return r.text(); });
+      });
+    }
+
+    Promise.all([fetchText('marketing.css'), fetchText('content/' + PAGE + '.html')])
+      .then(function (results) {
+        // CSS first — content must never render with only Webflow's own
+        // site-wide stylesheet (its bare p/li/h1/.container rules produce
+        // the centered/column-broken layout this loader exists to avoid).
+        var style = document.createElement('style');
+        style.textContent = results[0];
+        document.head.appendChild(style);
+
+        root.innerHTML = results[1];
+        root.querySelectorAll('[data-od]').forEach(function (el) { el.src = CDN + el.getAttribute('data-od'); });
+        root.querySelectorAll('[data-od-href]').forEach(function (el) { el.href = CDN + el.getAttribute('data-od-href'); });
+
+        if (PAGE === 'home') {
           var tabs = [].slice.call(root.querySelectorAll('.ptab'));
           var map = {'tab-quality':'panel-quality','tab-pharmacy':'panel-pharmacy','tab-finance':'panel-finance'};
           function act(t) {
@@ -44,10 +57,9 @@
           }
           tabs.forEach(function (t) { t.addEventListener('click', function () { act(t); }); });
         }
-        // Content just landed async, so a #hash in the URL from a cross-page
-        // link (e.g. "Who it's for" -> /prelive-home#personas) missed the
-        // browser's one-shot auto-scroll-on-load. Do it manually once the
-        // target element actually exists.
+
+        // Content landed async, so a #hash from a cross-page link missed
+        // the browser's one-shot scroll-on-load; do it once content exists.
         if (window.location.hash) {
           var hashTarget = root.querySelector(window.location.hash);
           if (hashTarget) { hashTarget.scrollIntoView(); }

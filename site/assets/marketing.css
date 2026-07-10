@@ -230,6 +230,29 @@ a { color: inherit; text-decoration: none; }
 img, svg { display: block; max-width: 100%; }
 button { font-family: inherit; }
 
+/* ── Embed root guard ───────────────────────────────────────── */
+/* These pages render inside a Webflow Embed, sharing the document with
+   Webflow's own site-wide stylesheet (bare h1-h6/p/li rules in Arial or
+   white, .container as flex-row). Everything inside .od-embed must
+   default to OUR design system so an unclassed element can never fall
+   back to Webflow's. Component rules below override these as usual. */
+.od-embed {
+  display: block;
+  font-family: var(--od-font-sans);
+  font-size: var(--od-fs-text-rg);
+  line-height: var(--od-lh-text-rg);
+  color: var(--od-fg-1);
+  text-align: left;
+}
+.od-embed h1, .od-embed h2, .od-embed h3, .od-embed h4, .od-embed h5, .od-embed h6 {
+  font-family: var(--od-font-sans);
+  color: var(--od-primary-800);
+  margin: 0;
+}
+.od-embed p { font-family: var(--od-font-sans); color: var(--od-fg-2); margin: 0; }
+.od-embed ul { margin: 0; padding: 0; }
+.od-embed li { font-family: var(--od-font-sans); color: inherit; }
+
 /* ── Layout ─────────────────────────────────────────────────── */
 .container {
   display: block;
@@ -258,7 +281,7 @@ button { font-family: inherit; }
 .section-head .eyebrow { color: var(--od-primary-500); }
 .section--dark .section-head .eyebrow { color: var(--od-sky-500); }
 .section-head h2 {
-  font-size: 56px;
+  font-size: clamp(32px, 4.4vw, 56px);
   line-height: 1.1;
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.025em;
@@ -647,7 +670,7 @@ button { font-family: inherit; }
   color: var(--od-fg-3);
 }
 .outcome-card__hero-value {
-  font-size: 72px;
+  font-size: clamp(48px, 6vw, 72px);
   line-height: 1;
   font-weight: var(--od-fw-bold);
   color: var(--od-primary-500);
@@ -691,7 +714,7 @@ button { font-family: inherit; }
   margin: 0;
 }
 .hedis-card__lift {
-  font-size: 80px;
+  font-size: clamp(54px, 6.6vw, 80px);
   font-weight: var(--od-fw-bold);
   line-height: 0.95;
   color: var(--od-success-500);
@@ -763,7 +786,7 @@ button { font-family: inherit; }
   gap: 20px;
 }
 .eff__lede h3 {
-  font-size: 44px;
+  font-size: clamp(28px, 3.6vw, 44px);
   line-height: 1.05;
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.025em;
@@ -936,7 +959,7 @@ button { font-family: inherit; }
   align-items: end;
 }
 .cta__title {
-  font-size: 64px;
+  font-size: clamp(36px, 5vw, 64px);
   line-height: 1.02;
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.03em;
@@ -1103,7 +1126,7 @@ button { font-family: inherit; }
 }
 .roi-compare__col--proj .roi-compare__head .tag { background: rgba(255,255,255,0.10); color: var(--od-sky-500); }
 .roi-compare__multiple {
-  font-size: 144px;
+  font-size: clamp(88px, 11vw, 144px);
   line-height: 0.9;
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.04em;
@@ -1139,7 +1162,7 @@ button { font-family: inherit; }
   align-items: center;
 }
 .runway__num {
-  font-size: 132px;
+  font-size: clamp(76px, 10vw, 132px);
   line-height: 1;
   font-weight: var(--od-fw-bold);
   color: var(--od-primary-500);
@@ -1514,7 +1537,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   align-items: center;
 }
 .results-head h2 {
-  font-size: 56px;
+  font-size: clamp(32px, 4.4vw, 56px);
   line-height: 1.08;
   font-weight: var(--od-fw-bold);
   color: var(--od-primary-800);
@@ -1585,7 +1608,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 }
 .result-card--featured .result-card__head { color: #FFFFFF; }
 .result-card__big {
-  font-size: 72px;
+  font-size: clamp(48px, 6vw, 72px);
   line-height: 0.95;
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.03em;
@@ -1655,7 +1678,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   align-items: center;
 }
 .loop-head h2 {
-  font-size: 48px;
+  font-size: clamp(30px, 4vw, 48px);
   line-height: 1.1;
   letter-spacing: -0.025em;
   font-weight: var(--od-fw-bold);
@@ -1881,7 +1904,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   margin-bottom: 16px;
 }
 .mtm-callout__lead h3 {
-  font-size: 30px;
+  font-size: clamp(23px, 2.5vw, 30px);
   line-height: 1.18;
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.02em;
@@ -2093,7 +2116,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   margin-bottom: 40px;
 }
 .personas__head h2 {
-  font-size: 44px;
+  font-size: clamp(28px, 3.6vw, 44px);
   line-height: 1.1;
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.025em;
@@ -2186,7 +2209,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   display: grid;
 }
 .persona__headline {
-  font-size: 34px;
+  font-size: clamp(25px, 2.8vw, 34px);
   line-height: 1.14;
   letter-spacing: -0.02em;
   font-weight: var(--od-fw-bold);
@@ -2546,7 +2569,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   color: var(--od-primary-500);
 }
 .people__head h2 {
-  font-size: 44px;
+  font-size: clamp(28px, 3.6vw, 44px);
   line-height: 1.1;
   letter-spacing: -0.025em;
   font-weight: var(--od-fw-bold);
@@ -2868,7 +2891,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   max-width: 720px;
 }
 .rz-sec-head h2 {
-  font-size: 40px;
+  font-size: clamp(27px, 3.3vw, 40px);
   line-height: 1.12;
   letter-spacing: -0.025em;
   font-weight: var(--od-fw-bold);
