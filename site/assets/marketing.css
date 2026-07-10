@@ -1326,42 +1326,50 @@ button { font-family: inherit; }
 }
 
 /* ── Legal pages (Privacy / Terms) ───────────────────────────── */
-.legal-hero { padding-bottom: 64px; }
+.legal-hero { padding: 132px 0 36px; }
 .legal-hero__inner {
-  padding-top: 40px;
+  padding-top: 0;
   max-width: 860px;
 }
 .legal-hero__title {
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   font-weight: var(--od-fw-bold);
   color: #FFFFFF;
-  margin: 0 0 12px;
+  margin: 0 0 8px;
 }
 .legal-hero__date {
-  font-size: 15px;
-  color: rgba(255,255,255,0.66);
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
   margin: 0;
 }
+.section--legal { padding: 48px 0 100px; background: #FFFFFF; }
 .legal-body {
-  max-width: 800px;
+  max-width: 760px;
   margin: 0 auto;
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--od-fg-2);
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--od-fg-1);
+  text-align: left;
 }
-.legal-body p { margin: 0 0 18px; }
+.legal-body p { margin: 0 0 14px; }
 .legal-body strong { color: var(--od-primary-800); font-weight: var(--od-fw-bold); }
-.legal-body h1, .legal-body h2, .legal-body h3, .legal-body h4 {
-  color: var(--od-primary-800);
-  font-weight: var(--od-fw-bold);
-  margin: 40px 0 16px;
-}
-.legal-body h3 { font-size: 22px; line-height: 1.3; }
 .legal-body a { color: var(--od-primary-500); text-decoration: underline; }
+.legal-body h1, .legal-body h2, .legal-body h3, .legal-body h4,
+.legal-body p.legal-h {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: var(--od-fw-bold);
+  color: var(--od-primary-500);
+  line-height: 1.4;
+  margin: 26px 0 6px;
+}
+.legal-body h1:first-child, .legal-body h3:first-child, .legal-body p.legal-h:first-child { margin-top: 0; }
 @media (max-width: 720px) {
-  .legal-hero { padding-bottom: 40px; }
+  .legal-hero { padding: 96px 0 28px; }
+  .section--legal { padding: 32px 0 72px; }
 }
 
 /* ===== home.css ===== */
