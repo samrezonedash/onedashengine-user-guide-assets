@@ -39,11 +39,11 @@
   --od-fg-4:    #8089A2;            /* placeholder rgb(128,137,162) */
   --od-fg-5:    #99A1B5;            /* disabled rgb(153,161,181) */
 
-  --od-line-1:  #EDEEF7;            /* card stroke rgb(237,238,247) */
+  --od-line-1:  #E2E6F0;            /* card stroke rgb(237,238,247) */
   --od-line-2:  #E6E8EC;            /* rgb(230,232,236) */
   --od-line-3:  #CCD0DA;            /* rgb(204,208,218) */
 
-  --od-surface-page: #F8F9FC;       /* app bg rgb(248,249,252) */
+  --od-surface-page: #F0F3F9;       /* app bg rgb(248,249,252) */
   --od-surface-card: #FFFFFF;
   --od-surface-elevated: #FFFFFF;
   --od-surface-dark: #031031;       /* dark mode page */
@@ -244,14 +244,19 @@ button { font-family: inherit; }
   color: var(--od-fg-1);
   text-align: left;
 }
-.od-embed h1, .od-embed h2, .od-embed h3, .od-embed h4, .od-embed h5, .od-embed h6 {
+/* :where() keeps these guards at class-level specificity (0,1,0): they
+   still beat Webflow's bare h1/p/li element rules, but TIE with our own
+   single-class component rules — which come later in this file and
+   therefore win. Without :where(), the guard itself repainted white
+   hero titles (.results-hero__title etc.) dark navy. */
+.od-embed :where(h1, h2, h3, h4, h5, h6) {
   font-family: var(--od-font-sans);
   color: var(--od-primary-800);
   margin: 0;
 }
-.od-embed p { font-family: var(--od-font-sans); color: var(--od-fg-2); margin: 0; }
-.od-embed ul { margin: 0; padding: 0; }
-.od-embed li { font-family: var(--od-font-sans); color: inherit; }
+.od-embed :where(p) { font-family: var(--od-font-sans); color: var(--od-fg-2); margin: 0; }
+.od-embed :where(ul) { margin: 0; padding: 0; }
+.od-embed :where(li) { font-family: var(--od-font-sans); color: inherit; }
 
 /* ── Layout ─────────────────────────────────────────────────── */
 .container {
