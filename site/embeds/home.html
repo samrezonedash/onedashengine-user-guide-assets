@@ -44,6 +44,14 @@
           }
           tabs.forEach(function (t) { t.addEventListener('click', function () { act(t); }); });
         }
+        // Content just landed async, so a #hash in the URL from a cross-page
+        // link (e.g. "Who it's for" -> /prelive-home#personas) missed the
+        // browser's one-shot auto-scroll-on-load. Do it manually once the
+        // target element actually exists.
+        if (window.location.hash) {
+          var hashTarget = root.querySelector(window.location.hash);
+          if (hashTarget) { hashTarget.scrollIntoView(); }
+        }
       });
   })();
 </script>
