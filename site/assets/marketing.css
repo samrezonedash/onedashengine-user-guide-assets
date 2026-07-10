@@ -993,6 +993,13 @@ button { font-family: inherit; }
   font-size: 12px;
   color: rgba(255,255,255,0.42);
 }
+.footer__legal-link {
+  color: rgba(255,255,255,0.62);
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,0.25);
+  transition: color var(--od-dur-fast) var(--od-ease);
+}
+.footer__legal-link:hover { color: #FFFFFF; }
 
 /* ── Footnote (small disclosures) ───────────────────────────── */
 .footnote {
