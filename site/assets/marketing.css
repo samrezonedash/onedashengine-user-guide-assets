@@ -781,8 +781,8 @@ button { font-family: inherit; }
 .eff__grid {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 64px;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 48px;
   align-items: center;
 }
 .eff__lede {
@@ -791,6 +791,7 @@ button { font-family: inherit; }
   gap: 20px;
 }
 .eff__lede h3 {
+  color: #FFFFFF;
   font-size: clamp(28px, 3.6vw, 44px);
   line-height: 1.05;
   font-weight: var(--od-fw-bold);
@@ -814,11 +815,11 @@ button { font-family: inherit; }
 }
 .eff__row {
   display: grid;
-  grid-template-columns: 110px 1fr 1fr 1fr 1fr;
+  grid-template-columns: 90px repeat(3, minmax(0, 1fr)) minmax(0, 1.25fr);
   background: var(--od-primary-800);
-  padding: 22px 28px;
+  padding: 22px 24px;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 .eff__row--head {
   background: rgba(255,255,255,0.04);
@@ -839,9 +840,9 @@ button { font-family: inherit; }
   font-weight: var(--od-fw-semibold);
   color: rgba(255,255,255,0.55);
 }
-.eff__year strong { display: block; font-size: 22px; letter-spacing: -0.01em; color: #FFFFFF; text-transform: none; font-weight: var(--od-fw-bold); margin-top: 2px;}
+.eff__year strong { display: block; font-size: clamp(15px, 1.2vw, 20px); letter-spacing: -0.01em; color: #FFFFFF; text-transform: none; font-weight: var(--od-fw-bold); margin-top: 2px;}
 .eff__num {
-  font-size: 26px;
+  font-size: clamp(16px, 1.45vw, 24px);
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.015em;
   font-variant-numeric: tabular-nums;
