@@ -994,12 +994,12 @@ button { font-family: inherit; }
   color: rgba(255,255,255,0.42);
 }
 .footer__legal-link {
-  color: rgba(255,255,255,0.62);
+  color: var(--od-sky-500);
   text-decoration: underline;
-  text-decoration-color: rgba(255,255,255,0.25);
+  text-decoration-color: rgba(71,198,255,0.4);
   transition: color var(--od-dur-fast) var(--od-ease);
 }
-.footer__legal-link:hover { color: #FFFFFF; }
+.footer__legal-link:hover { color: #6FD2FF; }
 
 /* ── Footnote (small disclosures) ───────────────────────────── */
 .footnote {
