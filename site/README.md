@@ -23,11 +23,18 @@ webflow-deploy/
 
 ## How it works
 
-Each file in `embeds/` is a **tiny, permanent loader** (~2.3KB) — it sets a couple of config variables, loads `marketing.css`, and then `fetch()`es the matching file from `content/` and injects it into the page. The loader is identical across all four pages except for one config line (`OD_PAGE`).
+Each file in `embeds/` is a **tiny, permanent loader** (~3.3KB). It fetches
+`marketing.css` and the page's `content/<page>.html` from
+**raw.githubusercontent.com** (CORS-enabled, `cache-control: max-age=300` —
+any push is live within 5 minutes, no cache purging, ever), injects the CSS
+as a `<style>` element (raw serves text/plain, which `<link>` would reject),
+and only injects the content **after** the CSS is applied — so the page can
+never render with only Webflow's own site-wide stylesheet. Binary assets
+(images, PDF) load from jsDelivr, which is also the automatic fallback for
+CSS/content if raw is unreachable.
 
-**This means after the one-time paste below, you never touch Webflow again for content changes.** Editing text, links, images, or adding sections is just: edit the source → rebuild → `git push`. The next time anyone loads the page, they get the new content automatically.
-
-Trade-off to know: content now appears a beat after page load (a `fetch()`, not baked into the initial HTML), and since it's JS-rendered, anything that scrapes the page without running JavaScript won't see the content in the raw HTML. Google's crawler executes JS and handles this fine.
+**After the one-time paste below, you never touch Webflow again for content
+changes.** Edit source → rebuild → `git push` → live within 5 minutes.
 
 ## One-time setup
 
