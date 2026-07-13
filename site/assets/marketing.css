@@ -334,6 +334,12 @@ button { font-family: inherit; }
 }
 .nav__row {
   display: flex;
+  /* Pin row direction + nowrap: Webflow's shared `.container` (this div is
+     `container nav__row`) flips to `flex-direction: column` at its ≥1920px
+     breakpoint, which otherwise stacks logo/links/CTA vertically on wide
+     (≥1920px) displays. Our rule loads after Webflow's, so this wins. */
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
