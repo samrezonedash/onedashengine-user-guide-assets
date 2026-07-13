@@ -353,7 +353,7 @@ button { font-family: inherit; }
 }
 .nav__links a {
   color: rgba(255,255,255,0.78);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: var(--od-fw-medium);
   transition: color var(--od-dur-fast) var(--od-ease);
 }
