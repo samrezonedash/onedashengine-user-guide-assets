@@ -2461,7 +2461,14 @@ html, body { overflow-x: hidden; max-width: 100%; }
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
-  max-width: 860px;
+  /* Center this block within the container and match Home's 936px text
+     column (Home = 1000px container − 32px padding each side). Unlike
+     Home/Resources this grid isn't itself a .container, so it was
+     left-anchored at the container edge — centering it here lines its
+     text up with the other pages' heroes. */
+  max-width: 936px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .about-hero__eyebrow {
   font-size: 12px;
@@ -2879,7 +2886,10 @@ html, body { overflow-x: hidden; max-width: 100%; }
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  max-width: 860px;
+  /* Match the Home hero block width so hero text starts/stops in the
+     same place across pages (this is a .container, centered w/ 32px pad,
+     so 1000px here → text column identical to Home's). */
+  max-width: 1000px;
   padding-top: 40px;
 }
 .rz-hero__eyebrow {
