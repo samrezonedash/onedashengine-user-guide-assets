@@ -2430,9 +2430,13 @@ html, body { overflow-x: hidden; max-width: 100%; }
    ───────────────────────────────────────────────────────────── */
 
 /* ── About hero / origin ────────────────────────────────────── */
+/* This sits INSIDE <header class="hero">, which already supplies the
+   hero's 180px/120px padding. Adding another 168/96 here stacked to
+   ~348px top — the huge gap under the nav. Zeroed so the header's
+   single padding layer stands, matching the other pages' heroes. */
 .about-hero {
-  padding-top: 168px;
-  padding-bottom: 96px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .about-hero__grid {
   display: grid;
