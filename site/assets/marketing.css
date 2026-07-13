@@ -272,6 +272,19 @@ button { font-family: inherit; }
   padding-top: var(--section-pad-y);
   padding-bottom: var(--section-pad-y);
 }
+/* Webflow's shared stylesheet ships its OWN `.section` class
+   (`padding: 83px 0; display: flex`, plus `@media (min-width:1280px){
+   .section{ padding:108px }}`). Our rule above only sets top/bottom
+   padding, so Webflow's 108px HORIZONTAL padding leaked through and
+   stacked on top of `.container`'s own gutter — a double left/right
+   inset. Scoping to `.od-embed .section` (specificity 0,2,0) beats
+   Webflow's bare `.section` (0,1,0) in every breakpoint, including the
+   1280px media rule, and restores our container-only gutter model. */
+.od-embed .section {
+  padding-left: 0;
+  padding-right: 0;
+  display: block;
+}
 .section--sm { padding-top: var(--section-pad-y-sm); padding-bottom: var(--section-pad-y-sm); }
 .section--page { background: var(--od-surface-page); }
 .section--dark { background: var(--od-primary-900); color: var(--hero-fg); }
