@@ -1096,6 +1096,27 @@ button { font-family: inherit; }
 }
 .results-hero__meta__row strong { color: #FFFFFF; font-weight: var(--od-fw-semibold); }
 
+/* ── Results page: centered layout (hero copy + section headings) ────
+   Stacks the split hero into one centered column (headline above a
+   centered stat panel) and centers every section heading. The ROI
+   tables, outcome cards, and data blocks below keep their structure.
+   `.results-hero*` and `.section-head` are Results-page-only classes. */
+.results-hero__row {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+}
+.results-hero__meta {
+  width: 100%;
+  max-width: 440px;
+}
+.section-head {
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
+}
+
 /* ── Side-by-side ROI compare ───────────────────────────────── */
 .roi-compare {
   display: grid;
@@ -2611,6 +2632,33 @@ html, body { overflow-x: hidden; max-width: 100%; }
   line-height: 1.6;
   color: var(--od-fg-2);
   margin: 0;
+}
+
+/* ── About page: centered layout (hero copy + section headings) ──────
+   The narrative hero and team-section headings read centered. The
+   left-accent border + divider that anchored the story blocks to the
+   left are dropped here, since they clash with centered text. Team-card
+   grids keep their existing structure. All classes here are About-only. */
+.about-hero__grid {
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+  text-align: center;
+}
+.about-hero__story,
+.about-hero__close {
+  border-left: none;
+  padding-left: 0;
+}
+.about-hero__story--second::before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.people__head {
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  text-align: center;
 }
 
 .people__grid {
