@@ -1,4 +1,4 @@
-/* guide-articles-1.jsx
+ /* guide-articles-1.jsx
    Overview + Fundamentals + My Dashboard
 */
 
@@ -250,7 +250,24 @@ window.GUIDE_ARTICLES_1 = [
         title: "Latest releases",
         body: (
           <>
-         <Release ver="1.5" date="July 1, 2026" defaultOpen>
+             <Release ver="1.6" date="July 13, 2026" defaultOpen>
+     <h4>New features</h4>
+     <ul>
+       <li><strong>Editable AI MTMs.</strong> AI-generated MTMs can now be edited directly, giving users greater control over documentation before finalizing.</li>
+       <li><strong>MD appointment action type.</strong> MD Appointment is now available as a manual action type for tracking and logging physician visit coordination.</li>
+       <li><strong>New fax template variables.</strong> Two new variables are now available for use in fax templates, expanding customization options for outbound faxes.</li>
+     </ul>
+     <h4>Enhancements</h4>
+     <ul>
+       <li>Rule run jobs have been restructured for improved efficiency — individual jobs are now split and scheduled per rule to reduce processing bottlenecks.</li>
+       <li>Urgent tags are now color-coded red for faster visual identification.</li>
+     </ul>
+     <h4>Bug fixes</h4>
+     <ul>
+       <li>Fixed date picker issues and a missing dropdown option in the MD Appointment action type.</li>
+     </ul>
+   </Release>
+         <Release ver="1.5" date="July 1, 2026">
          <h4>New features</h4>
          <ul>
          <li><strong>Outreach & work status tracking.</strong> Users can now track where a patient is in the outreach journey — including which outreaches have been attempted — as well as their current work status, such as pending a claim or pending an appointment.</li>
