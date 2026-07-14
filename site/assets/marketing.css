@@ -3404,43 +3404,54 @@ html, body { overflow-x: hidden; max-width: 100%; }
   resize: vertical;
 }
 
-/* Placeholder captcha — visual only until wired up */
-.contact-captcha {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 302px;
-  max-width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--od-line-3);
-  border-radius: var(--od-radius-sm);
+/* Validation — red required state */
+.field__error {
+  display: none;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--od-error-500);
+  margin-top: 2px;
+}
+.field.is-invalid .field__error { display: block; }
+.field.is-invalid input,
+.field.is-invalid textarea {
+  border-color: var(--od-error-500);
+  box-shadow: 0 0 0 4px rgba(209,67,67,0.12);
   background: var(--od-surface-card);
-  box-shadow: var(--od-shadow-xs);
 }
-.contact-captcha__box {
-  flex: none;
-  width: 26px;
-  height: 26px;
-  border: 2px solid var(--od-line-3);
-  border-radius: var(--od-radius-xs);
-  background: var(--od-surface-page);
+
+/* Honeypot — visually hidden, off-screen (bots fill it, humans never see it) */
+.od-hp {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
-.contact-captcha__label {
-  font-size: 15px;
-  color: var(--od-fg-1);
-}
-.contact-captcha__brand {
-  margin-left: auto;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  font-size: 10px;
-  letter-spacing: 0.02em;
-  color: var(--od-fg-4);
-}
-.contact-captcha__brand i { font-size: 18px; color: var(--od-primary-400); }
+
+/* Captcha slot */
+#od-captcha { min-height: 78px; }
+
+/* Submit + status */
 .contact-form__submit { align-self: flex-start; margin-top: 4px; }
+.contact-form__status {
+  margin: 4px 0 0;
+  padding: 14px 16px;
+  border-radius: var(--od-radius-md);
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: var(--od-fw-medium);
+}
+.contact-form__status.is-success {
+  color: var(--od-success-500);
+  background: var(--od-success-100);
+  border: 1px solid rgba(40,160,128,0.25);
+}
+.contact-form__status.is-error {
+  color: var(--od-error-500);
+  background: var(--od-error-100);
+  border: 1px solid rgba(209,67,67,0.25);
+}
 
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 991px) {
