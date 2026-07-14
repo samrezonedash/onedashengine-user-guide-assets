@@ -57,45 +57,54 @@
           <h2 class="contact-card__title">Send us a message</h2>
           <p class="contact-card__sub">Tell us a bit about you and we'll be in touch shortly.</p>
 
-          <form class="contact-form" onsubmit="return false;">
+          <form id="od-contact-form" class="contact-form" novalidate>
             <div class="contact-form__row">
               <div class="field">
                 <label for="cf-name">Full Name</label>
-                <input id="cf-name" type="text" name="name" placeholder="First &amp; Last Name" autocomplete="name" />
+                <input id="cf-name" type="text" name="name" required placeholder="First &amp; Last Name" autocomplete="name" />
+                <span class="field__error" data-error></span>
               </div>
               <div class="field">
                 <label for="cf-email">Email Address</label>
-                <input id="cf-email" type="email" name="email" placeholder="Email Address" autocomplete="email" />
+                <input id="cf-email" type="email" name="email" required placeholder="Email Address" autocomplete="email" />
+                <span class="field__error" data-error></span>
               </div>
             </div>
 
             <div class="contact-form__row">
               <div class="field">
                 <label for="cf-phone">Phone Number</label>
-                <input id="cf-phone" type="tel" name="phone" placeholder="(###) ###-####" autocomplete="tel" />
+                <input id="cf-phone" type="tel" name="phone" required placeholder="(###) ###-####" autocomplete="tel" />
+                <span class="field__error" data-error></span>
               </div>
               <div class="field">
                 <label for="cf-company">Company Name</label>
-                <input id="cf-company" type="text" name="company" placeholder="Your company name" autocomplete="organization" />
+                <input id="cf-company" type="text" name="company" required placeholder="Your company name" autocomplete="organization" />
+                <span class="field__error" data-error></span>
               </div>
             </div>
 
             <div class="field">
               <label for="cf-message">Message</label>
-              <textarea id="cf-message" name="message" placeholder="How can we help?"></textarea>
+              <textarea id="cf-message" name="message" required placeholder="How can we help?"></textarea>
+              <span class="field__error" data-error></span>
             </div>
 
-            <!-- Placeholder captcha (visual only — to be wired up) -->
-            <div class="contact-captcha" aria-hidden="true">
-              <span class="contact-captcha__box"></span>
-              <span class="contact-captcha__label">I'm not a robot</span>
-              <span class="contact-captcha__brand"><i class="fa-solid fa-shield-halved"></i>reCAPTCHA</span>
+            <!-- Honeypot — hidden from humans, catches bots -->
+            <input type="checkbox" name="botcheck" class="od-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <!-- Real captcha — hCaptcha widget is rendered here by the embed loader -->
+            <div class="field">
+              <div id="od-captcha" class="h-captcha"></div>
+              <span class="field__error" data-error></span>
             </div>
 
             <button type="submit" class="btn btn--primary contact-form__submit">
               <span>Send a message</span>
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </button>
+
+            <p class="contact-form__status" data-status hidden></p>
           </form>
         </div>
 
