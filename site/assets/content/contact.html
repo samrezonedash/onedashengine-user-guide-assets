@@ -145,3 +145,85 @@
       </div>
     </div>
   </footer>
+
+  <!-- ────────── FORM LOGIC (re-executed by the embed loader) ────────── -->
+  <script>
+  (function () {
+    var WEB3FORMS_KEY    = (window.OD_WEB3FORMS_KEY || "").trim();
+    var HCAPTCHA_SITEKEY = (window.OD_HCAPTCHA_SITEKEY || "50b2fe65-b00b-4b9e-ad62-3ba471098be2").trim();
+
+    var form = document.getElementById('od-contact-form');
+    if (!form) return;
+    var status = form.querySelector('[data-status]');
+    var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    var widgetId = null;
+
+    function renderCaptcha() {
+      if (!window.hcaptcha) return;
+      var el = document.getElementById('od-captcha');
+      if (el && !el.getAttribute('data-rendered')) {
+        widgetId = window.hcaptcha.render('od-captcha', { sitekey: HCAPTCHA_SITEKEY });
+        el.setAttribute('data-rendered', '1');
+      }
+    }
+    if (window.hcaptcha) {
+      renderCaptcha();
+    } else {
+      window.odHcaptchaOnload = function () { renderCaptcha(); };
+      if (!document.getElementById('od-hcaptcha-api')) {
+        var s = document.createElement('script');
+        s.id = 'od-hcaptcha-api';
+        s.src = 'https://js.hcaptcha.com/1/api.js?render=explicit&onload=odHcaptchaOnload';
+        s.async = true; s.defer = true;
+        document.head.appendChild(s);
+      }
+    }
+
+    function fieldOf(el) { return el.closest('.field'); }
+    function setErr(el, msg) { var f = fieldOf(el); if (!f) return; f.classList.add('is-invalid'); var e = f.querySelector('[data-error]'); if (e) e.textContent = msg || 'This field is required.'; }
+    function clearErr(el) { var f = fieldOf(el); if (!f) return; f.classList.remove('is-invalid'); var e = f.querySelector('[data-error]'); if (e) e.textContent = ''; }
+    form.querySelectorAll('input, textarea').forEach(function (el) { el.addEventListener('input', function () { clearErr(el); }); });
+
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var ok = true, firstBad = null;
+      form.querySelectorAll('[required]').forEach(function (el) {
+        var v = (el.value || '').trim();
+        if (!v) { setErr(el); ok = false; firstBad = firstBad || el; }
+        else if (el.type === 'email' && !EMAIL_RE.test(v)) { setErr(el, 'Enter a valid email address.'); ok = false; firstBad = firstBad || el; }
+        else { clearErr(el); }
+      });
+      var token = (window.hcaptcha && widgetId !== null) ? window.hcaptcha.getResponse(widgetId) : '';
+      var capEl = document.getElementById('od-captcha');
+      if (!token) { setErr(capEl, 'Please confirm you are human.'); ok = false; firstBad = firstBad || capEl; } else { clearErr(capEl); }
+      if (!ok) { if (firstBad && firstBad.focus) firstBad.focus(); return; }
+      var hp = form.querySelector('[name="botcheck"]'); if (hp && hp.checked) return;
+
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.style.opacity = '0.7';
+
+      var payload = { access_key: WEB3FORMS_KEY, subject: 'New contact enquiry — OneDash website', from_name: 'OneDash Website' };
+      new FormData(form).forEach(function (v, k) { if (k !== 'botcheck' && k !== 'h-captcha-response') payload[k] = v; });
+      payload['h-captcha-response'] = token;
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload)
+      }).then(function (r) { return r.json(); }).then(function (data) {
+        if (data && data.success) {
+          [].forEach.call(form.children, function (c) { if (c !== status) c.style.display = 'none'; });
+          status.hidden = false; status.className = 'contact-form__status is-success';
+          status.textContent = "Thanks — your message is on its way. We'll be in touch shortly.";
+        } else {
+          status.hidden = false; status.className = 'contact-form__status is-error';
+          status.textContent = 'Could not send: ' + ((data && data.message) || 'unknown error');
+          if (window.hcaptcha && widgetId !== null) window.hcaptcha.reset(widgetId);
+          btn.disabled = false; btn.style.opacity = '1';
+        }
+      }).catch(function (err) {
+        status.hidden = false; status.className = 'contact-form__status is-error';
+        status.textContent = 'Network error: ' + err + ' — or email support@onedashengine.com directly.';
+        btn.disabled = false; btn.style.opacity = '1';
+      });
+    });
+  })();
+  </script>
