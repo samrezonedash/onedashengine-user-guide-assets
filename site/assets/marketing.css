@@ -3275,7 +3275,16 @@ html, body { overflow-x: hidden; max-width: 100%; }
   align-items: start;
 }
 
-/* ── Left: reach-us panel ─────────────────────────────────────── */
+/* ── Left: reach-us panel (card) ──────────────────────────────── */
+.contact-info {
+  display: block;          /* guard against Webflow shared class collisions */
+  height: auto;
+  background: var(--od-surface-card);
+  border: 1px solid var(--od-line-1);
+  border-radius: var(--od-radius-2xl);
+  padding: 40px;
+  box-shadow: var(--od-shadow-lg);
+}
 .contact-info__title {
   font-size: clamp(28px, 3.4vw, 40px);
   line-height: 1.12;
@@ -3336,6 +3345,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
 /* ── Right: form card ─────────────────────────────────────────── */
 .contact-card {
+  display: block;          /* override Webflow shared .contact-card { display:flex; height:100% } */
+  height: auto;
   background: var(--od-surface-card);
   border: 1px solid var(--od-line-1);
   border-radius: var(--od-radius-2xl);
