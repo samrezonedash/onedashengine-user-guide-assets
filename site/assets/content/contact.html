@@ -93,6 +93,12 @@
             <!-- Honeypot — hidden from humans, catches bots -->
             <input type="checkbox" name="botcheck" class="od-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
+            <!-- Real captcha — hCaptcha widget rendered here by the embed loader -->
+            <div class="field">
+              <div id="od-captcha" class="h-captcha"></div>
+              <span class="field__error" data-error></span>
+            </div>
+
             <button type="submit" class="btn btn--primary contact-form__submit">
               <span>Send a message</span>
               <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
