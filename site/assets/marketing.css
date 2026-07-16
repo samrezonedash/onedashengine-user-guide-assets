@@ -3286,12 +3286,12 @@ html, body { overflow-x: hidden; max-width: 100%; }
   box-shadow: var(--od-shadow-lg);
 }
 .contact-info__title {
-  font-size: clamp(28px, 3.4vw, 40px);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   font-weight: var(--od-fw-bold);
   color: var(--od-primary-800);
-  margin: 14px 0 0;
+  margin: 0;
   text-wrap: balance;
 }
 .contact-info__lead {
