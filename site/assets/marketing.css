@@ -184,8 +184,8 @@ code { font-family: var(--od-font-mono); font-size: 0.92em; background: var(--od
   /* Page rhythm */
   --page-max: 1240px;
   --page-pad: 32px;
-  --section-pad-y: 120px;
-  --section-pad-y-sm: 80px;
+  --section-pad-y: 144px;
+  --section-pad-y-sm: 92px;
 
   /* Stat density (tweakable) */
   --stat-hero-size: 88px;
@@ -3473,3 +3473,79 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .contact-form__row { grid-template-columns: 1fr; }
   .contact-card { padding: 24px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   2026 REFRESH — motion & polish  (prelive)
+   All CSS-only. Honors prefers-reduced-motion, and where scroll-driven
+   animation is unsupported the content simply shows (no dependency).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Ambient drift: the hero's gradient field breathes slowly ─── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero::before {
+    animation: od-ambient 26s ease-in-out infinite alternate;
+    will-change: transform, opacity;
+  }
+}
+@keyframes od-ambient {
+  0%   { transform: scale(1)    translate3d(0, 0, 0);        opacity: 0.92; }
+  50%  { transform: scale(1.08) translate3d(2.5%, -1.5%, 0); opacity: 1;    }
+  100% { transform: scale(1.04) translate3d(-2%, 1.5%, 0);   opacity: 0.94; }
+}
+
+/* ── Hero entrance: a gentle, staggered rise on load ──────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero--stakes__eyebrow,
+  .hero--stakes__title,
+  .hero--stakes__lead,
+  .hero--stakes__cta,
+  .hero--stakes__how {
+    animation: od-hero-in 0.7s var(--od-ease) both;
+  }
+  .hero--stakes__title { animation-delay: 0.06s; }
+  .hero--stakes__lead  { animation-delay: 0.14s; }
+  .hero--stakes__cta   { animation-delay: 0.22s; }
+  .hero--stakes__how   { animation-delay: 0.32s; }
+}
+@keyframes od-hero-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll reveal: content blocks fade + rise as they enter view.
+      Pure CSS scroll-driven animation; unsupported browsers just show. ── */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .od-embed .results-head,
+    .od-embed .loop-head,
+    .od-embed .personas__head,
+    .od-embed .section-head,
+    .od-embed .rz-sec-head,
+    .od-embed .result-card,
+    .od-embed .how-item,
+    .od-embed .dl-card,
+    .od-embed .iam__card,
+    .od-embed .outcome-card,
+    .od-embed .loop-node,
+    .od-embed .mtm-callout,
+    .od-embed .person,
+    .od-embed .contact-info,
+    .od-embed .contact-card {
+      animation: od-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 16%;
+    }
+  }
+}
+@keyframes od-reveal {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── CTA buttons: subtle lift + glow on hover ─────────────────── */
+.btn { transition: transform var(--od-dur-base) var(--od-ease), box-shadow var(--od-dur-base) var(--od-ease), background var(--od-dur-base) var(--od-ease), border-color var(--od-dur-base) var(--od-ease); }
+.btn--primary:hover {
+  box-shadow: 0 10px 28px -8px rgba(71,198,255,0.55), 0 0 0 1px rgba(71,198,255,0.18);
+}
+.btn--ghost-light:hover { box-shadow: 0 8px 22px -10px rgba(0,0,0,0.4); }
+.btn--ghost-dark:hover  { box-shadow: 0 8px 22px -12px rgba(1,20,69,0.28); }
