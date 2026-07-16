@@ -17,8 +17,15 @@
 <script>
   (function () {
     var PAGE = "resources";
+    // ── Branch toggle — comment/uncomment the active block, then publish ──
+    // MAIN (production — live for real visitors). ACTIVE by default:
     var RAW = "https://raw.githubusercontent.com/samrezonedash/onedashengine-user-guide-assets/main/site/assets/";
     var CDN = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@main/site/assets/";
+    // PRELIVE (testing). To preview WIP changes: comment out the two MAIN
+    // lines above, uncomment these two, then publish (to this page only,
+    // or the whole site — either is fine, this only affects this page):
+    // var RAW = "https://raw.githubusercontent.com/samrezonedash/onedashengine-user-guide-assets/prelive/site/assets/";
+    // var CDN = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@prelive/site/assets/";
     var root = document.getElementById('od-root');
 
     function fetchText(path) {
