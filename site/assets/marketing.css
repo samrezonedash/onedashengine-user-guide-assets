@@ -3538,8 +3538,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   }
 }
 @keyframes od-reveal {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; translate: 0 30px; }
+  to   { opacity: 1; translate: 0 0; }
 }
 
 /* ── CTA buttons: subtle lift + glow on hover ─────────────────── */
@@ -3753,3 +3753,19 @@ html, body { overflow-x: hidden; max-width: 100%; }
   }
 }
 @keyframes od-loop-drift { to { stroke-dashoffset: -200; } }
+
+/* Reveal — additional components (About team head, Results comparison
+   columns & pipeline cards). Uses the translate-based od-reveal so it
+   composes with hover-lift (transform). */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .od-embed .people__head,
+    .od-embed .roi-compare__col,
+    .od-embed .pipeline-card,
+    .od-embed .flow-head {
+      animation: od-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 16%;
+    }
+  }
+}
