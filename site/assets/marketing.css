@@ -3707,3 +3707,21 @@ html, body { overflow-x: hidden; max-width: 100%; }
   88%  { opacity: 1; }
   100% { top: 100%; opacity: 0; }
 }
+
+/* Where-we-fit note under the flow */
+.flow-fit {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 24px;
+  padding: 22px 24px;
+  background: var(--od-surface-card);
+  border: 1px solid var(--od-line-1);
+  border-left: 3px solid var(--od-primary-500);
+  border-radius: var(--od-radius-lg);
+  max-width: 860px;
+  box-shadow: var(--od-shadow-sm);
+}
+.flow-fit i { color: var(--od-primary-500); font-size: 18px; margin-top: 3px; flex: none; }
+.flow-fit p { margin: 0; font-size: 15.5px; line-height: 1.62; color: var(--od-fg-2); }
+.flow-fit strong { color: var(--od-primary-800); font-weight: var(--od-fw-semibold); }
