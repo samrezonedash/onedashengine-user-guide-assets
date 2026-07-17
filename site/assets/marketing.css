@@ -184,8 +184,8 @@ code { font-family: var(--od-font-mono); font-size: 0.92em; background: var(--od
   /* Page rhythm */
   --page-max: 1240px;
   --page-pad: 32px;
-  --section-pad-y: 144px;
-  --section-pad-y-sm: 92px;
+  --section-pad-y: 100px;
+  --section-pad-y-sm: 64px;
 
   /* Stat density (tweakable) */
   --stat-hero-size: 88px;
@@ -1378,7 +1378,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .attribution__row__val { text-align: left; }
 }
 @media (max-width: 720px) {
-  :root { --section-pad-y: 80px; --page-pad: 20px; }
+  :root { --section-pad-y: 60px; --page-pad: 20px; }
   .nav__links { display: none; }
   .compounds { grid-template-columns: 1fr; }
   .section-head h2 { font-size: 40px; }
@@ -3725,3 +3725,31 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .flow-fit i { color: var(--od-primary-500); font-size: 18px; margin-top: 3px; flex: none; }
 .flow-fit p { margin: 0; font-size: 15.5px; line-height: 1.62; color: var(--od-fg-2); }
 .flow-fit strong { color: var(--od-primary-800); font-weight: var(--od-fw-semibold); }
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD LIFE + LOOP MOTION  (prelive)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Lift + sharpen on hover across card types (not .person — it has its
+   own hover reveal). */
+.result-card, .dl-card, .iam__card, .flow-stage, .outcome-card, .pipeline-card {
+  transition: transform var(--od-dur-base) var(--od-ease),
+              box-shadow var(--od-dur-base) var(--od-ease),
+              border-color var(--od-dur-base) var(--od-ease);
+}
+.result-card:hover, .dl-card:hover, .iam__card:hover, .outcome-card:hover, .pipeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--od-shadow-lg);
+  border-color: rgba(28,121,174,0.28);
+}
+.flow-stage:hover { transform: translateY(-4px); }
+.flow-stage--core:hover { transform: translateY(-4px) scale(1.01); }
+
+/* Closed-loop diagram: the dashed ring drifts slowly — quiet motion,
+   no pulse. */
+@media (prefers-reduced-motion: no-preference) {
+  .loop-svg circle {
+    animation: od-loop-drift 40s linear infinite;
+  }
+}
+@keyframes od-loop-drift { to { stroke-dashoffset: -200; } }
