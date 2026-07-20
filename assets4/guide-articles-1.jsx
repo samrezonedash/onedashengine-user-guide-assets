@@ -249,8 +249,16 @@ window.GUIDE_ARTICLES_1 = [
         id: "latest",
         title: "Latest releases",
         body: (
-          <>
-             <Release ver="1.6" date="July 13, 2026" defaultOpen>
+          <>  
+           <Release ver="1.7" date="July 20, 2026" defaultOpen>
+     <h4>Enhancements</h4>
+     <ul>
+       <li>Fax template updates.</li>
+       <li>Care gap filter improvements.</li>
+       <li>Efficiency improvements to creating care gaps from rules.</li>
+     </ul>
+     </Release>
+           <Release ver="1.6" date="July 13, 2026">
      <h4>New features</h4>
      <ul>
        <li><strong>Editable AI MTMs.</strong> AI-generated MTMs can now be edited directly, giving users greater control over documentation before finalizing.</li>
