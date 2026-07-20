@@ -3748,7 +3748,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 /* Closed-loop diagram: the dashed ring drifts slowly — quiet motion,
    no pulse. */
 @media (prefers-reduced-motion: no-preference) {
-  .loop-svg circle {
+  .loop-svg circle:not(.loop-comet) {
     animation: od-loop-drift 40s linear infinite;
   }
 }
