@@ -16,8 +16,8 @@
 
     <div class="container hero--stakes__grid">
       <div class="hero--stakes__eyebrow">Automated intelligent gap closure</div>
-      <h1 class="hero--stakes__title">Automate the operations that decide your Star Ratings — <em>and your margin.</em></h1>
-      <p class="hero--stakes__lead">An automated, intelligent gap-closure platform — AI-powered and grounded in deep clinical expertise. Built on our own library of clinical rules, OneDash detects the quality and spend gaps that matter, raises them, and closes them automatically — for higher Stars and measurable ROI.</p>
+      <h1 class="hero--stakes__title">Automate the operations that decide your Quality Ratings — <em>and your margin.</em></h1>
+      <p class="hero--stakes__lead">An automated, intelligent gap-closure platform — AI-powered and grounded in deep clinical expertise. Built on our own library of clinical rules, OneDash detects the quality and spend gaps that matter, raises them, and closes them automatically — for higher Quality Ratings and measurable ROI.</p>
       <div class="hero--stakes__cta">
         <a class="btn btn--primary" href="/contact">
           <span>Request a personalized demo</span>
@@ -40,7 +40,7 @@
         </div>
         <div class="how-item" role="listitem">
           <div class="how-item__contrast"><span class="how-item__no">Blind spots</span><i class="fa-solid fa-arrow-right-long"></i><span class="how-item__yes">Closed loop</span></div>
-          <p>Every action ties back to the measure it moves and the dollar it protects — attributed, audit-ready.</p>
+          <p>Every action ties back to the measure it moves and the dollar it protects — fully attributed.</p>
         </div>
       </div>
     </div>
@@ -58,47 +58,89 @@
     </div>
   </section>
 
-  <!-- ────────── HOW IT WORKS (input → OneDash → output) ────────── -->
-  <section class="section flow-sec" id="how">
+  <!-- ────────── HOW IT WORKS · WHY US (continuous loop) ────────── -->
+  <section class="section loop-sec" id="how">
     <div class="container">
-      <div class="flow-head">
-        <div class="eyebrow">How it works</div>
-        <h2>Detect. Raise. Act. Close. <em>Automatically.</em></h2>
-        <p>Built on our clinical team's expertise and a library of rules refined over years, OneDash finds the quality and spend gaps that matter — then runs the sequences that close them. No rip-and-replace, no new reporting vendor.</p>
+      <div class="loop-head">
+        <div class="eyebrow">How it works · Why us</div>
+        <h2>Identify. Act. Refine. <em>Automatically.</em></h2>
+        <p>One continuous loop, running all year. OneDash raises the gaps, closes them, and — the part others can't copy — puts clinical expertise behind every close to refine the gaps it raises next. So the loop course-corrects as you go, and opportunities stop slipping through.</p>
       </div>
 
-      <div class="flow">
-        <article class="flow-stage flow-stage--in">
-          <span class="flow-stage__tag">Detect &amp; raise</span>
-          <span class="flow-stage__icon"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></span>
-          <h3>We raise the gaps</h3>
-          <p>Our own clinical rule library scans your claims, pharmacy &amp; lab data and raises the quality and spend gaps that matter — in real time.</p>
+      <div class="loop-diagram">
+        <svg class="loop-svg" viewBox="0 0 560 560" aria-hidden="true">
+          <defs>
+            <marker id="ah-primary" markerWidth="12" markerHeight="12" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="var(--od-primary-400)"></path></marker>
+            <marker id="ah-sky" markerWidth="13" markerHeight="13" refX="4.2" refY="4.2" orient="auto"><path d="M0,0 L8.4,4.2 L0,8.4 Z" fill="var(--od-sky-500)"></path></marker>
+          </defs>
+          <!-- base ring -->
+          <circle cx="280" cy="280" r="200" fill="none" stroke="var(--od-line-2)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"></circle>
+          <!-- Identify → Act -->
+          <path d="M380,107 A200,200 0 0 1 480,280" fill="none" stroke="var(--od-primary-400)" stroke-width="3" marker-end="url(#ah-primary)"></path>
+          <!-- Act → Refine -->
+          <path d="M380,453 A200,200 0 0 1 180,453" fill="none" stroke="var(--od-primary-400)" stroke-width="3" marker-end="url(#ah-primary)"></path>
+          <!-- Refine → Identify (feedback — emphasized: results attribute back to the gaps we raise) -->
+          <path d="M80,280 A200,200 0 0 1 180,107" fill="none" stroke="var(--od-sky-500)" stroke-width="4" marker-end="url(#ah-sky)"></path>
+          <!-- Orbiting comet — the loop runs continuously, all year -->
+          <circle class="loop-comet" r="8" fill="var(--od-sky-500)"></circle>
+        </svg>
+
+        <div class="loop-hub">
+          <span class="loop-hub__pulse"></span>
+          <strong>Runs all year</strong>
+          <span>Course-correcting as you go — so nothing slips</span>
+        </div>
+
+        <div class="loop-feedback">Refine feeds Identify — the loop tightens all year</div>
+
+        <article class="loop-node loop-node--identify">
+          <div class="loop-node__badge"><span>01</span><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+          <h3>Identify</h3>
+          <p>Our clinical rules raise the quality <em>and</em> spend gaps that matter — from your claims, pharmacy &amp; labs, in real time.</p>
         </article>
 
-        <div class="flow-arrow" aria-hidden="true"><span class="flow-arrow__dot"></span></div>
-
-        <article class="flow-stage flow-stage--core">
-          <span class="flow-stage__tag">Act</span>
-          <span class="flow-stage__icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
-          <h3>Clinical sequences close them</h3>
-          <p>OneDash automates whatever it takes to close the gap — from AI calls, SMS, and faxes to EHR actions, scheduling, and drug shipment — the exact sequence each workflow needs.</p>
+        <article class="loop-node loop-node--action">
+          <div class="loop-node__badge"><span>02</span><i class="fa-solid fa-bolt"></i></div>
+          <h3>Act</h3>
+          <p>Whatever it takes to close the gap — the exact sequence each workflow needs, run automatically.</p>
         </article>
 
-        <div class="flow-arrow" aria-hidden="true"><span class="flow-arrow__dot"></span></div>
-
-        <article class="flow-stage flow-stage--out">
-          <span class="flow-stage__tag">Close</span>
-          <span class="flow-stage__icon"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i></span>
-          <h3>Results you can prove</h3>
-          <p>Gaps closed, Stars protected, spend avoided — every result attributed back to the dollar.</p>
+        <article class="loop-node loop-node--measure">
+          <div class="loop-node__badge"><span>03</span><i class="fa-solid fa-user-doctor"></i></div>
+          <h3>Refine</h3>
+          <p>Clinical experts review every close and sharpen the rules — so the next gaps we raise are smarter.</p>
         </article>
       </div>
 
-      <div class="flow-loop"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Runs continuously — every closed gap feeds the next cycle.</div>
+      <div class="cycle-why">
+        <div class="cycle-why__icon"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></div>
+        <div>
+          <strong>The part others can't copy.</strong>
+          <p>Plenty of tools can fire off a sequence. OneDash puts real clinical expertise behind the <em>Refine</em> step — every close informs and sharpens the gaps we raise next, so the loop tightens all year and results attribute straight back to the gaps we surfaced.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="flow-fit">
-        <i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i>
-        <p><strong>Where we fit:</strong> OneDash isn't a reporting or submission vendor. Your certified vendor — Inovalon, Cotiviti — still owns official NCQA scoring and denominator reporting. OneDash is the operational layer alongside them that detects and closes the gaps, so the numbers they report actually move.</p>
+  <!-- ────────── WHERE WE FIT ────────── -->
+  <section class="section section--page fit-sec" id="fit">
+    <div class="container">
+      <div class="fit-grid">
+        <div class="fit-lead">
+          <div class="eyebrow">Where we fit</div>
+          <h2>We close the gaps. <em>We don't touch your reporting.</em></h2>
+          <p>OneDash isn't a reporting or submission vendor — and doesn't try to be. Your certified vendor keeps doing exactly what it does best.</p>
+        </div>
+        <div class="fit-cols">
+          <div class="fit-col">
+            <div class="fit-col__label"><i class="fa-solid fa-building-columns"></i> Your reporting vendor</div>
+            <p>Inovalon, Cotiviti, and the like own official NCQA scoring and denominator reporting. That stays exactly where it is.</p>
+          </div>
+          <div class="fit-col fit-col--od">
+            <div class="fit-col__label"><i class="fa-solid fa-bolt"></i> OneDash</div>
+            <p>The operational layer that detects and closes the gaps — automatically, all year — so the numbers your vendor reports actually move.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -144,7 +186,7 @@
             </div>
             <ul class="persona__list" role="list">
               <li><i class="fa-solid fa-gauge-high"></i><div><strong>Real-time cut-point tracking</strong><span>Daily feeds re-score every clinical Stars and HEDIS measure against current thresholds — so you see half-star risk while you can still close it. Real-time, not just faster reporting.</span></div></li>
-              <li><i class="fa-solid fa-filter-circle-xmark"></i><div><strong>Refined, real-time denominators</strong><span>Cleans up who's actually in each measure and who's already met it — for OMW, we auto-close the moment a qualifying med is filled — so your team stops chasing gaps that are already closed.</span></div></li>
+              <li><i class="fa-solid fa-filter-circle-xmark"></i><div><strong>Refined, real-time denominators</strong><span>Cleans up who's actually in each measure and who's already met it — so your team stops chasing gaps that are already closed.</span></div></li>
               <li><i class="fa-solid fa-bullseye"></i><div><strong>Members who can still flip</strong><span>Targeted lists of the exact members who move a measure above threshold — ranked by impact on your rating.</span></div></li>
             </ul>
           </div>
@@ -263,87 +305,7 @@
     </div>
   </section>
 
-  <!-- ────────── THE CLOSED LOOP ────────── -->
-  <section class="section loop-sec" id="platform">
-    <div class="container">
-      <div class="loop-head">
-        <div class="eyebrow">The closed loop</div>
-        <h2>Most tools stop at finding the gap — quality or spend. <em>OneDash closes the loop.</em></h2>
-        <p>Identify quality <em>and</em> spend gaps in real time, automate the action that closes them, and watch ROI and quality lift as they close — continuously, not at year-end.</p>
-      </div>
-
-      <div class="loop-diagram">
-        <svg class="loop-svg" viewBox="0 0 560 560" aria-hidden="true">
-          <defs>
-            <marker id="ah-primary" markerWidth="12" markerHeight="12" refX="4" refY="4" orient="auto">
-              <path d="M0,0 L8,4 L0,8 Z" fill="var(--od-primary-400)"></path>
-            </marker>
-            <marker id="ah-sky" markerWidth="13" markerHeight="13" refX="4.2" refY="4.2" orient="auto">
-              <path d="M0,0 L8.4,4.2 L0,8.4 Z" fill="var(--od-sky-500)"></path>
-            </marker>
-          </defs>
-          <!-- base ring -->
-          <circle cx="280" cy="280" r="200" fill="none" stroke="var(--od-line-2)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"></circle>
-          <!-- Identify → Action -->
-          <path d="M380,107 A200,200 0 0 1 480,280" fill="none" stroke="var(--od-primary-400)" stroke-width="3" marker-end="url(#ah-primary)"></path>
-          <!-- Action → Measure -->
-          <path d="M380,453 A200,200 0 0 1 180,453" fill="none" stroke="var(--od-primary-400)" stroke-width="3" marker-end="url(#ah-primary)"></path>
-          <!-- Measure → Identify (the feedback arc — emphasized) -->
-          <path d="M80,280 A200,200 0 0 1 180,107" fill="none" stroke="var(--od-sky-500)" stroke-width="4" marker-end="url(#ah-sky)"></path>
-        </svg>
-
-        <div class="loop-hub">
-          <span class="loop-hub__pulse"></span>
-          <strong>Runs continuously</strong>
-          <span>ROI &amp; quality lift as gaps close</span>
-        </div>
-
-        <div class="loop-feedback">Measure feeds Identify — the loop never stops</div>
-
-        <article class="loop-node loop-node--identify">
-          <div class="loop-node__badge"><span>01</span><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-          <h3>Identify</h3>
-          <p>Surface quality gaps <em>and</em> spend gaps in real time — high utilizers, formulary &amp; drug-utilization mismatches, avoidable-admission risk — across claims, pharmacy &amp; labs.</p>
-        </article>
-
-        <article class="loop-node loop-node--action">
-          <div class="loop-node__badge"><span>02</span><i class="fa-solid fa-bolt"></i></div>
-          <h3>Action</h3>
-          <p>Automate the close — provider, patient &amp; pharmacy outreach with innovative moves like AI agent calling.</p>
-        </article>
-
-        <article class="loop-node loop-node--measure">
-          <div class="loop-node__badge"><span>03</span><i class="fa-solid fa-chart-line"></i></div>
-          <h3>Measure</h3>
-          <p>Track closures live — real-time ROI &amp; quality estimates.</p>
-        </article>
-      </div>
-
-      <!-- Action-stage depth callout (any gap, closed) -->
-      <div class="mtm-callout">
-        <div class="mtm-callout__tie"><i class="fa-solid fa-bolt"></i> Inside the Action stage</div>
-        <div class="mtm-callout__grid">
-          <div class="mtm-callout__lead">
-            <div class="mtm-callout__eyebrow"><i class="fa-solid fa-bolt"></i> Clinical sequences to gap closure</div>
-            <h3>Finding the gap is the easy part. OneDash runs the whole sequence that closes it.</h3>
-            <p>Quality gap or spend gap, OneDash runs whatever sequence closes it — tailored to each workflow, whether that's an AI call, an SMS, a fax, an EHR action, a scheduled appointment, or a shipped drug. Not a work queue. Closed gaps.</p>
-          </div>
-          <ul class="mtm-callout__list" role="list">
-            <li><i class="fa-solid fa-layer-group"></i><div><strong>Any gap, quality or spend</strong><span>Surfaces care gaps and spend gaps alike — utilization mismatches, formulary opportunities, avoidable-admission risk — so nothing falls through by category.</span></div></li>
-            <li><i class="fa-solid fa-calendar-check"></i><div><strong>Whatever the workflow needs</strong><span>OneDash automates the actions that fit each gap — provider and member outreach, EHR updates, scheduling into a partner's calendar, drug shipment, and more — the full path to closure, without staff in the middle.</span></div></li>
-            <li><i class="fa-solid fa-plug-circle-bolt"></i><div><strong>Innovative direct integrations</strong><span>System-to-system connections turn identification into action automatically — closing gaps at machine speed instead of adding to a work queue.</span></div></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="loop-cta">
-        <a class="btn btn--primary" href="/resources">
-          <span>See the ROI</span>
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- (Closed-loop section merged into the "How it works · Why us" cycle above) -->
 
   <!-- ────────── CTA ────────── -->
   <section class="cta" id="contact">
@@ -381,7 +343,7 @@
           <h4>Talk to us</h4>
           <ul role="list">
             <li><a href="/contact">Book a demo</a></li>
-            <li><a href="https://www.linkedin.com/company/onedash" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://www.linkedin.com/company/onedash-engine/" target="_blank" rel="noopener">LinkedIn</a></li>
           </ul>
         </div>
       </div>
