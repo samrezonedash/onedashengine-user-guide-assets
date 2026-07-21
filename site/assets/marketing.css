@@ -3975,11 +3975,18 @@ html, body { overflow-x: hidden; max-width: 100%; }
   inset: 0;
   z-index: -1;
   pointer-events: none;
+  /* Individually-placed soft circular balls down the page — NO tiling, so nothing
+     clips at a tile edge and there are no hard seams. Each ball fully fades to
+     transparent (true round falloff), alternating sides for even L/R coverage. */
   background-image:
-    radial-gradient(46vw 75vh at 5% 14%, rgba(28,121,174,0.46), transparent),
-    radial-gradient(46vw 75vh at 95% 64%, rgba(71,198,255,0.44), transparent);
-  background-repeat: repeat-y;  /* tile the ambient blobs down the full page */
-  background-size: 100% 150vh;  /* blobs ~touch tile-to-tile → continuous left + right coverage, no white gaps */
+    radial-gradient(680px 680px at 6% 5%,   rgba(28,121,174,0.44), transparent 72%),
+    radial-gradient(680px 680px at 94% 19%, rgba(71,198,255,0.42), transparent 72%),
+    radial-gradient(680px 680px at 5% 34%,  rgba(28,121,174,0.42), transparent 72%),
+    radial-gradient(680px 680px at 95% 49%, rgba(71,198,255,0.42), transparent 72%),
+    radial-gradient(680px 680px at 6% 64%,  rgba(28,121,174,0.40), transparent 72%),
+    radial-gradient(680px 680px at 94% 79%, rgba(71,198,255,0.40), transparent 72%),
+    radial-gradient(680px 680px at 7% 94%,  rgba(28,121,174,0.38), transparent 72%);
+  background-repeat: no-repeat;
   will-change: opacity;
 }
 @media (prefers-reduced-motion: no-preference) {
