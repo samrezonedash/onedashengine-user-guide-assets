@@ -3971,21 +3971,21 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .od-embed { position: relative; z-index: 0; }
 .od-embed::before {
   content: "";
-  position: fixed;
+  position: absolute;          /* anchored to the page — scrolls WITH content, not glued to viewport */
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background:
-    radial-gradient(52vw 48vw at 8% 10%, rgba(28,121,174,0.34), transparent 60%),
-    radial-gradient(48vw 46vw at 94% 52%, rgba(71,198,255,0.32), transparent 62%),
-    radial-gradient(44vw 40vw at 48% 112%, rgba(28,121,174,0.24), transparent 60%);
+  background-image:
+    radial-gradient(52vw 46vh at 10% 20%, rgba(28,121,174,0.34), transparent 60%),
+    radial-gradient(48vw 44vh at 92% 66%, rgba(71,198,255,0.32), transparent 62%);
+  background-repeat: repeat-y;  /* tile the ambient blobs down the full page */
+  background-size: 100% 190vh;
   will-change: transform;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .od-embed::before { animation: od-aurora 22s ease-in-out infinite alternate; }
+  .od-embed::before { animation: od-aurora 26s ease-in-out infinite alternate; }
 }
 @keyframes od-aurora {
-  0%   { transform: translate3d(0, 0, 0) scale(1); }
-  50%  { transform: translate3d(-9%, 7%, 0) scale(1.2); }
-  100% { transform: translate3d(8%, -7%, 0) scale(1.1); }
+  0%   { transform: translate3d(-1.5%, 0, 0); }
+  100% { transform: translate3d(1.5%, 0, 0); }
 }
