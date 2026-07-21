@@ -3893,3 +3893,71 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .fit-grid { grid-template-columns: 1fr; gap: 32px; }
   .fit-cols { grid-template-columns: 1fr; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   LEGIBILITY + PRESENCE  (prelive)
+   Larger body copy, wider content column, and a step up again on
+   large desktops — so text reads comfortably on laptops and big
+   monitors without breaking layouts.
+   ═══════════════════════════════════════════════════════════════ */
+:root { --page-max: 1320px; }
+
+.hero--stakes__lead { font-size: 22px; line-height: 1.62; }
+.section-head p,
+.loop-head p,
+.fit-lead p,
+.personas__head p { font-size: 20px; line-height: 1.6; }
+.about-hero__story { font-size: 19px; }
+.contact-info__lead { font-size: 19px; }
+.persona__body { font-size: 17px; }
+.persona__list span,
+.loop-node p { font-size: 15px; line-height: 1.55; }
+.result-card__body { font-size: 15.5px; }
+.what-band__items span { font-size: 15.5px; }
+.cycle-why p,
+.fit-col p,
+.flow-fit p { font-size: 16px; }
+
+/* Large desktops / wide monitors — fill the screen and scale type up */
+@media (min-width: 1600px) {
+  :root { --page-max: 1400px; }
+  .hero--stakes__lead { font-size: 23px; }
+  .section-head p,
+  .loop-head p,
+  .fit-lead p,
+  .personas__head p { font-size: 21px; }
+  .about-hero__story { font-size: 20px; }
+  .persona__body { font-size: 18px; }
+  .persona__list span,
+  .loop-node p { font-size: 16px; }
+  .result-card__body { font-size: 16.5px; }
+  .nav__links a { font-size: 18px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AMBIENT BACKDROP  (prelive)
+   A slow, very-low-contrast aurora drifting behind the whole site —
+   subtle depth + motion. Fixed layer behind content; dark sections
+   cover it, transparent light sections let it whisper through.
+   ═══════════════════════════════════════════════════════════════ */
+.od-embed { position: relative; z-index: 0; }
+.od-embed::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(46vw 42vw at 12% 16%, rgba(28,121,174,0.07), transparent 60%),
+    radial-gradient(42vw 40vw at 88% 60%, rgba(71,198,255,0.06), transparent 62%),
+    radial-gradient(38vw 34vw at 55% 106%, rgba(190,90,242,0.04), transparent 60%);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .od-embed::before { animation: od-aurora 48s ease-in-out infinite alternate; }
+}
+@keyframes od-aurora {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-3%, 2%, 0) scale(1.08); }
+  100% { transform: translate3d(2%, -2%, 0) scale(1.04); }
+}
