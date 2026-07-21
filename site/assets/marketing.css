@@ -3976,16 +3976,18 @@ html, body { overflow-x: hidden; max-width: 100%; }
   z-index: -1;
   pointer-events: none;
   background-image:
-    radial-gradient(44vw 64vh at 8% 10%, rgba(28,121,174,0.46), transparent 64%),
-    radial-gradient(46vw 62vh at 94% 64%, rgba(71,198,255,0.44), transparent 64%);
+    radial-gradient(46vw 75vh at 5% 14%, rgba(28,121,174,0.46), transparent),
+    radial-gradient(46vw 75vh at 95% 64%, rgba(71,198,255,0.44), transparent);
   background-repeat: repeat-y;  /* tile the ambient blobs down the full page */
-  background-size: 100% 190vh;
-  will-change: transform;
+  background-size: 100% 150vh;  /* blobs ~touch tile-to-tile → continuous left + right coverage, no white gaps */
+  will-change: opacity;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .od-embed::before { animation: od-aurora 26s ease-in-out infinite alternate; }
+  /* Breathe IN PLACE via opacity only — the glow softens and swells where it sits.
+     No transform/size change, so the blobs never slide or shrink and no white bands appear. */
+  .od-embed::before { animation: od-aurora 9s ease-in-out infinite alternate; }
 }
 @keyframes od-aurora {
-  0%   { transform: translate3d(-1.5%, 0, 0); }
-  100% { transform: translate3d(1.5%, 0, 0); }
+  0%   { opacity: 0.68; }
+  100% { opacity: 1; }
 }
