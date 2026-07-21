@@ -3807,7 +3807,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
        to the ring's dash-drift rule (.loop-svg circle). */
     .loop-svg circle.loop-comet {
       visibility: visible;
-      offset-path: path("M80,280 A200,200 0 1 0 480,280 A200,200 0 1 0 80,280");
+      offset-path: path("M280,80 A200,200 0 1 1 280,480 A200,200 0 1 1 280,80");
       offset-distance: 0%;
       animation: od-orbit 13s linear infinite !important;
       filter: drop-shadow(0 0 7px rgba(71,198,255,0.85));
