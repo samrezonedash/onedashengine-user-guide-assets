@@ -3976,9 +3976,9 @@ html, body { overflow-x: hidden; max-width: 100%; }
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(52vw 48vw at 8% 10%, rgba(28,121,174,0.26), transparent 60%),
-    radial-gradient(48vw 46vw at 94% 52%, rgba(71,198,255,0.24), transparent 62%),
-    radial-gradient(44vw 40vw at 48% 112%, rgba(190,90,242,0.18), transparent 60%);
+    radial-gradient(52vw 48vw at 8% 10%, rgba(28,121,174,0.34), transparent 60%),
+    radial-gradient(48vw 46vw at 94% 52%, rgba(71,198,255,0.32), transparent 62%),
+    radial-gradient(44vw 40vw at 48% 112%, rgba(28,121,174,0.24), transparent 60%);
   will-change: transform;
 }
 @media (prefers-reduced-motion: no-preference) {
