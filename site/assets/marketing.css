@@ -3976,8 +3976,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   z-index: -1;
   pointer-events: none;
   background-image:
-    radial-gradient(52vw 46vh at 10% 20%, rgba(28,121,174,0.34), transparent 60%),
-    radial-gradient(48vw 44vh at 92% 66%, rgba(71,198,255,0.32), transparent 62%);
+    radial-gradient(44vw 64vh at 8% 10%, rgba(28,121,174,0.46), transparent 64%),
+    radial-gradient(46vw 62vh at 94% 64%, rgba(71,198,255,0.44), transparent 64%);
   background-repeat: repeat-y;  /* tile the ambient blobs down the full page */
   background-size: 100% 190vh;
   will-change: transform;
