@@ -1741,7 +1741,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   position: absolute;
   left: 50%; top: 50%;
   transform: translate(-50%, -50%);
-  width: 42%;
+  width: 45%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: var(--od-primary-900);
@@ -1779,16 +1779,16 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .loop-hub__pulse { animation: none; }
 }
 .loop-hub strong {
-  font-size: clamp(14px, 2.4vw, 18px);
+  font-size: clamp(17px, 2.7vw, 22px);
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.01em;
   line-height: 1.15;
 }
 .loop-hub span:not(.loop-hub__pulse) {
-  font-size: clamp(10px, 1.9vw, 12.5px);
-  color: rgba(255,255,255,0.66);
-  line-height: 1.35;
-  max-width: 68%;
+  font-size: clamp(12.5px, 2.2vw, 15px);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.4;
+  max-width: 82%;
 }
 
 .loop-feedback {
@@ -1812,13 +1812,13 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
 .loop-node {
   position: absolute;
-  width: 40%;
-  max-width: 240px;
+  width: 38%;
+  max-width: 216px;
   transform: translate(-50%, -50%);
   background: var(--od-surface-card);
   border: 1px solid var(--od-line-1);
   border-radius: var(--od-radius-xl);
-  padding: 20px 22px;
+  padding: 15px 17px;
   box-shadow: var(--od-shadow-md);
   display: flex;
   flex-direction: column;
@@ -1852,7 +1852,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 }
 .loop-node--action .loop-node__badge i { background: var(--od-sky-500); color: var(--od-primary-900); }
 .loop-node h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: var(--od-fw-bold);
   color: var(--od-primary-800);
   letter-spacing: -0.015em;
@@ -3902,40 +3902,40 @@ html, body { overflow-x: hidden; max-width: 100%; }
    ═══════════════════════════════════════════════════════════════ */
 :root { --page-max: 1320px; }
 
-.hero--stakes__lead { font-size: 22px; line-height: 1.62; }
+.hero--stakes__lead { font-size: 19px; line-height: 1.62; }
 .section-head p,
 .loop-head p,
 .fit-lead p,
-.personas__head p { font-size: 20px; line-height: 1.6; }
-.about-hero__story { font-size: 19px; }
-.contact-info__lead { font-size: 19px; }
-.persona__body { font-size: 17px; }
+.personas__head p { font-size: 17.5px; line-height: 1.6; }
+.about-hero__story { font-size: 17px; }
+.contact-info__lead { font-size: 17px; }
+.persona__body { font-size: 15.5px; }
 .persona__list span,
-.loop-node p { font-size: 15px; line-height: 1.55; }
-.result-card__body { font-size: 15.5px; }
-.what-band__items span { font-size: 15.5px; }
+.loop-node p { font-size: 14px; line-height: 1.55; }
+.result-card__body { font-size: 14.5px; }
+.what-band__items span { font-size: 14.5px; }
 .cycle-why p,
 .fit-col p,
-.flow-fit p { font-size: 16px; }
+.flow-fit p { font-size: 15px; }
 
-/* Large desktops — fill the screen and scale type up */
+/* Large desktops — fill the screen and scale type up (moderate) */
 @media (min-width: 1600px) {
   :root { --page-max: 1440px; }
-  .hero--stakes__title { font-size: clamp(56px, 5.4vw, 96px); }
-  .hero--stakes__lead { font-size: 24px; }
+  .hero--stakes__title { font-size: clamp(50px, 4.7vw, 86px); }
+  .hero--stakes__lead { font-size: 21px; }
   .section-head p,
   .loop-head p,
   .fit-lead p,
-  .personas__head p { font-size: 22px; }
+  .personas__head p { font-size: 19px; }
   .about-hero__story,
-  .contact-info__lead { font-size: 21px; }
-  .persona__body { font-size: 18px; }
+  .contact-info__lead { font-size: 18.5px; }
+  .persona__body { font-size: 16.5px; }
   .persona__list span,
-  .loop-node p { font-size: 16.5px; }
+  .loop-node p { font-size: 15px; }
   .result-card__body,
-  .what-band__items span { font-size: 17px; }
-  .cycle-why p, .fit-col p, .flow-fit p { font-size: 17px; }
-  .nav__links a { font-size: 18px; }
+  .what-band__items span { font-size: 15.5px; }
+  .cycle-why p, .fit-col p, .flow-fit p { font-size: 16px; }
+  .nav__links a { font-size: 16.5px; }
 }
 
 /* Very large monitors (e.g. 2560-wide) — go bigger still */
