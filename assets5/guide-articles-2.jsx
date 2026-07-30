@@ -281,10 +281,11 @@ window.GUIDE_ARTICLES_2 = [
           <>
             <p>On entry, you have immediate access to:</p>
             <ul>
-              <li>Provider credentials (name, NPI, specialty)</li>
-              <li>Provider contact information (phone, fax, email)</li>
-              <li>Provider practice address</li>
+              <li>Provider credentials — name, NPI, and taxonomy</li>
+              <li>Provider contact information — <strong>Phone</strong>, <strong>Fax</strong>, and <strong>Email</strong></li>
+              <li><strong>Practice Location</strong></li>
             </ul>
+            <p>Underneath the contact cards you'll find the provider's <strong>Notes</strong>, <strong>Prescribing</strong>, and <strong>Communication History</strong> tabs.</p>
           </>
         ),
       },
@@ -293,11 +294,12 @@ window.GUIDE_ARTICLES_2 = [
         title: "Editing contact information",
         body: (
           <>
-            <p>Provider contact information works the same way it does on a patient profile — each contact field holds up to four entries, and you can update them yourself. Click the edit icon in the corner of the contact card to make changes.</p>
+            <p>Provider contact information works the same way it does on a patient profile — <strong>Phone</strong>, <strong>Fax</strong>, <strong>Email</strong>, and <strong>Practice Location</strong> each hold up to four entries, and you can update them yourself. Click the edit icon in the corner of a card to make changes.</p>
             <ul>
-              <li><strong>First and second entries</strong> are loaded automatically from your data files.</li>
-              <li><strong>Third and fourth entries</strong> are yours to fill in manually, so you can record details your team has confirmed.</li>
-              <li><strong>Choosing which one to use.</strong> Click into an entry's box to select it as the default, then save.</li>
+              <li><strong>The first entry</strong> is loaded automatically from the <strong>NPI Registry</strong> and labeled as such.</li>
+              <li><strong>The second, third, and fourth entries</strong> are yours to fill in manually, so you can record details your team has confirmed.</li>
+              <li><strong>Choosing which one to use.</strong> Click into an entry's box to select it as the default, then save. The selected entry is highlighted.</li>
+              <li>Each card shows when it was <strong>last edited</strong>, or <strong>No recent edits</strong> if nothing has changed.</li>
             </ul>
             <Hint type="warning">
               <p>Any contact details changed in the provider profile are permanent and are used for all contact (calling, faxing, etc.) in other parts of OneDash.</p>
@@ -309,22 +311,6 @@ window.GUIDE_ARTICLES_2 = [
         id: "notes",
         title: "Notes",
         body: <p>Leave a note on a provider. Notes are permanent and visible across all users inside OneDash for a given institution.</p>,
-      },
-      {
-        id: "communications",
-        title: "Communications",
-        body: (
-          <>
-            <p>The <strong>Communications</strong> tab is the provider's full outreach history. Every record OneDash has sent to this provider is stored here.</p>
-            <ul>
-              <li>All historical records sent to the provider through OneDash are kept on this tab — nothing rolls off.</li>
-              <li>Use it to confirm what a provider has already received before reaching out again, and to see when it was sent.</li>
-            </ul>
-            <Hint type="info">
-              <p>This is the fastest way to answer "have we already contacted this provider about this?" without digging through individual patients.</p>
-            </Hint>
-          </>
-        ),
       },
       {
         id: "prescribing",
@@ -342,6 +328,22 @@ window.GUIDE_ARTICLES_2 = [
               </li>
               <li>Detailed view of every prescription written and which patient it was for — sortable by column and filterable by date range (defaults to calendar year).</li>
             </ul>
+          </>
+        ),
+      },
+      {
+        id: "communications",
+        title: "Communication History",
+        body: (
+          <>
+            <p>The <strong>Communication History</strong> tab is the provider's full outreach history. Every record OneDash has sent to this provider is stored here.</p>
+            <ul>
+              <li>All historical records sent to the provider through OneDash are kept on this tab — nothing rolls off.</li>
+              <li>Use it to confirm what a provider has already received before reaching out again, and to see when it was sent.</li>
+            </ul>
+            <Hint type="info">
+              <p>This is the fastest way to answer "have we already contacted this provider about this?" without digging through individual patients.</p>
+            </Hint>
           </>
         ),
       },
