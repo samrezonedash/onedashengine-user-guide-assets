@@ -916,11 +916,6 @@ window.GUIDE_ARTICLES_2 = [
               <li>Actions completed by a specific user</li>
               <li>Action statuses</li>
             </ul>
-            <Hint type="info">
-              <p>Your view of care gaps and actions depends on your user role:</p>
-              <p><strong>Admin</strong> — can see every user's care gaps and actions.</p>
-              <p><strong>Clinical Expert</strong> — can see care gaps and actions only for members with gaps assigned to you.</p>
-            </Hint>
           </>
         ),
       },
