@@ -132,8 +132,26 @@ function DocImage({ src, alt, caption, maxWidth, bg }) {
   );
 }
 
-function IconBadge({ src, alt, size = 64, bg }) {
-  // Small inline icon for use inside cards — preserves the original glyph
+function IconBadge({ src, alt, size = 64, bg, icon }) {
+  // `icon` — a Font Awesome class. Renders the glyph directly (no box), so it
+  // scales crisply and doesn't leave dead space around a small raster icon.
+  if (icon) {
+    return (
+      <i
+        className={icon}
+        aria-hidden="true"
+        style={{
+          fontSize: Math.round(size * 0.6),
+          lineHeight: 1,
+          color: "var(--g-accent)",
+          display: "block",
+          marginBottom: 10,
+        }}
+      />
+    );
+  }
+  // `src` — a screenshot-derived icon. Never upscaled (width/height stay auto),
+  // so it can't blur; the box just centers it.
   return (
     <div style={{
       width: "100%",
@@ -146,7 +164,7 @@ function IconBadge({ src, alt, size = 64, bg }) {
       marginBottom: 8,
       overflow: "hidden",
     }}>
-      <img src={src} alt={alt || ""} style={{ maxHeight: size - 16, maxWidth: "85%", height: "auto", width: "auto" }} />
+      <img src={src} alt={alt || ""} style={{ maxHeight: size - 8, maxWidth: "92%", height: "auto", width: "auto" }} />
     </div>
   );
 }

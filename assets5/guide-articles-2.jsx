@@ -590,14 +590,7 @@ window.GUIDE_ARTICLES_2 = [
         title: "Acting on a care gap",
         body: (
           <>
-            <p>Open the details of any gap using the button on the right of the table under <strong>Manage</strong>.</p>
-            <div className="g-cards">
-              <div className="g-card">
-                <IconBadge src={(window.UG_ASSET_BASE || "") + "care-gaps-ic-manage.png"} alt="Manage button" size={56} bg="#FFF" />
-                <h4 className="g-card__title">Manage</h4>
-                <p className="g-card__body">Opens the action modal for that individual care gap.</p>
-              </div>
-            </div>
+            <p>Open the details of any gap using the <i className="fa-solid fa-pen-to-square" aria-hidden="true" style={{ color: "var(--g-accent)" }} /> button on the right of the table under <strong>Manage</strong>. It opens the action modal for that individual care gap.</p>
             <h3>Action modal breakdown</h3>
             <p>The modal is organized into accordions. Collapse any of them with the <code>^</code> button if you don't need that information.</p>
             <h4>Care Gap Details</h4>
@@ -635,22 +628,22 @@ window.GUIDE_ARTICLES_2 = [
             />
             <div className="g-cards">
               <div className="g-card">
-                <IconBadge src={(window.UG_ASSET_BASE || "") + "care-gaps-ic-ehr.png"} alt="EHR message icon" size={56} bg="#FFF" />
+                <IconBadge icon="fa-solid fa-laptop-medical" size={56} />
                 <h4 className="g-card__title">Provider EHR messages</h4>
                 <p className="g-card__body">Send a templated message to a provider reachable through EHR.</p>
               </div>
               <div className="g-card">
-                <IconBadge src={(window.UG_ASSET_BASE || "") + "care-gaps-ic-call.png"} alt="AI agent call icon" size={56} bg="#FFF" />
+                <IconBadge icon="fa-solid fa-phone" size={56} />
                 <h4 className="g-card__title">Patient AI agent calls</h4>
                 <p className="g-card__body">Have an AI agent call the patient inside your guardrails.</p>
               </div>
               <div className="g-card">
-                <IconBadge src={(window.UG_ASSET_BASE || "") + "care-gaps-ic-fax.png"} alt="Fax icon" size={56} bg="#FFF" />
+                <IconBadge icon="fa-solid fa-fax" size={56} />
                 <h4 className="g-card__title">Provider faxes</h4>
                 <p className="g-card__body">Fax a provider or pharmacy using your saved templates.</p>
               </div>
               <div className="g-card">
-                <IconBadge src={(window.UG_ASSET_BASE || "") + "care-gaps-ic-text.png"} alt="Text message icon" size={56} bg="#FFF" />
+                <IconBadge icon="fa-solid fa-comment-sms" size={56} />
                 <h4 className="g-card__title">Patient text messages</h4>
                 <p className="g-card__body">Text the patient from a template or freeform.</p>
               </div>
