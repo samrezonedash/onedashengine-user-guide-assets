@@ -104,29 +104,45 @@ function DocImage({ src, alt, caption, maxWidth, bg }) {
       overflow: "hidden",
       boxShadow: "var(--g-shadow-sm)",
     }}>
-      <div style={{ background: bg || "var(--g-page-bg)", padding: 16, textAlign: "center" }}>
-        <img
-          src={src}
-          alt={alt || ""}
-          style={{
-            display: "block",
-            margin: "0 auto",
-            maxWidth: maxWidth || "100%",
-            width: "100%",
-            height: "auto",
-            borderRadius: 6,
-          }}
-        />
+      <div style={{ background: bg || "var(--g-page-bg)", padding: 10, textAlign: "center" }}>
+        {/* Product screenshots are dense — open the full-resolution file in a
+            new tab so details stay readable however narrow the column is. */}
+        <a href={src} target="_blank" rel="noopener noreferrer" title="Open full size" style={{ display: "block", cursor: "zoom-in" }}>
+          <img
+            src={src}
+            alt={alt || ""}
+            style={{
+              display: "block",
+              margin: "0 auto",
+              maxWidth: maxWidth || "100%",
+              width: "100%",
+              height: "auto",
+              borderRadius: 6,
+            }}
+          />
+        </a>
       </div>
       {caption ? (
         <figcaption style={{
-          padding: "10px 16px",
+          padding: "10px 14px",
           fontSize: 12.5,
           color: "var(--g-fg-3)",
           fontStyle: "italic",
           borderTop: "1px solid var(--g-border)",
           background: "var(--g-card-bg)",
-        }}>{caption}</figcaption>
+          display: "flex",
+          gap: 12,
+          alignItems: "baseline",
+          justifyContent: "space-between",
+        }}>
+          <span>{caption}</span>
+          <a href={src} target="_blank" rel="noopener noreferrer" style={{
+            flex: "none", fontStyle: "normal", fontSize: 12,
+            fontWeight: 600, color: "var(--g-accent)", textDecoration: "none", whiteSpace: "nowrap",
+          }}>
+            <i className="fa-solid fa-magnifying-glass-plus" aria-hidden="true" /> Full size
+          </a>
+        </figcaption>
       ) : null}
     </figure>
   );
@@ -150,21 +166,21 @@ function IconBadge({ src, alt, size = 64, bg, icon }) {
       />
     );
   }
-  // `src` — a screenshot-derived icon. Never upscaled (width/height stay auto),
-  // so it can't blur; the box just centers it.
+  // `src` — a screenshot-derived icon. The box hugs the image (no fixed height
+  // or full width) so a small icon doesn't float in a large empty panel.
   return (
     <div style={{
-      width: "100%",
-      height: size,
+      alignSelf: "flex-start",
       background: bg || "var(--g-page-bg)",
       borderRadius: 6,
-      display: "flex",
+      display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
+      padding: 6,
       marginBottom: 8,
       overflow: "hidden",
     }}>
-      <img src={src} alt={alt || ""} style={{ maxHeight: size - 8, maxWidth: "92%", height: "auto", width: "auto" }} />
+      <img src={src} alt={alt || ""} style={{ display: "block", maxHeight: size, maxWidth: "100%", height: "auto", width: "auto" }} />
     </div>
   );
 }

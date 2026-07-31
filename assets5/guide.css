@@ -180,7 +180,11 @@ code { font-family: var(--od-font-mono); font-size: 0.92em; background: var(--od
   --guide-sidebar: 288px;
   --guide-rail: 232px;
   --guide-top: 64px;
-  --guide-content-max: 760px;
+  /* Content column is sized for screenshots, not prose — dense product
+     screenshots need the room to stay legible. Body copy is capped
+     separately at --guide-prose-max so reading stays comfortable. */
+  --guide-content-max: 1120px;
+  --guide-prose-max: 74ch;
   --guide-content-pad: 56px;
 
   --g-page-bg: #FAFBFD;
@@ -237,7 +241,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .g-topbar__inner {
   width: 100%;
-  max-width: 1480px;
+  max-width: 1680px;
   margin: 0 auto;
   padding: 0 32px;
   display: flex; align-items: center; gap: 32px;
@@ -290,7 +294,7 @@ button { font-family: inherit; cursor: pointer; }
 .g-shell {
   display: grid;
   grid-template-columns: var(--guide-sidebar) minmax(0,1fr) var(--guide-rail);
-  max-width: 1480px;
+  max-width: 1680px;
   margin: 0 auto;
   align-items: start;
 }
@@ -420,6 +424,18 @@ button { font-family: inherit; cursor: pointer; }
 }
 .g-content {
   max-width: var(--guide-content-max);
+}
+
+/* The column is wide for screenshots; hold body copy to a readable measure.
+   Figures, tables, card grids and mocks are left free to use the full width. */
+.g-body section > p,
+.g-body section > ul,
+.g-body section > ol,
+.g-body section > h3,
+.g-body section > h4,
+.g-body section > .g-hint,
+.g-body section > .g-steps {
+  max-width: var(--guide-prose-max);
 }
 .g-crumb {
   display: flex; align-items: center; gap: 8px;
@@ -1075,6 +1091,16 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ── Tweaks button (custom for guide) ─────────────────────── */
 /* The Tweaks panel ships with the starter; this just makes our state */
+
+/* Laptop widths — trim the chrome so screenshots get real room.
+   Placed before the narrower queries below so those still win. */
+@media (max-width: 1500px) {
+  :root {
+    --guide-sidebar: 248px;
+    --guide-rail: 200px;
+    --guide-content-pad: 32px;
+  }
+}
 
 /* ── Responsive ───────────────────────────────────────────── */
 @media (max-width: 1180px) {
