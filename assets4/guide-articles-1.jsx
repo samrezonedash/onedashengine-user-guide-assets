@@ -243,14 +243,30 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "Jun 8, 2026",
+    updated: "Jul 31, 2026",
     sections: [
       {
         id: "latest",
         title: "Latest releases",
         body: (
           <>  
-           <Release ver="1.7" date="July 20, 2026" defaultOpen>
+           <Release ver="1.8" date="July 31, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>Editable provider contact details.</strong> Provider profiles now support editing phone, fax, email, and address information. Up to 3 entries per contact type can be added, with a preferred selection for each. Fax actions will automatically route to the preferred fax number.</li>
+    <li><strong>SupD AI call agent.</strong> A new AI call agent is now available for SupD outreach.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>New MD Appointment types added for manual action tracking in the care gap modal.</li>
+    <li>Tags page now defaults to sorting by priority, last name, first name.</li>
+    <li>Call notes on outbound call, inbound call, and CM Rounds Rec actions can now be posted directly to the patient notes tab via a toggle.</li>
+    <li>MD Appointments now automatically post to the patient appointments tab and their status can be updated from either the Actions table or the appointments tab.</li>
+    <li>Line of business on the patient page now displays sub-plans.</li>
+    <li>Care gap filters are now additive and include new non-compliant options per measure.</li>
+  </ul>
+</Release>
+           <Release ver="1.7" date="July 20, 2026">
      <h4>Enhancements</h4>
      <ul>
        <li>Fax template updates.</li>
