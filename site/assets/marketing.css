@@ -184,8 +184,8 @@ code { font-family: var(--od-font-mono); font-size: 0.92em; background: var(--od
   /* Page rhythm */
   --page-max: 1240px;
   --page-pad: 32px;
-  --section-pad-y: 120px;
-  --section-pad-y-sm: 80px;
+  --section-pad-y: 100px;
+  --section-pad-y-sm: 64px;
 
   /* Stat density (tweakable) */
   --stat-hero-size: 88px;
@@ -1378,7 +1378,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .attribution__row__val { text-align: left; }
 }
 @media (max-width: 720px) {
-  :root { --section-pad-y: 80px; --page-pad: 20px; }
+  :root { --section-pad-y: 60px; --page-pad: 20px; }
   .nav__links { display: none; }
   .compounds { grid-template-columns: 1fr; }
   .section-head h2 { font-size: 40px; }
@@ -1741,7 +1741,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   position: absolute;
   left: 50%; top: 50%;
   transform: translate(-50%, -50%);
-  width: 42%;
+  width: 45%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: var(--od-primary-900);
@@ -1779,16 +1779,16 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .loop-hub__pulse { animation: none; }
 }
 .loop-hub strong {
-  font-size: clamp(14px, 2.4vw, 18px);
+  font-size: clamp(17px, 2.7vw, 22px);
   font-weight: var(--od-fw-bold);
   letter-spacing: -0.01em;
   line-height: 1.15;
 }
 .loop-hub span:not(.loop-hub__pulse) {
-  font-size: clamp(10px, 1.9vw, 12.5px);
-  color: rgba(255,255,255,0.66);
-  line-height: 1.35;
-  max-width: 68%;
+  font-size: clamp(12.5px, 2.2vw, 15px);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.4;
+  max-width: 82%;
 }
 
 .loop-feedback {
@@ -1812,13 +1812,13 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
 .loop-node {
   position: absolute;
-  width: 40%;
-  max-width: 240px;
+  width: 38%;
+  max-width: 216px;
   transform: translate(-50%, -50%);
   background: var(--od-surface-card);
   border: 1px solid var(--od-line-1);
   border-radius: var(--od-radius-xl);
-  padding: 20px 22px;
+  padding: 15px 17px;
   box-shadow: var(--od-shadow-md);
   display: flex;
   flex-direction: column;
@@ -1852,7 +1852,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 }
 .loop-node--action .loop-node__badge i { background: var(--od-sky-500); color: var(--od-primary-900); }
 .loop-node h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: var(--od-fw-bold);
   color: var(--od-primary-800);
   letter-spacing: -0.015em;
@@ -3472,4 +3472,529 @@ html, body { overflow-x: hidden; max-width: 100%; }
 @media (max-width: 560px) {
   .contact-form__row { grid-template-columns: 1fr; }
   .contact-card { padding: 24px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   2026 REFRESH — motion & polish  (prelive)
+   All CSS-only. Honors prefers-reduced-motion, and where scroll-driven
+   animation is unsupported the content simply shows (no dependency).
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Ambient drift: the hero's gradient field breathes slowly ─── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero::before {
+    animation: od-ambient 18s ease-in-out infinite alternate;
+    will-change: transform, opacity;
+  }
+}
+@keyframes od-ambient {
+  0%   { transform: scale(1)    translate3d(0, 0, 0);      opacity: 0.85; }
+  50%  { transform: scale(1.18) translate3d(6%, -4%, 0);   opacity: 1;    }
+  100% { transform: scale(1.1)  translate3d(-5%, 4%, 0);   opacity: 0.9;  }
+}
+
+/* ── Hero entrance: a gentle, staggered rise on load ──────────── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero--stakes__eyebrow,
+  .hero--stakes__title,
+  .hero--stakes__lead,
+  .hero--stakes__cta,
+  .hero--stakes__how {
+    animation: od-hero-in 0.7s var(--od-ease) both;
+  }
+  .hero--stakes__title { animation-delay: 0.06s; }
+  .hero--stakes__lead  { animation-delay: 0.14s; }
+  .hero--stakes__cta   { animation-delay: 0.22s; }
+  .hero--stakes__how   { animation-delay: 0.32s; }
+}
+@keyframes od-hero-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll reveal: content blocks fade + rise as they enter view.
+      Pure CSS scroll-driven animation; unsupported browsers just show. ── */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .od-embed .results-head,
+    .od-embed .loop-head,
+    .od-embed .personas__head,
+    .od-embed .section-head,
+    .od-embed .rz-sec-head,
+    .od-embed .result-card,
+    .od-embed .how-item,
+    .od-embed .dl-card,
+    .od-embed .iam__card,
+    .od-embed .outcome-card,
+    .od-embed .loop-node,
+    .od-embed .mtm-callout,
+    .od-embed .person,
+    .od-embed .contact-info,
+    .od-embed .contact-card {
+      animation: od-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 16%;
+    }
+  }
+}
+@keyframes od-reveal {
+  from { opacity: 0; translate: 0 30px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+/* ── CTA buttons: subtle lift + glow on hover ─────────────────── */
+.btn { transition: transform var(--od-dur-base) var(--od-ease), box-shadow var(--od-dur-base) var(--od-ease), background var(--od-dur-base) var(--od-ease), border-color var(--od-dur-base) var(--od-ease); }
+.btn--primary:hover {
+  box-shadow: 0 10px 28px -8px rgba(71,198,255,0.55), 0 0 0 1px rgba(71,198,255,0.18);
+}
+.btn--ghost-light:hover { box-shadow: 0 8px 22px -10px rgba(0,0,0,0.4); }
+.btn--ghost-dark:hover  { box-shadow: 0 8px 22px -12px rgba(1,20,69,0.28); }
+
+/* ═══════════════════════════════════════════════════════════════
+   HOW-IT-WORKS FLOW — input → OneDash → output  (prelive)
+   ═══════════════════════════════════════════════════════════════ */
+.flow-head { max-width: 780px; margin-bottom: 56px; }
+.flow-head .eyebrow { color: var(--od-primary-500); }
+.flow-head h2 {
+  font-size: clamp(28px, 3.6vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  font-weight: var(--od-fw-bold);
+  color: var(--od-primary-800);
+  margin: 12px 0 0;
+  text-wrap: balance;
+}
+.flow-head h2 em { font-style: normal; color: var(--od-primary-500); }
+.flow-head p {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--od-fg-2);
+  margin: 16px 0 0;
+  max-width: 66ch;
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1.12fr auto 1fr;
+  align-items: stretch;
+}
+.flow-stage {
+  background: var(--od-surface-card);
+  border: 1px solid var(--od-line-1);
+  border-radius: var(--od-radius-2xl);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--od-shadow-md);
+}
+.flow-stage--core {
+  border-color: rgba(28,121,174,0.4);
+  box-shadow: 0 28px 56px -22px rgba(28,121,174,0.4);
+  position: relative;
+  isolation: isolate;
+}
+.flow-stage--core::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(130% 130% at 50% -10%, rgba(71,198,255,0.14), transparent 68%);
+  z-index: -1;
+}
+.flow-stage__tag {
+  font-size: 12px;
+  font-weight: var(--od-fw-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--od-fg-3);
+}
+.flow-stage--core .flow-stage__tag { color: var(--od-primary-500); }
+.flow-stage__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--od-radius-lg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(28,121,174,0.08);
+  color: var(--od-primary-500);
+  font-size: 19px;
+}
+.flow-stage--core .flow-stage__icon { background: var(--od-primary-500); color: #fff; }
+.flow-stage h3 {
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: var(--od-fw-bold);
+  color: var(--od-primary-800);
+  margin: 4px 0 0;
+}
+.flow-stage p { font-size: 15px; line-height: 1.55; color: var(--od-fg-2); margin: 0; }
+
+/* Connector arrows with a traveling pulse */
+.flow-arrow {
+  align-self: center;
+  position: relative;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--od-line-3), var(--od-primary-400));
+}
+.flow-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px; top: 50%;
+  transform: translateY(-50%);
+  border-left: 8px solid var(--od-primary-400);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+.flow-arrow__dot {
+  position: absolute;
+  top: 50%; left: 0;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--od-sky-500);
+  box-shadow: 0 0 12px 2px rgba(71,198,255,0.6);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .flow-arrow__dot { animation: od-flow-dot 2.6s var(--od-ease) infinite; }
+  .flow > .flow-arrow:nth-child(4) .flow-arrow__dot { animation-delay: 1.3s; }
+}
+@keyframes od-flow-dot {
+  0%   { left: 0;    opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.flow-loop {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  font-size: 14px;
+  font-weight: var(--od-fw-medium);
+  color: var(--od-fg-3);
+}
+.flow-loop i { color: var(--od-primary-500); }
+
+/* Responsive: stack the flow vertically */
+@media (max-width: 980px) {
+  .flow { grid-template-columns: 1fr; }
+  .flow-arrow {
+    width: 2px; height: 42px;
+    justify-self: center;
+    margin: 10px 0;
+    background: linear-gradient(180deg, var(--od-line-3), var(--od-primary-400));
+  }
+  .flow-arrow::after {
+    right: 50%; top: auto; bottom: -1px;
+    transform: translateX(50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid var(--od-primary-400);
+    border-bottom: 0;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .flow-arrow__dot { animation-name: od-flow-dot-v; }
+  }
+}
+@keyframes od-flow-dot-v {
+  0%   { top: 0;    opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Where-we-fit note under the flow */
+.flow-fit {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 24px;
+  padding: 22px 24px;
+  background: var(--od-surface-card);
+  border: 1px solid var(--od-line-1);
+  border-left: 3px solid var(--od-primary-500);
+  border-radius: var(--od-radius-lg);
+  max-width: 860px;
+  box-shadow: var(--od-shadow-sm);
+}
+.flow-fit i { color: var(--od-primary-500); font-size: 18px; margin-top: 3px; flex: none; }
+.flow-fit p { margin: 0; font-size: 15.5px; line-height: 1.62; color: var(--od-fg-2); }
+.flow-fit strong { color: var(--od-primary-800); font-weight: var(--od-fw-semibold); }
+
+/* ═══════════════════════════════════════════════════════════════
+   CARD LIFE + LOOP MOTION  (prelive)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Lift + sharpen on hover across card types (not .person — it has its
+   own hover reveal). */
+.result-card, .dl-card, .iam__card, .flow-stage, .outcome-card, .pipeline-card {
+  transition: transform var(--od-dur-base) var(--od-ease),
+              box-shadow var(--od-dur-base) var(--od-ease),
+              border-color var(--od-dur-base) var(--od-ease);
+}
+.result-card:hover, .dl-card:hover, .iam__card:hover, .outcome-card:hover, .pipeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--od-shadow-lg);
+  border-color: rgba(28,121,174,0.28);
+}
+.flow-stage:hover { transform: translateY(-4px); }
+.flow-stage--core:hover { transform: translateY(-4px) scale(1.01); }
+
+/* Closed-loop diagram: the dashed ring drifts slowly — quiet motion,
+   no pulse. */
+@media (prefers-reduced-motion: no-preference) {
+  .loop-svg circle:not(.loop-comet) {
+    animation: od-loop-drift 40s linear infinite;
+  }
+}
+@keyframes od-loop-drift { to { stroke-dashoffset: -200; } }
+
+/* Reveal — additional components (About team head, Results comparison
+   columns & pipeline cards). Uses the translate-based od-reveal so it
+   composes with hover-lift (transform). */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .od-embed .people__head,
+    .od-embed .roi-compare__col,
+    .od-embed .pipeline-card,
+    .od-embed .flow-head {
+      animation: od-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 16%;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DATA-VIZ — bars fill on scroll (Results page)  (prelive)
+   scaleX from the left as the bar enters view; unsupported browsers
+   just show the filled bar. Honors prefers-reduced-motion.
+   ═══════════════════════════════════════════════════════════════ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .attribution__row__bar__fill,
+    .campaign__bar__fill,
+    .runway__bar__fill {
+      transform-origin: left center;
+      animation: od-bar-fill linear both;
+      animation-timeline: view();
+      animation-range: entry 12% cover 32%;
+    }
+  }
+}
+@keyframes od-bar-fill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HOW-IT-WORKS · WHY-US CYCLE  (prelive) — orbiting comet, why-us,
+   and the standalone "Where we fit" section.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Comet orbiting the ring — continuous, "runs all year". CSS-only via
+   offset-path (scales with the SVG viewBox); hidden where unsupported
+   or when reduced motion is requested, so no stray dot appears. */
+.loop-svg circle.loop-comet { visibility: hidden; animation: none; }
+@supports (offset-path: path("M0,0 L1,1")) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* High-specificity + !important so the comet always orbits, even next
+       to the ring's dash-drift rule (.loop-svg circle). */
+    .loop-svg circle.loop-comet {
+      visibility: visible;
+      offset-path: path("M280,80 A200,200 0 1 1 280,480 A200,200 0 1 1 280,80");
+      offset-distance: 0%;
+      animation: od-orbit 13s linear infinite !important;
+      filter: drop-shadow(0 0 7px rgba(71,198,255,0.85));
+    }
+  }
+}
+@keyframes od-orbit { to { offset-distance: 100%; } }
+
+/* Why-us differentiator callout (dark card under the loop) */
+.cycle-why {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  max-width: 880px;
+  margin: 12px auto 0;
+  padding: 26px 30px;
+  background: var(--od-primary-900);
+  color: #fff;
+  border-radius: var(--od-radius-2xl);
+  box-shadow: var(--od-shadow-lg);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.cycle-why::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(600px 300px at 12% -10%, rgba(71,198,255,0.18), transparent 70%);
+  z-index: -1;
+}
+.cycle-why__icon {
+  flex: none;
+  width: 48px; height: 48px;
+  border-radius: var(--od-radius-lg);
+  background: var(--od-sky-500);
+  color: var(--od-primary-900);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 20px;
+}
+.cycle-why strong { display: block; font-size: 18px; font-weight: var(--od-fw-bold); margin-bottom: 6px; }
+.cycle-why p { margin: 0; font-size: 15.5px; line-height: 1.6; color: rgba(255,255,255,0.82); }
+.cycle-why em { font-style: normal; color: var(--od-sky-500); font-weight: var(--od-fw-semibold); }
+
+/* Where-we-fit section */
+.fit-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.35fr;
+  gap: 48px;
+  align-items: center;
+}
+.fit-lead .eyebrow { color: var(--od-primary-500); }
+.fit-lead h2 {
+  font-size: clamp(28px, 3.4vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  font-weight: var(--od-fw-bold);
+  color: var(--od-primary-800);
+  margin: 12px 0 0;
+  text-wrap: balance;
+}
+.fit-lead h2 em { font-style: normal; color: var(--od-primary-500); }
+.fit-lead p { font-size: 18px; line-height: 1.6; color: var(--od-fg-2); margin: 14px 0 0; }
+.fit-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.fit-col {
+  background: var(--od-surface-card);
+  border: 1px solid var(--od-line-1);
+  border-radius: var(--od-radius-xl);
+  padding: 26px 24px;
+  box-shadow: var(--od-shadow-sm);
+}
+.fit-col--od { border-color: rgba(28,121,174,0.35); box-shadow: 0 18px 40px -20px rgba(28,121,174,0.35); }
+.fit-col__label {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 13px; font-weight: var(--od-fw-semibold);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--od-fg-3);
+  margin-bottom: 10px;
+}
+.fit-col--od .fit-col__label { color: var(--od-primary-500); }
+.fit-col__label i { font-size: 14px; }
+.fit-col p { margin: 0; font-size: 15px; line-height: 1.58; color: var(--od-fg-2); }
+@media (max-width: 900px) {
+  .fit-grid { grid-template-columns: 1fr; gap: 32px; }
+  .fit-cols { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LEGIBILITY + PRESENCE  (prelive)
+   Larger body copy, wider content column, and a step up again on
+   large desktops — so text reads comfortably on laptops and big
+   monitors without breaking layouts.
+   ═══════════════════════════════════════════════════════════════ */
+:root { --page-max: 1320px; }
+
+.hero--stakes__lead { font-size: 19px; line-height: 1.62; }
+.section-head p,
+.loop-head p,
+.fit-lead p,
+.personas__head p { font-size: 17.5px; line-height: 1.6; }
+.about-hero__story { font-size: 17px; }
+.contact-info__lead { font-size: 17px; }
+.persona__body { font-size: 15.5px; }
+.persona__list span,
+.loop-node p { font-size: 14px; line-height: 1.55; }
+.result-card__body { font-size: 14.5px; }
+.what-band__items span { font-size: 14.5px; }
+.cycle-why p,
+.fit-col p,
+.flow-fit p { font-size: 15px; }
+
+/* Large desktops — fill the screen and scale type up (moderate) */
+@media (min-width: 1600px) {
+  :root { --page-max: 1440px; }
+  .hero--stakes__title { font-size: clamp(50px, 4.7vw, 86px); }
+  .hero--stakes__lead { font-size: 21px; }
+  .section-head p,
+  .loop-head p,
+  .fit-lead p,
+  .personas__head p { font-size: 19px; }
+  .about-hero__story,
+  .contact-info__lead { font-size: 18.5px; }
+  .persona__body { font-size: 16.5px; }
+  .persona__list span,
+  .loop-node p { font-size: 15px; }
+  .result-card__body,
+  .what-band__items span { font-size: 15.5px; }
+  .cycle-why p, .fit-col p, .flow-fit p { font-size: 16px; }
+  .nav__links a { font-size: 16.5px; }
+}
+
+/* Very large monitors (e.g. 2560-wide) — go bigger still */
+@media (min-width: 2000px) {
+  :root { --page-max: 1560px; }
+  .hero--stakes__title { font-size: clamp(72px, 5vw, 108px); }
+  .hero--stakes__lead { font-size: 26px; }
+  .loop-head h2,
+  .section-head h2,
+  .personas__head h2,
+  .fit-lead h2 { font-size: clamp(40px, 3.1vw, 58px); }
+  .section-head p,
+  .loop-head p,
+  .fit-lead p,
+  .personas__head p { font-size: 24px; }
+  .about-hero__story,
+  .contact-info__lead { font-size: 22px; }
+  .persona__body { font-size: 19px; }
+  .persona__list span,
+  .loop-node p { font-size: 17.5px; }
+  .result-card__body,
+  .what-band__items span { font-size: 18px; }
+  .cycle-why p, .fit-col p, .flow-fit p { font-size: 18px; }
+  .nav__links a { font-size: 19px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   AMBIENT BACKDROP  (prelive)
+   A slow, very-low-contrast aurora drifting behind the whole site —
+   subtle depth + motion. Fixed layer behind content; dark sections
+   cover it, transparent light sections let it whisper through.
+   ═══════════════════════════════════════════════════════════════ */
+.od-embed { position: relative; z-index: 0; }
+.od-embed::before {
+  content: "";
+  position: absolute;          /* anchored to the page — scrolls WITH content, not glued to viewport */
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* Individually-placed soft circular balls down the page — NO tiling, so nothing
+     clips at a tile edge and there are no hard seams. Each ball fully fades to
+     transparent (true round falloff), alternating sides for even L/R coverage. */
+  background-image:
+    radial-gradient(680px 680px at 6% 5%,   rgba(28,121,174,0.44), transparent 72%),
+    radial-gradient(680px 680px at 94% 19%, rgba(71,198,255,0.42), transparent 72%),
+    radial-gradient(680px 680px at 5% 34%,  rgba(28,121,174,0.42), transparent 72%),
+    radial-gradient(680px 680px at 95% 49%, rgba(71,198,255,0.42), transparent 72%),
+    radial-gradient(680px 680px at 6% 64%,  rgba(28,121,174,0.40), transparent 72%),
+    radial-gradient(680px 680px at 94% 79%, rgba(71,198,255,0.40), transparent 72%),
+    radial-gradient(680px 680px at 7% 94%,  rgba(28,121,174,0.38), transparent 72%);
+  background-repeat: no-repeat;
+  will-change: opacity;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* Breathe IN PLACE via opacity only — the glow softens and swells where it sits.
+     No transform/size change, so the blobs never slide or shrink and no white bands appear. */
+  .od-embed::before { animation: od-aurora 9s ease-in-out infinite alternate; }
+}
+@keyframes od-aurora {
+  0%   { opacity: 0.68; }
+  100% { opacity: 1; }
 }
