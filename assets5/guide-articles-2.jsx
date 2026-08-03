@@ -764,7 +764,7 @@ window.GUIDE_ARTICLES_2 = [
             </Hint>
             <Hint type="info" title="Useful tips when tracking MD Appointments">
               <ul>
-                <li>Be sure to track the relevant appointment under the relevant gap. For example, an annual wellness visit should be tracked under the AQV gap, and a mammogram under the BCS gap.</li>
+                <li>Be sure to track the relevant appointment under the relevant gap. For example, an annual wellness visit should be tracked under the AWV gap, and a mammogram under the BCS gap.</li>
                 <li>If you're tracking a newly scheduled appointment, set the appointment status to <strong>Initial scheduled</strong>.</li>
                 <li>If your patient did not show and you were able to reschedule, track it as two separate records to keep the trail clean:
                   <ol>
