@@ -591,6 +591,9 @@ window.GUIDE_ARTICLES_2 = [
         body: (
           <>
             <p>Open the details of any gap using the <i className="fa-solid fa-pen-to-square" aria-hidden="true" style={{ color: "var(--g-accent)" }} /> button on the right of the table under <strong>Manage</strong>. It opens the action modal for that individual care gap.</p>
+            <Hint type="warning">
+              <p><strong>If you edit anything on the care gap modal, you must click Save at the bottom of the modal.</strong> Changes are not kept until you do.</p>
+            </Hint>
             <h3>Action modal breakdown</h3>
             <p>The modal is organized into accordions. Collapse any of them with the <code>^</code> button if you don't need that information.</p>
             <h4>Care Gap Details</h4>
@@ -758,6 +761,20 @@ window.GUIDE_ARTICLES_2 = [
             </ul>
             <Hint type="info">
               <p>The appointment tracked here automatically posts into the <strong>Appointments</strong> tab in the patient's individual profile.</p>
+            </Hint>
+            <Hint type="info" title="Useful tips when tracking MD Appointments">
+              <ul>
+                <li>Be sure to track the relevant appointment under the relevant gap. For example, an annual wellness visit should be tracked under the AQV gap, and a mammogram under the BCS gap.</li>
+                <li>If you're tracking a newly scheduled appointment, set the appointment status to <strong>Initial scheduled</strong>.</li>
+                <li>If your patient did not show and you were able to reschedule, track it as two separate records to keep the trail clean:
+                  <ol>
+                    <li>Set the initial scheduled appointment to <strong>no show</strong>.</li>
+                    <li>Track a new MD appointment with the new scheduled appointment date and a status of <strong>Rescheduled after no show</strong>.</li>
+                  </ol>
+                </li>
+                <li>If your patient did not show and you were unable to reschedule, set the initial appointment to a status of <strong>Unable to reschedule after no show</strong>.</li>
+                <li>If your patient successfully attended their appointment, set the originally tracked appointment to <strong>Scheduled Appointment Successful</strong>.</li>
+              </ul>
             </Hint>
           </>
         ),
