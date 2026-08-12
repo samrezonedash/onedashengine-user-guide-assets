@@ -40,7 +40,7 @@ const NAV = [
     id: "act",
     label: "Product · Act",
     icon: "fa-bolt",
-    items: ["care-gaps", "automations"],
+    items: ["care-gaps", "automations", "sms-conversations"],
   },
   {
     id: "monitor",

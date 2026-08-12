@@ -988,4 +988,91 @@ window.GUIDE_ARTICLES_2 = [
       },
     ],
   },
+
+  // ─────────────────────────────────────────────────────────
+  {
+    id: "sms-conversations",
+    category: "act",
+    title: "SMS Conversations",
+    desc: "Two-way texting with patients, tied back to the care gap it belongs to.",
+    updated: "Aug 12, 2026",
+    sections: [
+      {
+        id: "welcome",
+        title: "Welcome to SMS Conversations",
+        body: (
+          <>
+            <p><strong>When a patient replies to a text from OneDash, the conversation lands here.</strong> Instead of a one-way send, you can hold a back-and-forth with the patient and keep the whole exchange attached to the care gap it belongs to.</p>
+            <p>Find it in the left nav under <strong>Applications → SMS Conversations</strong>.</p>
+            <Hint type="danger" title="Do not share PHI over SMS">
+              <p><strong>Never include protected health information in a text message.</strong> SMS is not a secure channel. Keep messages to scheduling, reminders, and prompts to get in touch — move anything clinical to a secure channel or a phone call.</p>
+            </Hint>
+            <Hint type="warning" title="In beta">
+              <p>SMS Conversations is in beta and is not yet enabled for all OneDash users. If you'd like access or have questions, please submit a ticket.</p>
+            </Hint>
+          </>
+        ),
+      },
+      {
+        id: "queues",
+        title: "Unassigned and Mine",
+        body: (
+          <>
+            <p>The conversation list on the left has two tabs, each showing a count so you can see what's waiting:</p>
+            <ul>
+              <li><strong>Unassigned</strong> — replies that nobody is working yet.</li>
+              <li><strong>Mine</strong> — conversations assigned to you.</li>
+            </ul>
+            <h3>How a reply gets routed</h3>
+            <p>When a patient responds to an SMS, where the conversation lands depends on whether that patient already has a primary caseworker:</p>
+            <ul>
+              <li><strong>No primary caseworker</strong> — the conversation goes to <strong>Unassigned</strong>, where anyone on the team can pick it up.</li>
+              <li><strong>Has a primary caseworker</strong> — the conversation is automatically assigned to that caseworker and appears in their <strong>Mine</strong> tab.</li>
+            </ul>
+          </>
+        ),
+      },
+      {
+        id: "claiming",
+        title: "Claiming a conversation and setting yourself as caseworker",
+        body: (
+          <>
+            <p>Open any conversation to see the full message thread — your outbound messages with their delivery status, and the patient's replies, each stamped with the date and time.</p>
+            <h3>Claim it</h3>
+            <p>Claiming an unassigned conversation moves it into your <strong>Mine</strong> tab and shows <strong>Claimed by</strong> your name at the top of the thread. If you picked it up by mistake or need to hand it back, click <strong>Unclaim</strong> to return it to the Unassigned queue.</p>
+            <h3>Become the primary caseworker</h3>
+            <p>You can also make yourself the patient's <strong>primary caseworker</strong> from right here — the same assignment you'd make on the patient profile. Once you do, every future text response from that patient is automatically assigned to you instead of landing in Unassigned.</p>
+            <Hint type="info">
+              <p>The header shows the current <strong>Primary Caseworker</strong> and when the conversation was last updated, so you can tell at a glance who owns the patient and how fresh the exchange is.</p>
+            </Hint>
+          </>
+        ),
+      },
+      {
+        id: "replying",
+        title: "Replying to a patient",
+        body: (
+          <>
+            <p><strong>Every conversation must be assigned to a care gap before you can send a response.</strong> This is what keeps the exchange tied to the work it belongs to, so the conversation is documented against the right gap rather than floating on its own.</p>
+            <ul>
+              <li>Pick the care gap from the dropdown next to the message box, or click <strong>Create Gap</strong> to make a new one for this conversation.</li>
+              <li>Type your reply in the message box. The counter shows how many characters you've used out of the <strong>160</strong>-character SMS limit.</li>
+              <li>Click <strong>Send</strong> once a gap is selected.</li>
+            </ul>
+            <p><strong>Reminder: keep PHI out of every message you send.</strong></p>
+          </>
+        ),
+      },
+      {
+        id: "closing",
+        title: "Closing a conversation",
+        body: (
+          <>
+            <p>When the exchange is finished, click <strong>Close</strong> in the top right of the conversation.</p>
+            <p>Closed conversations aren't lost — they're recorded in the <strong>care gap details</strong> on the patient's record, so the full text exchange stays available as part of that gap's history.</p>
+          </>
+        ),
+      },
+    ],
+  },
 ];
