@@ -1004,6 +1004,12 @@ window.GUIDE_ARTICLES_2 = [
           <>
             <p><strong>When a patient replies to a text from OneDash, the conversation lands here.</strong> Instead of a one-way send, you can hold a back-and-forth with the patient and keep the whole exchange attached to the care gap it belongs to.</p>
             <p>Find it in the left nav under <strong>Applications → SMS Conversations</strong>.</p>
+            <DocImage
+              src={(window.UG_ASSET_BASE || "") + "sms-nav.png"}
+              alt="The Applications group in the OneDash left nav, listing Scheduled Calls and SMS Conversations, with a Beta tag beside SMS Conversations."
+              caption="SMS Conversations sits under Applications in the left nav."
+              maxWidth={584}
+            />
             <Hint type="danger" title="Do not share PHI over SMS">
               <p><strong>Never include protected health information in a text message.</strong> SMS is not a secure channel. Keep messages to scheduling, reminders, and prompts to get in touch — move anything clinical to a secure channel or a phone call.</p>
             </Hint>
@@ -1070,6 +1076,12 @@ window.GUIDE_ARTICLES_2 = [
           <>
             <p>When the exchange is finished, click <strong>Close</strong> in the top right of the conversation.</p>
             <p>Closed conversations aren't lost — they're recorded in the <strong>care gap details</strong> on the patient's record, so the full text exchange stays available as part of that gap's history.</p>
+            <DocImage
+              src={(window.UG_ASSET_BASE || "") + "sms-closed-in-gap.png"}
+              alt="A care gap's Past Action Summary showing a Text Conversation row with status Sent, who created it, and the recipient, plus a Hide Conversation button. Below it the full text thread is expanded, with outbound messages in blue and the patient's replies in green, each timestamped."
+              caption="A closed conversation in the care gap's action history. Use the conversation toggle to expand or collapse the full thread inline."
+            />
+            <p>In the gap's action history it appears as a <strong>Text Conversation</strong> row alongside every other action, with its status, who created it, and the recipient. Use the conversation toggle in the <strong>Outcome</strong> column to expand the thread inline and read the whole exchange without leaving the gap.</p>
           </>
         ),
       },
