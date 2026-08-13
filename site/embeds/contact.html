@@ -1,0 +1,128 @@
+<!--
+  =====================================================================
+  OneDash — Webflow Embed loader  (contact)  ·  SELF-CONTAINED + hCaptcha
+  =====================================================================
+  Loads the on-brand design + markup from GitHub and runs the contact
+  form: required-field validation (red errors), hCaptcha (Web3Forms free
+  shared key), and submit -> Web3Forms (emails support@ / triggers Slack).
+
+  In Web3Forms: keep hCaptcha ENABLED for this form (free plan uses the
+  shared key below — no custom keys needed).
+  =====================================================================
+-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<div id="od-root" class="od-embed"></div>
+
+<script>
+  (function () {
+    var WEB3FORMS_KEY    = "2de68d64-bfd1-4487-8674-a0b6414a519c";
+    var HCAPTCHA_SITEKEY = "50b2fe65-b00b-4b9e-ad62-3ba471098be2"; // Web3Forms free shared key
+    var PAGE = "contact";
+    // ── Branch toggle — comment/uncomment the active block, then publish ──
+    // MAIN (production — live for real visitors). ACTIVE by default:
+    var RAW = "https://raw.githubusercontent.com/samrezonedash/onedashengine-user-guide-assets/main/site/assets/";
+    var CDN = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@main/site/assets/";
+    // PRELIVE (testing). To preview WIP changes: comment out the two MAIN
+    // lines above, uncomment these two, then publish (to this page only,
+    // or the whole site — either is fine, this only affects this page):
+    // var RAW = "https://raw.githubusercontent.com/samrezonedash/onedashengine-user-guide-assets/prelive/site/assets/";
+    // var CDN = "https://cdn.jsdelivr.net/gh/samrezonedash/onedashengine-user-guide-assets@prelive/site/assets/";
+    var root = document.getElementById('od-root');
+    var widgetId = null;
+
+    function fetchText(path) {
+      return fetch(RAW + path).then(function (r) { if (!r.ok) throw new Error('raw'); return r.text(); })
+        .catch(function () { return fetch(CDN + path).then(function (r) { return r.text(); }); });
+    }
+
+    function renderCaptcha() {
+      if (!window.hcaptcha) return;
+      var el = document.getElementById('od-captcha');
+      if (el && !el.getAttribute('data-rendered')) {
+        widgetId = window.hcaptcha.render('od-captcha', { sitekey: HCAPTCHA_SITEKEY });
+        el.setAttribute('data-rendered', '1');
+      }
+    }
+
+    function wireForm() {
+      var form = document.getElementById('od-contact-form');
+      if (!form) return;
+      var status = form.querySelector('[data-status]');
+      var EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      var capEl = document.getElementById('od-captcha');
+
+      function setErr(el, m) { var f = el.closest('.field'); if (!f) return; f.classList.add('is-invalid'); var e = f.querySelector('[data-error]'); if (e) e.textContent = m || 'This field is required.'; }
+      function clearErr(el) { var f = el.closest('.field'); if (!f) return; f.classList.remove('is-invalid'); var e = f.querySelector('[data-error]'); if (e) e.textContent = ''; }
+      form.querySelectorAll('input, textarea').forEach(function (el) { el.addEventListener('input', function () { clearErr(el); }); });
+
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var ok = true, firstBad = null;
+        form.querySelectorAll('[required]').forEach(function (el) {
+          var v = (el.value || '').trim();
+          if (!v) { setErr(el); ok = false; firstBad = firstBad || el; }
+          else if (el.type === 'email' && !EMAIL_RE.test(v)) { setErr(el, 'Enter a valid email address.'); ok = false; firstBad = firstBad || el; }
+          else { clearErr(el); }
+        });
+
+        var token = (window.hcaptcha && widgetId !== null) ? window.hcaptcha.getResponse(widgetId) : '';
+        if (!token) { setErr(capEl, 'Please complete the captcha.'); ok = false; firstBad = firstBad || capEl; } else { clearErr(capEl); }
+
+        if (!ok) { if (firstBad && firstBad.focus) firstBad.focus(); return; }
+        var hp = form.querySelector('[name="botcheck"]'); if (hp && hp.checked) return;
+
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true; btn.style.opacity = '0.7';
+
+        var payload = { access_key: WEB3FORMS_KEY, subject: 'New contact enquiry — OneDash website', from_name: 'OneDash Website' };
+        // Only send the hCaptcha token. hCaptcha also injects a
+        // `g-recaptcha-response` field (reCAPTCHA drop-in compat); if that
+        // reaches Web3Forms it routes to reCAPTCHA (a Pro feature) and errors.
+        new FormData(form).forEach(function (v, k) {
+          if (k !== 'botcheck' && k !== 'h-captcha-response' && k !== 'g-recaptcha-response') payload[k] = v;
+        });
+        payload['h-captcha-response'] = token;
+
+        function fail(msg) {
+          status.hidden = false; status.className = 'contact-form__status is-error'; status.textContent = msg;
+          if (window.hcaptcha && widgetId !== null) { window.hcaptcha.reset(widgetId); } // clear used/expired token
+          btn.disabled = false; btn.style.opacity = '1';
+        }
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload)
+        }).then(function (r) { return r.json(); }).then(function (data) {
+          if (data && data.success) {
+            [].forEach.call(form.children, function (c) { if (c !== status) c.style.display = 'none'; });
+            status.hidden = false; status.className = 'contact-form__status is-success';
+            status.textContent = "Thanks — your message is on its way. We'll be in touch shortly.";
+          } else {
+            fail('Could not send: ' + ((data && data.message) || 'unknown error'));
+          }
+        }).catch(function () { fail('Network error — please email support@onedashengine.com directly.'); });
+      });
+    }
+
+    Promise.all([fetchText('marketing.css'), fetchText('content/' + PAGE + '.html')]).then(function (res) {
+      var style = document.createElement('style'); style.textContent = res[0]; document.head.appendChild(style);
+      root.innerHTML = res[1];
+      root.querySelectorAll('[data-od]').forEach(function (el) { el.src = CDN + el.getAttribute('data-od'); });
+      root.querySelectorAll('[data-od-href]').forEach(function (el) { el.href = CDN + el.getAttribute('data-od-href'); });
+      wireForm();
+
+      // Load hCaptcha and render into the (now-injected) #od-captcha slot.
+      window.odCaptchaReady = function () { renderCaptcha(); };
+      if (window.hcaptcha) { renderCaptcha(); }
+      else if (!document.getElementById('od-hcaptcha-api')) {
+        var hs = document.createElement('script');
+        hs.id = 'od-hcaptcha-api';
+        hs.src = 'https://js.hcaptcha.com/1/api.js?render=explicit&onload=odCaptchaReady';
+        hs.async = true; hs.defer = true;
+        document.head.appendChild(hs);
+      }
+
+      if (window.location.hash) { var h = root.querySelector(window.location.hash); if (h) h.scrollIntoView(); }
+    });
+  })();
+</script>
