@@ -249,8 +249,19 @@ window.GUIDE_ARTICLES_1 = [
         id: "latest",
         title: "Latest releases",
         body: (
-          <>  
-           <Release ver="1.8" date="July 31, 2026" defaultOpen>
+          <>
+           <Release ver="1.9" date="August 13, 2026" defaultOpen>
+    <h4>New features</h4>
+    <ul>
+      <li><strong>Bidirectional texting.</strong> Two-way SMS communication is now supported. See the user guide for full details.</li>
+      <li><strong>Automation FCC compliance guardrails.</strong> Automated outreach now enforces FCC-compliant communication windows and restrictions.</li>
+    </ul>
+    <h4>Enhancements</h4>
+    <ul>
+      <li>Backend optimizations for improved performance and stability.</li>
+    </ul>
+  </Release>
+           <Release ver="1.8" date="July 31, 2026">
   <h4>New features</h4>
   <ul>
     <li><strong>Editable provider contact details.</strong> Provider profiles now support editing phone, fax, email, and address information. Up to 3 entries per contact type can be added, with a preferred selection for each. Fax actions will automatically route to the preferred fax number.</li>
