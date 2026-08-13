@@ -1010,11 +1010,11 @@ window.GUIDE_ARTICLES_2 = [
               caption="SMS Conversations sits under Applications in the left nav."
               maxWidth={584}
             />
-            <Hint type="danger" title="Do not share PHI over SMS">
-              <p><strong>Never include protected health information in a text message.</strong> SMS is not a secure channel. Keep messages to scheduling, reminders, and prompts to get in touch — move anything clinical to a secure channel or a phone call.</p>
+            <Hint type="danger" title="Confirm HIPAA before sharing PHI">
+              <p><strong>Be sure to confirm HIPAA before sharing any PHI. Share ONLY necessary PHI over text conversations.</strong></p>
             </Hint>
             <Hint type="warning" title="In beta">
-              <p>SMS Conversations is in beta and is not yet enabled for all OneDash users. If you'd like access or have questions, please submit a ticket.</p>
+              <p>SMS Conversations is open to everyone, but as a beta feature it may still have minor bugs. If you experience any strange behavior, please submit a ticket.</p>
             </Hint>
           </>
         ),
@@ -1054,7 +1054,7 @@ window.GUIDE_ARTICLES_2 = [
             <h3>Become the primary caseworker</h3>
             <p>You can also make yourself the patient's <strong>primary caseworker</strong> from right here — the same assignment you'd make on the patient profile. Once you do, every future text response from that patient is automatically assigned to you instead of landing in Unassigned.</p>
             <Hint type="info">
-              <p>The header shows the current <strong>Primary Caseworker</strong> and when the conversation was last updated, so you can tell at a glance who owns the patient and how fresh the exchange is.</p>
+              <p>The header shows the current <strong>Primary Caseworker</strong> and the conversation for the current gap — not the patient's full text history across every gap.</p>
             </Hint>
           </>
         ),
@@ -1070,7 +1070,9 @@ window.GUIDE_ARTICLES_2 = [
               <li>Type your reply in the message box. The counter shows how many characters you've used out of the <strong>160</strong>-character SMS limit.</li>
               <li>Click <strong>Send</strong> once a gap is selected.</li>
             </ul>
-            <p><strong>Reminder: keep PHI out of every message you send.</strong></p>
+            <Hint type="tip" title="Tip!">
+              <p>Limit PHI in your message whenever possible, even after confirming HIPAA.</p>
+            </Hint>
           </>
         ),
       },
