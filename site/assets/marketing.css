@@ -3998,3 +3998,104 @@ html, body { overflow-x: hidden; max-width: 100%; }
   0%   { opacity: 0.68; }
   100% { opacity: 1; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   PRODUCT DEMO  (prelive)
+   A dark, cinematic band for the marketing video. Sits between the
+   loop section and Where-we-fit so the demo lands right after the
+   concept it demonstrates, and the dark background makes 720p
+   footage read as intentional rather than washed out.
+   Colors are set directly on elements — Webflow's shared stylesheet
+   overrides inherited h2/p color.
+   ═══════════════════════════════════════════════════════════════ */
+.od-embed .demo-sec {
+  display: block;
+  background: var(--od-primary-900);
+  color: #FFFFFF;
+  padding: var(--section-pad-y, 100px) 0;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Ambient wash so the band isn't a flat rectangle */
+.od-embed .demo-sec::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(900px 520px at 22% 8%, rgba(28,121,174,0.38), transparent 68%),
+    radial-gradient(760px 460px at 88% 96%, rgba(71,198,255,0.18), transparent 66%);
+}
+
+.demo-head {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.demo-eyebrow { color: var(--od-sky-500); }
+.demo-title {
+  margin: 12px 0 14px;
+  font-size: clamp(32px, 3.4vw, 52px);
+  line-height: 1.14;
+  font-weight: var(--od-fw-bold);
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+.demo-title em {
+  font-style: normal;
+  color: var(--od-sky-500);
+}
+.demo-lead {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.76);
+}
+
+.demo-player {
+  margin: 0 auto;
+  max-width: 1040px;
+}
+/* The frame: rounded, ringed, and lifted off the background */
+.demo-frame {
+  position: relative;
+  border-radius: var(--od-radius-2xl);
+  overflow: hidden;
+  background: #000;
+  border: 1px solid rgba(71,198,255,0.28);
+  box-shadow:
+    0 40px 90px -30px rgba(0,0,0,0.75),
+    0 0 0 1px rgba(255,255,255,0.04) inset,
+    0 0 60px -20px rgba(71,198,255,0.35);
+}
+.demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: inherit;
+}
+.demo-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.6);
+}
+.demo-note i { color: var(--od-sky-500); font-size: 12px; }
+
+@media (max-width: 860px) {
+  .od-embed .demo-sec { padding: var(--section-pad-y-sm, 64px) 0; }
+  .demo-head { margin-bottom: 28px; }
+  .demo-lead { font-size: 16.5px; }
+  .demo-frame { border-radius: var(--od-radius-lg); }
+}
+
+/* Large monitors — let the player use the extra room */
+@media (min-width: 1600px) { .demo-player { max-width: 1140px; } }
+@media (min-width: 2000px) { .demo-player { max-width: 1240px; } .demo-lead { font-size: 20px; } }
