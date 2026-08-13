@@ -4033,9 +4033,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   margin: 0 auto 40px;
   text-align: center;
 }
-.demo-eyebrow { color: var(--od-sky-500); }
 .demo-title {
-  margin: 12px 0 14px;
+  margin: 0 0 14px;
   font-size: clamp(32px, 3.4vw, 52px);
   line-height: 1.14;
   font-weight: var(--od-fw-bold);
@@ -4077,18 +4076,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
   background: #000;
   border-radius: inherit;
 }
-.demo-note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 16px;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.6);
-}
-.demo-note i { color: var(--od-sky-500); font-size: 12px; }
-
 @media (max-width: 860px) {
   .od-embed .demo-sec { padding: var(--section-pad-y-sm, 64px) 0; }
   .demo-head { margin-bottom: 28px; }
