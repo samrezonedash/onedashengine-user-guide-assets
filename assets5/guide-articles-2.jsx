@@ -1024,6 +1024,11 @@ window.GUIDE_ARTICLES_2 = [
         title: "Unassigned and Mine",
         body: (
           <>
+            <DocImage
+              src={(window.UG_ASSET_BASE || "") + "sms-inbox.png"}
+              alt="The SMS Conversations screen. On the left, a Conversations list with Unassigned and Mine tabs showing counts, and one conversation for Test Patient4 with a preview of their latest reply. On the right, the patient's name, phone and date of birth, a Close link, Claimed by with an Unclaim button, the Primary Caseworker and a last-updated date, then the message thread with outbound messages in blue marked Delivered and the patient's reply in green. At the bottom, a message box with a 97/160 character counter, a Create Gap button, a care gap dropdown, and Send."
+              caption="The SMS Conversations screen: queues and conversation list on the left, the thread and its ownership details on the right, and the reply box with its gap selector along the bottom."
+            />
             <p>The conversation list on the left has two tabs, each showing a count so you can see what's waiting:</p>
             <ul>
               <li><strong>Unassigned</strong> — replies that nobody is working yet.</li>
