@@ -250,7 +250,18 @@ window.GUIDE_ARTICLES_1 = [
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.9" date="August 13, 2026" defaultOpen>
+           <Release ver="1.10" date="August 17, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>Home Visit action type.</strong> Home Visit is now available as a manual action type for tracking and logging in the care gap modal.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>AI call jobs that fall outside of allowed hours will now automatically reschedule for the next valid time, eliminating duplicate actions.</li>
+    <li>New filters added to the care gap page.</li
+  </ul>
+</Release>
+           <Release ver="1.9" date="August 13, 2026">
     <h4>New features</h4>
     <ul>
       <li><strong>Bidirectional texting.</strong> Two-way SMS communication is now supported. See the user guide for full details.</li>
