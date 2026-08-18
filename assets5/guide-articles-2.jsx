@@ -874,6 +874,13 @@ window.GUIDE_ARTICLES_2 = [
               <li><strong>Status</strong> — all gaps that meet a specific status (multi-select).</li>
               <li><strong>Priority</strong> — all gaps that meet a specific priority (multi-select).</li>
             </ul>
+            <h3>Member filters</h3>
+            <p>Under <strong>Member</strong> you can narrow the table by who the patient is, rather than by the gap:</p>
+            <ul>
+              <li><strong>ZIP code</strong> — limit the table to members in a specific ZIP.</li>
+              <li><strong>Age</strong> — set a <strong>Min</strong> and <strong>Max</strong> to filter by age range. Leave either side blank for no bound, so you can work an age group like 65 and older, or under 18, without setting both ends.</li>
+              <li><strong>Line of Business</strong> — filter to one or more lines of business (multi-select).</li>
+            </ul>
             <p>You can also use the search bar and type a patient ID to see only that patient's gaps. Note: the entire patient ID is required for the search to succeed.</p>
           </>
         ),
