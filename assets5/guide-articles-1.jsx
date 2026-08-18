@@ -258,7 +258,7 @@ window.GUIDE_ARTICLES_1 = [
   <h4>Enhancements</h4>
   <ul>
     <li>AI call jobs that fall outside of allowed hours will now automatically reschedule for the next valid time, eliminating duplicate actions.</li>
-    <li>New filters added to the care gap page.</li
+    <li>New filters added to the care gap page.</li>
   </ul>
 </Release>
            <Release ver="1.9" date="August 13, 2026">
