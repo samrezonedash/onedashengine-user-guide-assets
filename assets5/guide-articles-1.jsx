@@ -243,14 +243,25 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "Jul 31, 2026",
+    updated: "Aug 24, 2026",
     sections: [
       {
         id: "latest",
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.10" date="August 17, 2026" defaultOpen>
+           <Release ver="1.10.2" date="August 24, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>Patient Insights tab.</strong> A new tab on the patient profile showing Medicare/Medicaid Quality compliance data and CAHPS survey results, where available.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>Two new filters on the Tags page: priority level and plan date.</li>
+    <li>Tag status colors now include yellow &mdash; yellow marks important, red marks urgent.</li>
+  </ul>
+</Release>
+           <Release ver="1.10" date="August 17, 2026">
   <h4>New features</h4>
   <ul>
     <li><strong>Home Visit action type.</strong> Home Visit is now available as a manual action type for tracking and logging in the care gap modal.</li>
