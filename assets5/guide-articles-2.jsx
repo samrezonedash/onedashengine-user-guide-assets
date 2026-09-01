@@ -729,8 +729,8 @@ window.GUIDE_ARTICLES_2 = [
               <li><strong>Call status.</strong> Select whether the call was successfully sent or not.</li>
               <li><strong>Call notes.</strong> Record any call notes. The note stays in this call tracker; to additionally post it directly to the member's Note tab, switch on <strong>Also post this to the member's Note tab</strong>.</li>
             </ul>
-            <Hint type="warning" title="Important">
-              <p>Currently, a manually tracked call can only be associated with one care gap. If you make a call and address multiple gaps, you may either track multiple calls, or simply paste the call notes into the other gaps for tracking purposes. Enhancements to this are underway to make the process more efficient.</p>
+            <Hint type="success" title="One action can cover several gaps">
+              <p>A tracked action can be attributed to more than one care gap for the same patient. If a single call addresses several gaps, attribute that one action across all of them — there's no need to log the call repeatedly or paste the notes into each gap separately.</p>
             </Hint>
 
             <h3>CM Rounds Rec</h3>
