@@ -243,14 +243,28 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "Aug 24, 2026",
+    updated: "Aug 31, 2026",
     sections: [
       {
         id: "latest",
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.10.2" date="August 24, 2026" defaultOpen>
+           <Release ver="1.11.1" date="August 31, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>AI MTM V2.</strong> A refined AI medication therapy review engine producing more accurate, better-reasoned recommendations.</li>
+    <li><strong>Multi-gap attribution.</strong> A single action can now be attributed across multiple care gaps for the same patient, so one call or message no longer has to be tracked separately against each gap.</li>
+    <li><strong>SDOH in Patient Insights.</strong> An SDOH table has been added to the Patient Insights tab.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>Two new MD appointment types for manual action tracking: At Home Visit and At Home Visit (COLO).</li>
+    <li>Providers can now be entered manually in the bulk faxing modal.</li>
+    <li>Three new patient status filters in the Population Browser: Patient Outreach Status, Work Status, and Primary Caseworker.</li>
+  </ul>
+</Release>
+           <Release ver="1.10.2" date="August 24, 2026">
   <h4>New features</h4>
   <ul>
     <li><strong>Patient Insights tab.</strong> A new tab on the patient profile showing Medicare/Medicaid Quality compliance data and CAHPS survey results, where available.</li>
