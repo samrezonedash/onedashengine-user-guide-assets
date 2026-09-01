@@ -711,11 +711,11 @@ window.GUIDE_ARTICLES_2 = [
         title: "Manually tracked actions",
         body: (
           <>
-            <p>Manually tracked actions are actions completed offline of OneDash and tracked in OneDash. You can track five different types.</p>
+            <p>Manually tracked actions are actions completed offline of OneDash and tracked in OneDash. You can track six different types: <strong>Outbound Call</strong>, <strong>Inbound Call</strong>, <strong>CM Rounds Rec</strong>, <strong>Mail</strong>, <strong>MD Appointment</strong>, and <strong>Home Visit</strong>.</p>
             <DocImage
               src={(window.UG_ASSET_BASE || "") + "care-gaps-manual-select.png"}
-              alt="The Record a manual action dropdown, open to show five options: Outbound Call, Inbound Call, CM Rounds Rec, Mail, and MD Appointment."
-              caption="Five manual action types: Outbound Call, Inbound Call, CM Rounds Rec, Mail, and MD Appointment."
+              alt="The Record a manual action dropdown, open to show the manual action types available: Outbound Call, Inbound Call, CM Rounds Rec, Mail, and MD Appointment."
+              caption="Choose the type from the Record a manual action dropdown. Home Visit was added after this screenshot was taken."
             />
 
             <h3>Outbound &amp; Inbound Calls</h3>
@@ -776,6 +776,9 @@ window.GUIDE_ARTICLES_2 = [
                 <li>If your patient successfully attended their appointment, set the originally tracked appointment to <strong>Scheduled Appointment Successful</strong>.</li>
               </ul>
             </Hint>
+
+            <h3>Home Visit</h3>
+            <p>Record a home visit against the gap. This logs the visit in the action history under its own action type, so the outreach is tracked and reportable alongside everything else on the gap. It doesn't trigger any further workflow in OneDash — the value is the record itself.</p>
           </>
         ),
       },
