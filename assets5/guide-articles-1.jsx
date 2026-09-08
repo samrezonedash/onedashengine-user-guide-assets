@@ -250,7 +250,20 @@ window.GUIDE_ARTICLES_1 = [
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.11.1" date="August 31, 2026" defaultOpen>
+<Release ver="1.12" date="September 8, 2026" defaultOpen>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>AI MTM improvements — age calculation fixes, consolidated references into a single tab, and general quality improvements.</li>
+    <li>Dashboard search now returns up to 50 results and supports search by date of birth, member ID, and phone number.</li>
+    <li>Redox job fixes.</li>
+  </ul>
+  <h4>Bug fixes</h4>
+  <ul>
+    <li>Fixed table spacing in bidirectional chat threads.</li>
+    <li>Fixed table spacing in the actions table.</li>
+  </ul>
+</Release>
+           <Release ver="1.11.1" date="August 31, 2026">
   <h4>New features</h4>
   <ul>
     <li><strong>AI MTM V2.</strong> A refined AI medication therapy review engine producing more accurate, better-reasoned recommendations.</li>
