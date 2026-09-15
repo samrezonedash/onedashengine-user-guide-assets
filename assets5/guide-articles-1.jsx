@@ -250,7 +250,28 @@ window.GUIDE_ARTICLES_1 = [
         title: "Latest releases",
         body: (
           <>
-<Release ver="1.12" date="September 8, 2026" defaultOpen>
+           <Release ver="1.13.3" date="September 15, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>LOB dashboard.</strong> A new analytics dashboard provides performance visibility broken down by line of business.</li>
+    <li><strong>SMS admin view.</strong> Admins can now view all text threads and manage user assignments across conversations.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>AI MTMs now incorporate open care gaps for more comprehensive documentation.</li>
+    <li>Retry logic added for fax jobs to improve delivery reliability.</li>
+    <li>Pediatric wellness visits now appear in the patient insights tab.</li>
+    <li>Manual care gap generation is now disabled for termed patients.</li>
+    <li>Improved error logging for jobs with recurring failures.</li>
+  </ul>
+  <h4>Bug fixes</h4>
+  <ul>
+    <li>Resolved AI MTM timeout issues.</li>
+    <li>Fixed AI MTM saving before allowing the user to edit.</li>
+    <li>Fixed MD Appointment display in the patient profile actions tab.</li>
+  </ul>
+</Release>
+<Release ver="1.12" date="September 8, 2026">
   <h4>Enhancements</h4>
   <ul>
     <li>AI MTM improvements — age calculation fixes, consolidated references into a single tab, and general quality improvements.</li>
