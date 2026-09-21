@@ -250,7 +250,13 @@ window.GUIDE_ARTICLES_1 = [
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.13.3" date="September 15, 2026" defaultOpen>
+           <Release ver="1.14" date="September 21, 2026" defaultOpen>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>CMR data now feeds into AI MTMs for more complete and accurate documentation.</li>
+  </ul>
+</Release>
+           <Release ver="1.13.3" date="September 15, 2026">
   <h4>New features</h4>
   <ul>
     <li><strong>LOB dashboard.</strong> A new analytics dashboard provides performance visibility broken down by line of business.</li>
