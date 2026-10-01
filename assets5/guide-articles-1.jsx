@@ -250,7 +250,23 @@ window.GUIDE_ARTICLES_1 = [
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.14" date="September 21, 2026" defaultOpen>
+           <Release ver="1.15" date="October 1, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>Dash AI insights.</strong> Toggling Dash AI in the top right enables AI-generated insights across the Population Browser, Patient Profile, and Care Gaps table — surfacing key information from a patient's previous health records.</li>
+    <li><strong>Medical Quality Care Gap Stats Dashboard.</strong> A new analytics dashboard providing care gap performance visibility across measures.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>SMS and AI call statuses now display failure reasons across all modals.</li>
+    <li>SMS opt-in page enhancements including updates to terms and privacy policy.</li>
+  </ul>
+  <h4>Bug fixes</h4>
+  <ul>
+    <li>Fixed care gap table filter issues.</li>
+  </ul>
+</Release>
+           <Release ver="1.14" date="September 21, 2026">
   <h4>Enhancements</h4>
   <ul>
     <li>CMR data now feeds into AI MTMs for more complete and accurate documentation.</li>
