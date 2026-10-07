@@ -1,13 +1,18 @@
 <!--
   =====================================================================
-  OneDash Marketing Site — Webflow Embed loader v3  (home)
+  OneDash Marketing Site — Webflow Embed loader v4  (home)
   =====================================================================
   WHAT: Paste this ONCE into a Webflow "Embed" element on the home
-        page. It never needs to change again. CSS + content load from
-        GitHub raw (live within 5 min of a push, no cache purging);
-        images/PDF load from jsDelivr, which is also the fallback if
-        GitHub raw is unreachable. CSS is applied BEFORE content is
-        injected, so the page never renders unstyled.
+        page. It never needs to change again. CSS, content AND page
+        behaviour (home.js) all load from GitHub raw (live within 5 min
+        of a push, no cache purging); images/PDF load from jsDelivr,
+        which is also the fallback if GitHub raw is unreachable. CSS is
+        applied BEFORE content is injected, so the page never renders
+        unstyled.
+
+  v4: page JS moved out of this file into site/assets/home.js so it
+      follows the branch toggle too. Nothing interactive needs a
+      re-paste any more — push home.js and republish is not required.
   =====================================================================
 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -33,11 +38,23 @@
         if (!r.ok) throw new Error('raw ' + r.status);
         return r.text();
       }).catch(function () {
-        return fetch(CDN + path).then(function (r) { return r.text(); });
+        return fetch(CDN + path).then(function (r) {
+          if (!r.ok) throw new Error('cdn ' + r.status);
+          return r.text();
+        });
       });
     }
 
-    Promise.all([fetchText('marketing.css'), fetchText('content/' + PAGE + '.html')])
+    // Page behaviour is optional: a page with no .js file still renders.
+    function fetchOptional(path) {
+      return fetchText(path).catch(function () { return ''; });
+    }
+
+    Promise.all([
+      fetchText('marketing.css'),
+      fetchText('content/' + PAGE + '.html'),
+      fetchOptional(PAGE + '.js')
+    ])
       .then(function (results) {
         // CSS first — content must never render with only Webflow's own
         // site-wide stylesheet (its bare p/li/h1/.container rules produce
@@ -50,26 +67,26 @@
         root.querySelectorAll('[data-od]').forEach(function (el) { el.src = CDN + el.getAttribute('data-od'); });
         root.querySelectorAll('[data-od-href]').forEach(function (el) { el.href = CDN + el.getAttribute('data-od-href'); });
 
-        if (PAGE === 'home') {
-          var tabs = [].slice.call(root.querySelectorAll('.ptab'));
-          var map = {'tab-quality':'panel-quality','tab-pharmacy':'panel-pharmacy','tab-finance':'panel-finance'};
-          function act(t) {
-            tabs.forEach(function (x) {
-              var on = x === t;
-              x.classList.toggle('is-active', on);
-              x.setAttribute('aria-selected', on ? 'true' : 'false');
-              var p = root.querySelector('#' + map[x.id]);
-              if (p) { p.classList.toggle('is-active', on); if (on) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); } }
-            });
-          }
-          tabs.forEach(function (t) { t.addEventListener('click', function () { act(t); }); });
-        }
-
         // Content landed async, so a #hash from a cross-page link missed
         // the browser's one-shot scroll-on-load; do it once content exists.
         if (window.location.hash) {
           var hashTarget = root.querySelector(window.location.hash);
           if (hashTarget) { hashTarget.scrollIntoView(); }
+        }
+
+        // Run the page's behaviour last, with the content already in the
+        // DOM. innerHTML never executes <script>, so this is injected as a
+        // real script element instead. A failure here must not take the
+        // page down — the content is already rendered and readable.
+        if (results[2]) {
+          try {
+            window.OD = { root: root, CDN: CDN, RAW: RAW, PAGE: PAGE };
+            var s = document.createElement('script');
+            s.textContent = results[2];
+            document.body.appendChild(s);
+          } catch (e) {
+            if (window.console) { console.error('OneDash: page script failed', e); }
+          }
         }
       });
   })();
