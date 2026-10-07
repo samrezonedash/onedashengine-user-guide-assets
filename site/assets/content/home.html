@@ -67,49 +67,56 @@
         <p>One continuous loop, running all year. OneDash raises the gaps, closes them, and — the part others can't copy — puts clinical expertise behind every close to refine the gaps it raises next. So the loop course-corrects as you go, and opportunities stop slipping through.</p>
       </div>
 
-      <div class="loop-diagram">
-        <svg class="loop-svg" viewBox="0 0 560 560" aria-hidden="true">
-          <defs>
-            <marker id="ah-primary" markerWidth="12" markerHeight="12" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="var(--od-primary-400)"></path></marker>
-            <marker id="ah-sky" markerWidth="13" markerHeight="13" refX="4.2" refY="4.2" orient="auto"><path d="M0,0 L8.4,4.2 L0,8.4 Z" fill="var(--od-sky-500)"></path></marker>
-          </defs>
-          <!-- base ring -->
-          <circle cx="280" cy="280" r="200" fill="none" stroke="var(--od-line-2)" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"></circle>
-          <!-- Identify → Act  (right gap, arrowhead clear of the cards) -->
-          <path d="M394.7,116.2 A200,200 0 0 1 480,280" fill="none" stroke="var(--od-primary-400)" stroke-width="3" marker-end="url(#ah-primary)"></path>
-          <!-- Act → Monitor  (bottom gap, below both cards) -->
-          <path d="M335.1,472.2 A200,200 0 0 1 224.9,472.2" fill="none" stroke="var(--od-primary-400)" stroke-width="3" marker-end="url(#ah-primary)"></path>
-          <!-- Monitor → Identify (feedback — emphasized; left gap) -->
-          <path d="M80.1,287 A200,200 0 0 1 162.4,118.2" fill="none" stroke="var(--od-sky-500)" stroke-width="4" marker-end="url(#ah-sky)"></path>
-          <!-- Orbiting comet — the loop runs continuously, all year -->
-          <circle class="loop-comet" r="8" fill="var(--od-sky-500)"></circle>
-        </svg>
+      <div class="od-gap-loop" role="img" aria-label="OneDash identifies a care gap, automates outreach, and monitors the outcome, which feeds the next identification">
+        <div class="od-gap-loop__stage">
+          <div class="odg-step" style="left:130px;animation-name:odg_g1">Identify</div>
+          <div class="odg-step" style="left:380px;animation-name:odg_g2">Act</div>
+          <div class="odg-step" style="left:680px;animation-name:odg_g3">Monitor</div>
 
-        <div class="loop-hub">
-          <span class="loop-hub__pulse"></span>
-          <strong>Runs all year</strong>
-          <span>Course-correcting as you go — so nothing slips</span>
+          <div class="odg-autopill"><span><i class="fa-solid fa-bolt" aria-hidden="true"></i>Automated by OneDash</span></div>
+
+          <div class="odg-rail" style="left:60px;width:140px"></div>
+          <div class="odg-rail" style="left:260px;width:188px"></div>
+          <div class="odg-rail" style="left:512px;width:388px"></div>
+          <div class="odg-bracket" style="left:199px"></div>
+          <div class="odg-bracket" style="left:259px"></div>
+          <div class="odg-heal"></div>
+
+          <div class="odg-callout odg-callout--in">
+            <span class="odg-eyebrow">Care gap identified</span>
+            <span class="odg-callout__body" data-gap></span>
+          </div>
+
+          <div class="odg-callout odg-callout--out">
+            <span class="odg-eyebrow">Gap closed</span>
+            <span class="odg-callout__body" data-outcome></span>
+          </div>
+
+          <svg class="odg-ring" width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="2"></circle>
+            <circle data-ring cx="32" cy="32" r="28" fill="none" stroke="#47C6FF" stroke-width="2" stroke-linecap="round" stroke-dasharray="176" stroke-dashoffset="176"></circle>
+          </svg>
+          <svg class="odg-spin" data-spin width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="28" fill="none" stroke="#47C6FF" stroke-width="2" stroke-linecap="round" stroke-dasharray="34 142"></circle>
+          </svg>
+
+          <div class="odg-think" data-think>OneDash selecting actions<span class="odg-dots"><span></span><span></span><span></span></span></div>
+          <div class="odg-acts" data-acts></div>
+
+          <div class="odg-count" data-count>1,284</div>
+          <div class="odg-plus" data-plus>+4</div>
+          <div class="odg-metric"><span data-metric></span></div>
+
+          <svg class="odg-feedback" width="960" height="550" viewBox="0 0 960 550" aria-hidden="true">
+            <path class="odg-fb-track" d="M780 386 C780 462 740 484 680 484 L330 484 C270 484 230 460 230 312" fill="none" stroke="rgba(96,162,199,.6)" stroke-width="1.5" stroke-linecap="round"></path>
+            <path class="odg-fb-pulse" d="M780 386 C780 462 740 484 680 484 L330 484 C270 484 230 460 230 312" pathLength="100" fill="none" stroke="#47C6FF" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="12 100" stroke-dashoffset="12"></path>
+            <path class="odg-fb-chev" d="M710 480 L705 484 L710 488 M650 480 L645 484 L650 488 M300 480 L295 484 L300 488" fill="none" stroke="#60A2C7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+
+          <div class="odg-endpoint"></div>
+          <div class="odg-caption"><span class="odg-caption__pill">Feedback</span>Outcomes refine the next identification</div>
+          <div class="odg-dot"></div>
         </div>
-
-        <div class="loop-feedback">Monitor feeds Identify — the loop tightens all year</div>
-
-        <article class="loop-node loop-node--identify">
-          <div class="loop-node__badge"><span>01</span><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-          <h3>Identify</h3>
-          <p>Our clinical rules raise the quality <em>and</em> spend gaps that matter — from your claims, pharmacy &amp; labs, in real time.</p>
-        </article>
-
-        <article class="loop-node loop-node--action">
-          <div class="loop-node__badge"><span>02</span><i class="fa-solid fa-bolt"></i></div>
-          <h3>Act</h3>
-          <p>Whatever it takes to close the gap — the exact sequence each workflow needs, run automatically.</p>
-        </article>
-
-        <article class="loop-node loop-node--measure">
-          <div class="loop-node__badge"><span>03</span><i class="fa-solid fa-user-doctor"></i></div>
-          <h3>Monitor</h3>
-          <p>Clinical experts review and refine the rules — so your automations get smarter over time.</p>
-        </article>
       </div>
 
       <div class="cycle-why">

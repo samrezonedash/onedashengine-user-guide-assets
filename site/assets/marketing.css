@@ -4109,3 +4109,289 @@ html, body { overflow-x: hidden; max-width: 100%; }
 @media (max-width: 860px) {
   .od-embed .dl-featured + .dl-featured { margin-top: 20px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   GAP LOOP  (prelive)
+   Self-running Identify → Act → Monitor animation, replacing the old
+   circular loop diagram. Design reference: design_handoff_gap_loop
+   (concept 3a) — 960×550 artboard, scaled to the container by JS in
+   the home embed loader.
+
+   Every property is set on the element directly: Webflow's shared
+   stylesheet carries bare h1-h6/p/li/div rules that would otherwise
+   win on inherited color and layout.
+   ═══════════════════════════════════════════════════════════════ */
+.od-embed .od-gap-loop {
+  --odg-loop: 22s;
+  display: block;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  aspect-ratio: 960 / 550;
+  position: relative;
+  font-family: var(--od-font-sans);
+}
+.od-embed .od-gap-loop__stage {
+  position: absolute;
+  left: 0; top: 0;
+  width: 960px;
+  height: 550px;
+  transform-origin: top left;
+  background: var(--od-primary-800);
+  border-radius: var(--od-radius-2xl);
+  overflow: hidden;
+}
+
+/* ── Step labels ─────────────────────────────────────────────── */
+.od-embed .odg-step {
+  position: absolute;
+  top: 48px;
+  width: 200px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: var(--od-fw-extrabold);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #8089A2;
+  animation-duration: var(--odg-loop);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+@keyframes odg_g1 {
+  0%,11.66%   { color:#FFFFFF; text-shadow:0 0 6px rgba(71,198,255,.6), 0 0 24px rgba(71,198,255,.55); }
+  14.31%,92.96% { color:#8089A2; text-shadow:0 0 0 rgba(71,198,255,0), 0 0 0 rgba(71,198,255,0); }
+  95.78%,100% { color:#FFFFFF; text-shadow:0 0 6px rgba(71,198,255,.6), 0 0 24px rgba(71,198,255,.55); }
+}
+@keyframes odg_g2 {
+  0%,15.37%    { color:#8089A2; text-shadow:0 0 0 rgba(71,198,255,0), 0 0 0 rgba(71,198,255,0); }
+  21.74%,66.55% { color:#FFFFFF; text-shadow:0 0 6px rgba(71,198,255,.6), 0 0 24px rgba(71,198,255,.55); }
+  72.56%,100%  { color:#8089A2; text-shadow:0 0 0 rgba(71,198,255,0), 0 0 0 rgba(71,198,255,0); }
+}
+@keyframes odg_g3 {
+  0%,70.45%    { color:#8089A2; text-shadow:0 0 0 rgba(71,198,255,0), 0 0 0 rgba(71,198,255,0); }
+  73.97%,91.56% { color:#FFFFFF; text-shadow:0 0 6px rgba(71,198,255,.6), 0 0 24px rgba(71,198,255,.55); }
+  95.78%,100%  { color:#8089A2; text-shadow:0 0 0 rgba(71,198,255,0), 0 0 0 rgba(71,198,255,0); }
+}
+
+/* ── "Automated by OneDash" pill ─────────────────────────────── */
+.od-embed .odg-autopill {
+  position: absolute; left: 380px; top: 90px; width: 200px;
+  display: flex; justify-content: center;
+  opacity: 0;
+  animation: odg_auto var(--odg-loop) ease-in-out infinite;
+}
+.od-embed .odg-autopill span {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--od-radius-pill);
+  background: rgba(71,198,255,.12);
+  border: 1px solid rgba(71,198,255,.4);
+  color: #FFFFFF;
+  font-size: 12px; font-weight: var(--od-fw-semibold);
+  white-space: nowrap;
+}
+.od-embed .odg-autopill i { font-size: 11px; color: var(--od-sky-500); }
+@keyframes odg_auto {
+  0%,15.9%     { opacity:0; transform:translateY(4px); }
+  23.69%,94.37% { opacity:1; transform:translateY(0); }
+  97.89%,100%  { opacity:0; transform:translateY(4px); }
+}
+
+/* ── Continuum line, the gap, and the heal ───────────────────── */
+.od-embed .odg-rail {
+  position: absolute; top: 199px; height: 2px;
+  background: rgba(255,255,255,.16);
+}
+.od-embed .odg-bracket {
+  position: absolute; top: 192px; width: 2px; height: 16px;
+  background: var(--od-sky-500);
+  opacity: 0;
+  animation: odg_bracket var(--odg-loop) ease-in-out infinite;
+}
+.od-embed .odg-heal {
+  position: absolute; left: 200px; top: 199px; width: 60px; height: 2px;
+  background: var(--od-sky-500);
+  transform-origin: left; transform: scaleX(0);
+  animation: odg_heal var(--odg-loop) ease-in-out infinite;
+}
+@keyframes odg_bracket {
+  0%,3.71%    { opacity:0; transform:scaleY(.2); }
+  5.83%,58.76% { opacity:1; transform:scaleY(1); }
+  70.45%,100% { opacity:0; transform:scaleY(.2); }
+}
+@keyframes odg_heal {
+  0%,58.76%    { transform:scaleX(0); }
+  70.45%,92.96% { transform:scaleX(1); }
+  97.19%,100%  { transform:scaleX(0); }
+}
+
+/* ── Gap in / outcome out callouts ───────────────────────────── */
+.od-embed .odg-callout {
+  position: absolute;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  text-align: center;
+  opacity: 0;
+}
+.od-embed .odg-callout--in  { left:100px; top:224px; width:260px; animation: odg_in  var(--odg-loop) ease-in-out infinite; }
+.od-embed .odg-callout--out { left:630px; top:324px; width:300px; animation: odg_out var(--odg-loop) ease-in-out infinite; }
+.od-embed .odg-eyebrow {
+  font-size: 11px; font-weight: var(--od-fw-bold);
+  letter-spacing: 0.21em; text-transform: uppercase;
+  color: var(--od-sky-500);
+}
+.od-embed .odg-callout__body {
+  font-size: 15px; font-weight: var(--od-fw-semibold);
+  line-height: 1.35; color: #FFFFFF; text-wrap: balance;
+}
+@keyframes odg_in {
+  0%,4.24%     { opacity:0; transform:translateY(4px); }
+  6.36%,73.26% { opacity:1; transform:translateY(0); }
+  76.08%,100%  { opacity:0; transform:translateY(4px); }
+}
+@keyframes odg_out {
+  0%,76.78%     { opacity:0; transform:translateY(4px); }
+  79.6%,92.96%  { opacity:1; transform:translateY(0); }
+  96.48%,100%   { opacity:0; transform:translateY(4px); }
+}
+
+/* ── Act ring + thinking spinner ─────────────────────────────── */
+.od-embed .odg-ring { position:absolute; left:448px; top:168px; transform: rotate(-90deg); }
+.od-embed .odg-spin { position:absolute; left:448px; top:168px; opacity:0; }
+.od-embed .odg-think {
+  position: absolute; left:330px; top:256px; width:300px;
+  display: flex; justify-content: center; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: var(--od-fw-semibold);
+  color: #D2E4EF; opacity: 0;
+}
+.od-embed .odg-dots { display:flex; gap:4px; align-items:center; }
+.od-embed .odg-dots span {
+  width:4px; height:4px; border-radius:50%;
+  background: var(--od-sky-500);
+  animation: odg_blink 1s ease-in-out infinite;
+}
+.od-embed .odg-dots span:nth-child(2) { animation-delay: .2s; }
+.od-embed .odg-dots span:nth-child(3) { animation-delay: .4s; }
+@keyframes odg_blink { 0%,100% { opacity:.25 } 50% { opacity:1 } }
+
+/* ── Action list (populated by the loader) ───────────────────── */
+.od-embed .odg-acts {
+  position: absolute; left:330px; top:252px; width:300px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  font-size: 14px; font-weight: var(--od-fw-semibold);
+  color: #FFFFFF; text-align: center;
+}
+.od-embed .odg-act { display:flex; flex-direction:column; align-items:center; gap:2px; opacity:0; }
+.od-embed .odg-act__title { display:flex; align-items:center; gap:8px; }
+.od-embed .odg-act__title i { font-size:12px; color: var(--od-sky-500); }
+.od-embed .odg-act__sub { font-size:12px; font-weight: var(--od-fw-medium); color:#8089A2; }
+
+/* ── Monitor readout ─────────────────────────────────────────── */
+.od-embed .odg-count {
+  position: absolute; left:630px; top:214px; width:300px;
+  text-align: center;
+  font-size: 56px; font-weight: var(--od-fw-extrabold);
+  letter-spacing: -0.02em; color: #FFFFFF;
+  font-variant-numeric: tabular-nums;
+  opacity: 0;
+  animation: odg_mon var(--odg-loop) ease-in-out infinite;
+}
+.od-embed .odg-metric {
+  position: absolute; left:630px; top:290px; width:300px;
+  text-align: center;
+  font-size: 14px; font-weight: var(--od-fw-semibold); color:#D2E4EF;
+  opacity: 0;
+  animation: odg_mon var(--odg-loop) ease-in-out infinite;
+}
+.od-embed .odg-plus {
+  position: absolute; left:868px; top:220px;
+  font-size: 14px; font-weight: var(--od-fw-bold);
+  color: var(--od-sky-500); opacity: 0;
+  animation: odg_plus var(--odg-loop) ease-in-out infinite;
+}
+@keyframes odg_mon {
+  0%,70.45%     { opacity:0; }
+  73.26%,94.37% { opacity:1; }
+  97.89%,100%   { opacity:0; }
+}
+@keyframes odg_plus {
+  0%,76.08%     { opacity:0; transform:translateY(6px); }
+  78.89%,88.74% { opacity:1; transform:translateY(0); }
+  92.96%,100%   { opacity:0; transform:translateY(-6px); }
+}
+
+/* ── Feedback path back to Identify ──────────────────────────── */
+.od-embed .odg-feedback {
+  position: absolute; left:0; top:0;
+  overflow: visible; pointer-events: none;
+}
+.od-embed .odg-fb-track,
+.od-embed .odg-fb-chev { opacity:0; animation: odg_fb var(--odg-loop) ease-in-out infinite; }
+.od-embed .odg-fb-pulse { opacity:0; animation: odg_fbpulse var(--odg-loop) ease-in-out infinite; }
+@keyframes odg_fb {
+  0%,82.41%     { opacity:0; }
+  85.22%,95.78% { opacity:1; }
+  98.59%,100%   { opacity:0; }
+}
+@keyframes odg_fbpulse {
+  0%,84.52%   { stroke-dashoffset:12; opacity:0; }
+  85.93%      { opacity:1; }
+  95.08%      { stroke-dashoffset:-100; opacity:1; }
+  96.48%,100% { stroke-dashoffset:-100; opacity:0; }
+}
+.od-embed .odg-endpoint {
+  position: absolute; left:225px; top:302px;
+  width:10px; height:10px; border-radius:50%;
+  background:#2A3A66; opacity:0;
+  animation: odg_endpoint var(--odg-loop) ease-out infinite;
+}
+@keyframes odg_endpoint {
+  0%,82.41%     { opacity:0; background:#2A3A66; box-shadow:0 0 0 0 rgba(71,198,255,0); }
+  85.22%,93.67% { opacity:1; background:#2A3A66; box-shadow:0 0 0 0 rgba(71,198,255,0); }
+  95.78%        { opacity:1; background:#47C6FF; box-shadow:0 0 0 6px rgba(71,198,255,.3); }
+  99.3%,100%    { opacity:0; background:#47C6FF; box-shadow:0 0 0 14px rgba(71,198,255,0); }
+}
+.od-embed .odg-caption {
+  position: absolute; left:280px; top:498px; width:400px;
+  display: flex; justify-content: center; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: var(--od-fw-semibold); color:#D2E4EF;
+  opacity: 0;
+  animation: odg_cap var(--odg-loop) ease-in-out infinite;
+}
+.od-embed .odg-caption__pill {
+  padding: 3px 8px; border-radius: var(--od-radius-pill);
+  background: var(--od-primary-500); color:#FFFFFF;
+  font-size: 10px; font-weight: var(--od-fw-bold);
+  letter-spacing: 0.21em; text-transform: uppercase;
+}
+@keyframes odg_cap {
+  0%,84.52%     { opacity:0; transform:translateY(4px); }
+  87.34%,95.78% { opacity:1; transform:translateY(0); }
+  98.59%,100%   { opacity:0; transform:translateY(4px); }
+}
+
+/* ── Travelling dot ──────────────────────────────────────────── */
+.od-embed .odg-dot {
+  position: absolute; left:225px; top:195px;
+  width:10px; height:10px; border-radius:50%;
+  background: var(--od-sky-500);
+  box-shadow: 0 0 0 5px rgba(71,198,255,.18);
+  opacity: 0;
+  animation: odg_dot var(--odg-loop) ease-in-out infinite;
+}
+@keyframes odg_dot {
+  0%,10.07%   { left:225px; top:195px; opacity:0; transform:scale(0); }
+  12.72%      { left:225px; top:195px; opacity:1; transform:scale(1); }
+  19.8%,58.76% { left:475px; top:195px; }
+  70.45%      { left:775px; top:195px; }
+  74.67%      { left:775px; top:252px; opacity:1; }
+  76.08%      { left:775px; top:254px; opacity:0; }
+  100%        { left:225px; top:195px; opacity:0; transform:scale(0); }
+}
+
+/* Paused off-screen by the loader; JS compensates its clock on resume
+   so the CSS keyframes and the rAF-driven parts stay in phase. */
+.od-embed .od-gap-loop.is-paused * { animation-play-state: paused !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .od-embed .od-gap-loop * { animation-play-state: paused !important; }
+}
