@@ -2015,7 +2015,10 @@ html, body { overflow-x: hidden; max-width: 100%; }
 /* ── Hero (stakes-first) ───────────────────────────────────── */
 .hero--stakes {
   padding-top: 168px;
-  padding-bottom: 96px;
+  /* Tight to the trust strip on purpose: the strip is a one-line
+     continuation of the hero's claim, not a separate section, so it
+     shouldn't read across a full section gap. */
+  padding-bottom: 48px;
 }
 .hero--stakes__grid {
   display: flex;
@@ -2383,7 +2386,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .ptab.is-active::after { display: none; }
 }
 @media (max-width: 720px) {
-  .hero--stakes { padding-top: 132px; padding-bottom: 72px; }
+  .hero--stakes { padding-top: 132px; padding-bottom: 38px; }
   .what-band__row { gap: 16px; }
   .what-band__items { gap: 20px; }
   .personas__head h2 { font-size: 32px; }
