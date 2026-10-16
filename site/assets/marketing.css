@@ -4395,3 +4395,76 @@ html, body { overflow-x: hidden; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   .od-embed .od-gap-loop * { animation-play-state: paused !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   TRUST STRIP  (prelive)
+   Sits between the hero and the capability band: who vouches for us
+   (client) and what we're credentialed for (NCQA, SOC 2). Separated
+   from .what-band because that answers a different question — what
+   the platform does, not who trusts it.
+   ═══════════════════════════════════════════════════════════════ */
+.od-embed .trust-band {
+  display: block;
+  background: var(--od-primary-900);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.od-embed .trust-band__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px 40px;
+  padding: 18px 0;
+  flex-wrap: wrap;
+}
+.od-embed .trust-band__client {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.od-embed .trust-band__label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: var(--od-fw-semibold);
+  color: rgba(255,255,255,0.5);
+}
+.od-embed .trust-band__name {
+  font-size: 20px;
+  font-weight: var(--od-fw-bold);
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+.od-embed .trust-band__creds {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.od-embed .trust-cred {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 14px;
+  border-radius: var(--od-radius-pill);
+  background: rgba(71,198,255,0.07);
+  border: 1px solid rgba(71,198,255,0.26);
+  font-size: 13px;
+  font-weight: var(--od-fw-medium);
+  color: rgba(255,255,255,0.78);
+  white-space: nowrap;
+}
+.od-embed .trust-cred strong {
+  font-weight: var(--od-fw-bold);
+  color: #FFFFFF;
+}
+.od-embed .trust-cred i {
+  font-size: 13px;
+  color: var(--od-sky-500);
+}
+
+@media (max-width: 860px) {
+  .od-embed .trust-band__row { justify-content: flex-start; padding: 16px 0; }
+  .od-embed .trust-cred { font-size: 12px; padding: 6px 11px; }
+  .od-embed .trust-band__name { font-size: 18px; }
+}
