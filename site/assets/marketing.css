@@ -2015,7 +2015,10 @@ html, body { overflow-x: hidden; max-width: 100%; }
 /* ── Hero (stakes-first) ───────────────────────────────────── */
 .hero--stakes {
   padding-top: 168px;
-  padding-bottom: 96px;
+  /* Tight to the trust strip on purpose: the strip is a one-line
+     continuation of the hero's claim, not a separate section, so it
+     shouldn't read across a full section gap. */
+  padding-bottom: 48px;
 }
 .hero--stakes__grid {
   display: flex;
@@ -2087,7 +2090,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: var(--od-fw-semibold);
 }
 .how-item__no {
@@ -2098,7 +2101,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .how-item__contrast i { color: var(--od-sky-500); font-size: 12px; }
 .how-item__yes { color: #FFFFFF; }
 .how-item p {
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.55;
   color: rgba(255,255,255,0.82);
   margin: 0;
@@ -2117,11 +2120,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
   flex-wrap: wrap;
 }
 .what-band__label {
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: var(--od-fw-semibold);
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.56);
   flex-shrink: 0;
 }
 .what-band__items {
@@ -2383,7 +2386,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .ptab.is-active::after { display: none; }
 }
 @media (max-width: 720px) {
-  .hero--stakes { padding-top: 132px; padding-bottom: 72px; }
+  .hero--stakes { padding-top: 132px; padding-bottom: 38px; }
   .what-band__row { gap: 16px; }
   .what-band__items { gap: 20px; }
   .personas__head h2 { font-size: 32px; }
@@ -3917,7 +3920,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .persona__list span,
 .loop-node p { font-size: 14px; line-height: 1.55; }
 .result-card__body { font-size: 14.5px; }
-.what-band__items span { font-size: 14.5px; }
+.what-band__items span { font-size: 16px; }
 .cycle-why p,
 .fit-col p,
 .flow-fit p { font-size: 15px; }
@@ -3936,8 +3939,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .persona__body { font-size: 16.5px; }
   .persona__list span,
   .loop-node p { font-size: 15px; }
-  .result-card__body,
-  .what-band__items span { font-size: 15.5px; }
+  .result-card__body { font-size: 15.5px; }
+  .what-band__items span { font-size: 17px; }
   .cycle-why p, .fit-col p, .flow-fit p { font-size: 16px; }
   .nav__links a { font-size: 16.5px; }
 }
@@ -3960,8 +3963,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .persona__body { font-size: 19px; }
   .persona__list span,
   .loop-node p { font-size: 17.5px; }
-  .result-card__body,
-  .what-band__items span { font-size: 18px; }
+  .result-card__body { font-size: 18px; }
+  .what-band__items span { font-size: 18.5px; }
   .cycle-why p, .fit-col p, .flow-fit p { font-size: 18px; }
   .nav__links a { font-size: 19px; }
 }
@@ -4394,4 +4397,104 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
   .od-embed .od-gap-loop * { animation-play-state: paused !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TRUST STRIP  (prelive)
+   Sits between the hero and the capability band: who vouches for us
+   (client) and what we're credentialed for (NCQA, SOC 2). Separated
+   from .what-band because that answers a different question — what
+   the platform does, not who trusts it.
+   ═══════════════════════════════════════════════════════════════ */
+.od-embed .trust-band {
+  display: block;
+  background: var(--od-primary-900);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.od-embed .trust-band__row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px 40px;
+  padding: 18px 0;
+  flex-wrap: wrap;
+}
+.od-embed .trust-band__client {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.od-embed .trust-band__label {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: var(--od-fw-semibold);
+  color: rgba(255,255,255,0.56);
+}
+.od-embed .trust-band__name {
+  font-size: 20px;
+  font-weight: var(--od-fw-bold);
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+}
+/* The certification seals live in the CTA (see CTA CREDENTIALS below), not
+   here — under the hero they sat beside 64px display type and read as
+   afterthoughts. Height is set rather than width because the two badges
+   share a height but not an aspect ratio, and every box property is
+   restated to beat Webflow's bare `img` rules. */
+.od-embed .trust-badge {
+  display: block;
+  height: 88px;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 860px) {
+  .od-embed .trust-band__row { padding: 16px 0; }
+  .od-embed .trust-band__name { font-size: 18px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA CREDENTIALS  (prelive)
+   The seals get a full-width row under the CTA: dark ground so the light
+   badge art separates, and room to run them at a size where the
+   certifying body is legible. Reads as the reassurance beat right
+   before "schedule a call".
+   ═══════════════════════════════════════════════════════════════ */
+.od-embed .cta__creds {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 20px 36px;
+  flex-wrap: wrap;
+  margin-top: 68px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.od-embed .cta__creds-label {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: var(--od-fw-semibold);
+  color: rgba(255,255,255,0.56);
+  flex-shrink: 0;
+}
+.od-embed .cta__creds-badges {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 860px) {
+  .od-embed .cta__creds { margin-top: 44px; padding-top: 28px; gap: 16px 24px; }
+  .od-embed .cta__creds-badges { gap: 22px; }
+  .od-embed .trust-badge { height: 72px; }
 }
