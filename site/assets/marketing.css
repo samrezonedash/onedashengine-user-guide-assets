@@ -2087,7 +2087,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: var(--od-fw-semibold);
 }
 .how-item__no {
@@ -2098,7 +2098,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .how-item__contrast i { color: var(--od-sky-500); font-size: 12px; }
 .how-item__yes { color: #FFFFFF; }
 .how-item p {
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.55;
   color: rgba(255,255,255,0.82);
   margin: 0;
@@ -2117,11 +2117,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
   flex-wrap: wrap;
 }
 .what-band__label {
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: var(--od-fw-semibold);
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.56);
   flex-shrink: 0;
 }
 .what-band__items {
@@ -3917,7 +3917,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .persona__list span,
 .loop-node p { font-size: 14px; line-height: 1.55; }
 .result-card__body { font-size: 14.5px; }
-.what-band__items span { font-size: 14.5px; }
+.what-band__items span { font-size: 16px; }
 .cycle-why p,
 .fit-col p,
 .flow-fit p { font-size: 15px; }
@@ -3936,8 +3936,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .persona__body { font-size: 16.5px; }
   .persona__list span,
   .loop-node p { font-size: 15px; }
-  .result-card__body,
-  .what-band__items span { font-size: 15.5px; }
+  .result-card__body { font-size: 15.5px; }
+  .what-band__items span { font-size: 17px; }
   .cycle-why p, .fit-col p, .flow-fit p { font-size: 16px; }
   .nav__links a { font-size: 16.5px; }
 }
@@ -3960,8 +3960,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
   .persona__body { font-size: 19px; }
   .persona__list span,
   .loop-node p { font-size: 17.5px; }
-  .result-card__body,
-  .what-band__items span { font-size: 18px; }
+  .result-card__body { font-size: 18px; }
+  .what-band__items span { font-size: 18.5px; }
   .cycle-why p, .fit-col p, .flow-fit p { font-size: 18px; }
   .nav__links a { font-size: 19px; }
 }
@@ -4423,11 +4423,11 @@ html, body { overflow-x: hidden; max-width: 100%; }
   flex-shrink: 0;
 }
 .od-embed .trust-band__label {
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-size: 13px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: var(--od-fw-semibold);
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.56);
 }
 .od-embed .trust-band__name {
   font-size: 20px;
@@ -4449,7 +4449,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   border-radius: var(--od-radius-pill);
   background: rgba(71,198,255,0.07);
   border: 1px solid rgba(71,198,255,0.26);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: var(--od-fw-medium);
   color: rgba(255,255,255,0.78);
   white-space: nowrap;
@@ -4465,6 +4465,6 @@ html, body { overflow-x: hidden; max-width: 100%; }
 
 @media (max-width: 860px) {
   .od-embed .trust-band__row { justify-content: flex-start; padding: 16px 0; }
-  .od-embed .trust-cred { font-size: 12px; padding: 6px 11px; }
+  .od-embed .trust-cred { font-size: 13px; padding: 6px 11px; }
   .od-embed .trust-band__name { font-size: 18px; }
 }
