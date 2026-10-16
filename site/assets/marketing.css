@@ -4438,33 +4438,30 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .od-embed .trust-band__creds {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
   flex-wrap: wrap;
 }
-.od-embed .trust-cred {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 7px 14px;
-  border-radius: var(--od-radius-pill);
-  background: rgba(71,198,255,0.07);
-  border: 1px solid rgba(71,198,255,0.26);
-  font-size: 14px;
-  font-weight: var(--od-fw-medium);
-  color: rgba(255,255,255,0.78);
-  white-space: nowrap;
-}
-.od-embed .trust-cred strong {
-  font-weight: var(--od-fw-bold);
-  color: #FFFFFF;
-}
-.od-embed .trust-cred i {
-  font-size: 13px;
-  color: var(--od-sky-500);
+/* Real certification seals, not icon pills. Height is set rather than width
+   because the two badges share a height but not an aspect ratio. The source
+   art is only 94px tall, so 54px is about the ceiling before a 2x display
+   starts upscaling visibly. Every box property is restated here to beat
+   Webflow's bare `img` rules. */
+.od-embed .trust-badge {
+  display: block;
+  height: 54px;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  object-fit: contain;
+  flex: 0 0 auto;
 }
 
 @media (max-width: 860px) {
   .od-embed .trust-band__row { justify-content: flex-start; padding: 16px 0; }
-  .od-embed .trust-cred { font-size: 13px; padding: 6px 11px; }
+  .od-embed .trust-band__creds { gap: 16px; }
+  .od-embed .trust-badge { height: 44px; }
   .od-embed .trust-band__name { font-size: 18px; }
 }
