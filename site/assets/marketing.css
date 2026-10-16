@@ -4411,7 +4411,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .od-embed .trust-band__row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 24px 40px;
   padding: 18px 0;
   flex-wrap: wrap;
@@ -4435,20 +4435,14 @@ html, body { overflow-x: hidden; max-width: 100%; }
   letter-spacing: -0.01em;
   color: #FFFFFF;
 }
-.od-embed .trust-band__creds {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-/* Real certification seals, not icon pills. Height is set rather than width
-   because the two badges share a height but not an aspect ratio. The source
-   art is only 94px tall, so 54px is about the ceiling before a 2x display
-   starts upscaling visibly. Every box property is restated here to beat
-   Webflow's bare `img` rules. */
+/* The certification seals live in the CTA (see CTA CREDENTIALS below), not
+   here — under the hero they sat beside 64px display type and read as
+   afterthoughts. Height is set rather than width because the two badges
+   share a height but not an aspect ratio, and every box property is
+   restated to beat Webflow's bare `img` rules. */
 .od-embed .trust-badge {
   display: block;
-  height: 54px;
+  height: 88px;
   width: auto;
   max-width: none;
   min-width: 0;
@@ -4460,8 +4454,44 @@ html, body { overflow-x: hidden; max-width: 100%; }
 }
 
 @media (max-width: 860px) {
-  .od-embed .trust-band__row { justify-content: flex-start; padding: 16px 0; }
-  .od-embed .trust-band__creds { gap: 16px; }
-  .od-embed .trust-badge { height: 44px; }
+  .od-embed .trust-band__row { padding: 16px 0; }
   .od-embed .trust-band__name { font-size: 18px; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA CREDENTIALS  (prelive)
+   The seals get a full-width row under the CTA: dark ground so the light
+   badge art separates, and room to run them at a size where the
+   certifying body is legible. Reads as the reassurance beat right
+   before "schedule a call".
+   ═══════════════════════════════════════════════════════════════ */
+.od-embed .cta__creds {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 20px 36px;
+  flex-wrap: wrap;
+  margin-top: 68px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.od-embed .cta__creds-label {
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: var(--od-fw-semibold);
+  color: rgba(255,255,255,0.56);
+  flex-shrink: 0;
+}
+.od-embed .cta__creds-badges {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 860px) {
+  .od-embed .cta__creds { margin-top: 44px; padding-top: 28px; gap: 16px 24px; }
+  .od-embed .cta__creds-badges { gap: 22px; }
+  .od-embed .trust-badge { height: 72px; }
 }
