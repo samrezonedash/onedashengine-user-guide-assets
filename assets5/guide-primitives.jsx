@@ -94,6 +94,56 @@ function DataTable({ headers, rows }) {
   );
 }
 
+function FactorWeights({ rows, caption }) {
+  // `rows` — [label, detail, percent]. Rendered as bars rather than a plain
+  // number column because the only thing anyone reads this data for is the
+  // relative size of one weight against the next, which a column of figures
+  // makes the reader compute for themselves. Bars are scaled to the largest
+  // weight in the set, not to 100%, so a model whose top factor is 38% still
+  // fills the row and the shape of the ranking stays comparable across models.
+  const max = Math.max.apply(null, rows.map(r => r[2]));
+  return (
+    <figure style={{
+      margin: "24px 0",
+      padding: "18px 18px 16px",
+      background: "var(--g-card-bg)",
+      border: "1px solid var(--g-border)",
+      borderRadius: 12,
+      boxShadow: "var(--g-shadow-sm)",
+    }}>
+      <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: 14 }}>
+        {rows.map((r, i) => (
+          <li key={i} style={{ padding: 0 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12, marginBottom: 5 }}>
+              <span style={{ fontSize: 13.5, fontWeight: 700, color: "var(--g-fg-1)", lineHeight: 1.3 }}>{r[0]}</span>
+              <span style={{
+                flex: "none", fontSize: 13, fontWeight: 800,
+                color: "var(--g-accent)", fontVariantNumeric: "tabular-nums",
+              }}>{r[2]}%</span>
+            </div>
+            <div style={{ height: 7, borderRadius: 4, background: "var(--g-accent-bg)", overflow: "hidden" }}>
+              <div style={{
+                width: `${Math.round((r[2] / max) * 100)}%`,
+                height: "100%", borderRadius: 4, background: "var(--g-accent)",
+              }} />
+            </div>
+            {r[1] ? (
+              <div style={{ fontSize: 12.5, color: "var(--g-fg-3)", marginTop: 5, lineHeight: 1.5 }}>{r[1]}</div>
+            ) : null}
+          </li>
+        ))}
+      </ul>
+      {caption ? (
+        <figcaption style={{
+          marginTop: 16, paddingTop: 12,
+          borderTop: "1px solid var(--g-border)",
+          fontSize: 12.5, color: "var(--g-fg-3)", fontStyle: "italic", lineHeight: 1.5,
+        }}>{caption}</figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
 function DocImage({ src, alt, caption, maxWidth, bg }) {
   return (
     <figure style={{
@@ -690,6 +740,7 @@ function SidebarMock() {
 // Expose to window so other Babel scripts can use them
 Object.assign(window, {
   Hint, Steps, Step, Tabs, Cards, Card, DataTable, Mock, DocImage, IconBadge,
+  FactorWeights,
   PipelineSteps, PatientJourneyMock, DashboardMock, AutomationFunnelMock,
   PopulationBrowserMock, CareGapTableMock, AdherenceTrendMock, ClairMock,
   OverlapTrendsMock, ReportRowsMock, Release, SidebarMock,

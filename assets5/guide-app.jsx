@@ -48,6 +48,15 @@ const NAV = [
     icon: "fa-chart-line",
     items: ["financial-outcomes", "clinical-outcomes", "quality-outcomes", "care-gap-statistics", "reports"],
   },
+  {
+    // Reference, not workflow — these pages explain how the adherence risk
+    // scores are produced rather than how to work a queue, so they sit in
+    // their own group at the end instead of under one of the Product sections.
+    id: "models",
+    label: "Models",
+    icon: "fa-brain",
+    items: ["adherence-models", "model-statin", "model-ras", "model-dm"],
+  },
 ];
 
 const FLAT_ORDER = NAV.flatMap(g => g.items);
@@ -195,7 +204,14 @@ function articleText(a) {
     if (node == null || typeof node === "boolean") return;
     if (typeof node === "string" || typeof node === "number") { parts.push(String(node)); return; }
     if (Array.isArray(node)) { node.forEach(walk); return; }
-    if (node.props && node.props.children) walk(node.props.children);
+    if (!node.props) return;
+    if (node.props.children) walk(node.props.children);
+    // DataTable and FactorWeights carry their content in props rather than in
+    // children, so a children-only walk left whole tables out of the search
+    // index — a reader searching for a factor name or a column value found
+    // nothing even though the page says it.
+    if (Array.isArray(node.props.headers)) walk(node.props.headers);
+    if (Array.isArray(node.props.rows)) walk(node.props.rows);
   };
   a.sections.forEach(s => { parts.push(s.title); walk(s.body); });
   return parts.join(" ").replace(/\s+/g, " ");
