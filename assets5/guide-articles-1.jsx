@@ -243,14 +243,37 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "Aug 31, 2026",
+    updated: "Oct 19, 2026",
     sections: [
       {
         id: "latest",
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.15" date="October 1, 2026" defaultOpen>
+           <Release ver="1.17" date="October 19, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>AI Calls data admin page.</strong> A new admin page for AI call data, including team excluded days.</li>
+    <li><strong>Adherence risk models in the User Guide.</strong> The three machine-learning adherence risk models — statin, RAS, and diabetes medication — are now documented under Models, covering what each one looks at, how accurate it is, and how far to trust a score.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>The patient details tab now shows the full SMS history.</li>
+    <li>New care gap status: User Verified Complete.</li>
+    <li>Retry logic added for RingCentral login.</li>
+  </ul>
+</Release>
+           <Release ver="1.16" date="October 7, 2026">
+  <h4>New features</h4>
+  <ul>
+    <li><strong>LOB on-call schedule.</strong> On-call schedules can now be set per line of business.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>Calls can now be rescheduled.</li>
+  </ul>
+</Release>
+           <Release ver="1.15" date="October 1, 2026">
   <h4>New features</h4>
   <ul>
     <li><strong>Dash AI insights.</strong> Toggling Dash AI in the top right enables AI-generated insights across the Population Browser, Patient Profile, and Care Gaps table — surfacing key information from a patient's previous health records.</li>
