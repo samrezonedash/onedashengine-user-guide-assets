@@ -243,14 +243,33 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "Oct 19, 2026",
+    updated: "Oct 28, 2026",
     sections: [
       {
         id: "latest",
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.17" date="October 19, 2026" defaultOpen>
+           <Release ver="1.18" date="October 28, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>Quality Outcomes revamp.</strong> A full redesign of the Quality Outcomes page.</li>
+    <li><strong>SMS opt-outs.</strong> Opt-out handling for both texting and AI calls.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>Patients who have opted out are now excluded from SMS sends.</li>
+  </ul>
+  <h4>Bug fixes</h4>
+  <ul>
+    <li>Fixed the actioning modal on the dashboard's urgent care gaps widget.</li>
+    <li>The care gaps page now retains its sort order.</li>
+    <li>Gaps placed into an automation turn blue again.</li>
+    <li>Urgent gaps now show in red.</li>
+    <li>Placeholder 1970 dates now display as N/A.</li>
+  </ul>
+</Release>
+           <Release ver="1.17" date="October 19, 2026">
   <h4>New features</h4>
   <ul>
     <li><strong>AI Calls data admin page.</strong> A new admin page for AI call data, including team excluded days.</li>
