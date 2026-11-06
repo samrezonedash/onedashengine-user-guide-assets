@@ -243,14 +243,34 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "Oct 28, 2026",
+    updated: "Nov 6, 2026",
     sections: [
       {
         id: "latest",
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.18" date="October 28, 2026" defaultOpen>
+           <Release ver="1.19" date="November 6, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>Provider AI call agent.</strong> An AI agent that navigates provider IVR systems and calls doctors' offices to confirm whether a patient was seen for an appointment. Enter the provider phone number and the appointment to be checked, then send the call.</li>
+    <li><strong>SMS common response templates.</strong> Department admins can now define common response templates on the SMS Conversations page. Each department can then pick from its own predefined templates when replying.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>The Reports page has been redesigned for easier navigation, and reports can now be marked as favorites per user.</li>
+    <li>Auto-logout extended to 30 minutes.</li>
+    <li>Additional GSD data added to the Medicare Medical Quality Compliance Summary on the Patient Insights tab.</li>
+    <li>Automations can now be built against a selected NPI.</li>
+  </ul>
+  <h4>Bug fixes</h4>
+  <ul>
+    <li>Rule runs now process in the background, so the site stays usable instead of being held by the popup.</li>
+    <li>Fixed the common UI error showing timeout messages.</li>
+    <li>Texts and AI calls scheduled via automation now show the time they will send that day.</li>
+  </ul>
+</Release>
+           <Release ver="1.18" date="October 28, 2026">
   <h4>New features</h4>
   <ul>
     <li><strong>Quality Outcomes revamp.</strong> A full redesign of the Quality Outcomes page.</li>
