@@ -14,6 +14,33 @@
   var root = OD.root || document.getElementById('od-root');
   if (!root) { return; }
 
+  /* ── Demo video source ──────────────────────────────────────────────
+     The demo video is served from raw.githubusercontent, not jsDelivr.
+     jsDelivr refuses this one file: it answers 404 with "Failed to fetch
+     <repo>@main from GitHub" while marketing.css, the badge PNGs and
+     content/home.html in the same folder all serve fine — so the cause
+     is the file's 16MB size, not the path. The browser got that 404 text
+     body as the video source and failed with a format error.
+
+     The repoint lives here rather than in the embed because this file is
+     pushable and the embed is not. OD.RAW carries whichever branch the
+     embed is set to, so the prelive toggle still works. It runs before
+     anything else in this file so an unrelated failure below can't skip
+     it, and the video keeps its data-od attribute: if this file never
+     runs at all, the loader's CDN src is still there and the result is
+     no worse than it is today. */
+  (function () {
+    var vid = root.querySelector('video[data-od]');
+    if (!vid || !OD.RAW) { return; }
+    var path = vid.getAttribute('data-od');
+    vid.src = OD.RAW + path;
+    vid.addEventListener('error', function () {
+      // Raw throttled or down — try the CDN after all, once.
+      var cdn = (OD.CDN || '') + path;
+      if (OD.CDN && vid.src !== cdn) { vid.src = cdn; }
+    });
+  })();
+
   var tabs = [].slice.call(root.querySelectorAll('.ptab'));
   var map = {'tab-quality':'panel-quality','tab-pharmacy':'panel-pharmacy','tab-finance':'panel-finance'};
   function act(t) {
