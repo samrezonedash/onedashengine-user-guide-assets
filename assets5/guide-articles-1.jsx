@@ -253,7 +253,7 @@ window.GUIDE_ARTICLES_1 = [
            <Release ver="1.20" date="November 16, 2026" defaultOpen>
   <h4>New features</h4>
   <ul>
-    <li><strong>Provider AI call agent.</strong> The call agent introduced in 1.19 is now live in production.</li>
+    <li><strong>Provider AI call agent.</strong> An AI agent that navigates provider IVR systems and calls doctors' offices to confirm whether a patient was seen for an appointment. Enter the provider phone number and the appointment to be checked, then send the call.</li>
   </ul>
   <h4>Bug fixes</h4>
   <ul>
@@ -264,7 +264,6 @@ window.GUIDE_ARTICLES_1 = [
            <Release ver="1.19" date="November 6, 2026">
   <h4>New features</h4>
   <ul>
-    <li><strong>Provider AI call agent.</strong> An AI agent that navigates provider IVR systems and calls doctors' offices to confirm whether a patient was seen for an appointment. Enter the provider phone number and the appointment to be checked, then send the call.</li>
     <li><strong>SMS common response templates.</strong> Department admins can now define common response templates on the SMS Conversations page. Each department can then pick from its own predefined templates when replying.</li>
   </ul>
   <h4>Enhancements</h4>
