@@ -243,14 +243,28 @@ window.GUIDE_ARTICLES_1 = [
     category: "overview",
     title: "Release Updates",
     desc: "What's new, what changed, and what's been fixed across OneDash releases.",
-    updated: "Nov 17, 2026",
+    updated: "Nov 24, 2026",
     sections: [
       {
         id: "latest",
         title: "Latest releases",
         body: (
           <>
-           <Release ver="1.20" date="November 16, 2026" defaultOpen>
+           <Release ver="1.21" date="November 24, 2026" defaultOpen>
+  <h4>New features</h4>
+  <ul>
+    <li><strong>Skip days for actions.</strong> Actions can now skip specific days, set in Data Admin.</li>
+  </ul>
+  <h4>Enhancements</h4>
+  <ul>
+    <li>Recorded actions are now tied into call records.</li>
+  </ul>
+  <h4>Bug fixes</h4>
+  <ul>
+    <li>SMS Conversations now shows the correct patient phone number being texted when a patient has more than one number on their account.</li>
+  </ul>
+</Release>
+           <Release ver="1.20" date="November 16, 2026">
   <h4>New features</h4>
   <ul>
     <li><strong>Provider AI call agent.</strong> An AI agent that navigates provider IVR systems and calls doctors' offices to confirm whether a patient was seen for an appointment. Enter the provider phone number and the appointment to be checked, then send the call.</li>
